@@ -63,6 +63,14 @@
       "amount": 10.55,
       "date": "2025-11-30",
       "note": "Столовая"
+    },
+    {
+      "id": "mils2vdrhincgr7o0t6",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 7.65,
+      "date": "2025-11-30",
+      "note": "Столовая"
     }
   ],
   "goals": [],
