@@ -127,6 +127,14 @@
       "amount": 1953.81,
       "date": "2025-05-08",
       "note": ""
+    },
+    {
+      "id": "milsl68d6oah4926s8",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 2176.99,
+      "date": "2025-06-10",
+      "note": ""
     }
   ],
   "goals": [
