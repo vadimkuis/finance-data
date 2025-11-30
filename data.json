@@ -82,7 +82,17 @@
     }
   ],
   "goals": [],
-  "debts": [],
+  "debts": [
+    {
+      "id": "mils59fozdl0gdqlap8",
+      "type": "credit",
+      "name": "Айфоны",
+      "total": 5603.17,
+      "monthly": 307,
+      "paid": 0,
+      "createdAt": "2025-11-30"
+    }
+  ],
   "recurring": [],
   "paymentHistory": [
     {
