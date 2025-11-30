@@ -81,7 +81,15 @@
       "note": "домофон"
     }
   ],
-  "goals": [],
+  "goals": [
+    {
+      "id": "mils8sv0gfx3wodsgfa",
+      "name": "Машина",
+      "target": 18000,
+      "currency": "USD",
+      "current": 0
+    }
+  ],
   "debts": [
     {
       "id": "mils59fozdl0gdqlap8",
