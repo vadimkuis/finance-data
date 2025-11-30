@@ -247,6 +247,14 @@
       "amount": 932.71,
       "date": "2025-11-30",
       "note": "Доставка Китай"
+    },
+    {
+      "id": "milugvy1wnvpqvrehh",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 649.13,
+      "date": "2021-01-11",
+      "note": ""
     }
   ],
   "goals": [
