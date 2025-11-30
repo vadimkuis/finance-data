@@ -199,6 +199,14 @@
       "amount": 1566.94,
       "date": "2025-10-10",
       "note": ""
+    },
+    {
+      "id": "milt1dj6gdmxum7xl7v",
+      "type": "expense",
+      "category": "Развлечения",
+      "amount": 11.99,
+      "date": "2025-11-30",
+      "note": "Яндекс музыка"
     }
   ],
   "goals": [
