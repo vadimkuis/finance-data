@@ -42,17 +42,7 @@
     }
   ],
   "goals": [],
-  "debts": [
-    {
-      "id": "milr61ds1m9rcgz2qj8",
-      "type": "installment",
-      "name": "Окно",
-      "total": 501.52,
-      "monthly": 166.66,
-      "paid": 166.66,
-      "createdAt": "2025-11-30"
-    }
-  ],
+  "debts": [],
   "recurring": [],
   "paymentHistory": [
     {
