@@ -103,6 +103,14 @@
       "amount": 2467.13,
       "date": "2025-02-10",
       "note": ""
+    },
+    {
+      "id": "milshl34f60jocfoh06",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 365,
+      "date": "2025-04-10",
+      "note": "За выступление"
     }
   ],
   "goals": [
