@@ -159,6 +159,14 @@
       "amount": 1938.89,
       "date": "2025-08-12",
       "note": ""
+    },
+    {
+      "id": "milsn50xnexly1hsiob",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 252.84,
+      "date": "2025-08-15",
+      "note": ""
     }
   ],
   "goals": [
