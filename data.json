@@ -167,6 +167,14 @@
       "amount": 252.84,
       "date": "2025-08-15",
       "note": ""
+    },
+    {
+      "id": "milsnlfxllsyd5lg81",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 2199.79,
+      "date": "2025-09-10",
+      "note": ""
     }
   ],
   "goals": [
