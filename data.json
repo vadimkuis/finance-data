@@ -1,9 +1,18 @@
 {
-  "transactions": [],
+  "transactions": [
+    {
+      "id": "1764502328892",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 1566.94,
+      "date": "2025-11-30",
+      "note": ""
+    }
+  ],
   "goals": [],
   "debts": [],
   "_meta": {
-    "updatedAt": 1764501731083,
-    "deviceId": "88dafa43-fe22-421a-b25a-4e2e6fabbfe8"
+    "updatedAt": 1764502328892,
+    "deviceId": "18533874-7a5e-4ff9-a1e5-46decaa9f0bd"
   }
 }
