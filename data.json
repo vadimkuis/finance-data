@@ -135,6 +135,14 @@
       "amount": 2176.99,
       "date": "2025-06-10",
       "note": ""
+    },
+    {
+      "id": "milslmh18rxvawacs6",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 2442.9,
+      "date": "2025-07-10",
+      "note": ""
     }
   ],
   "goals": [
