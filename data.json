@@ -1,0 +1,16 @@
+{
+  "transactions": [
+    {
+      "id": "milqugroplrv0t65yy",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 5000,
+      "date": "2025-11-30",
+      "note": ""
+    }
+  ],
+  "goals": [],
+  "debts": [],
+  "recurring": [],
+  "paymentHistory": []
+}
