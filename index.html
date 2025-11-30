@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#4f46e5">
+  <meta name="description" content="Приложение для учёта доходов и расходов">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💰</text></svg>">
+  <title>Учёт финансов</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    :root {
+      --bg-primary: #f0f5ff;
+      --bg-secondary: #ffffff;
+      --bg-tertiary: #f3f4f6;
+      --text-primary: #111827;
+      --text-secondary: #4b5563;
+      --text-muted: #9ca3af;
+      --border-color: #e5e7eb;
+      --accent-blue: #3b82f6;
+      --accent-green: #10b981;
+      --accent-red: #ef4444;
+      --accent-orange: #f59e0b;
+      --shadow-color: rgba(0,0,0,0.1);
+    }
+    
+    .dark {
+      --bg-primary: #0f172a;
+      --bg-secondary: #1e293b;
+      --bg-tertiary: #334155;
+      --text-primary: #f1f5f9;
+      --text-secondary: #cbd5e1;
+      --text-muted: #64748b;
+      --border-color: #475569;
+      --shadow-color: rgba(0,0,0,0.3);
+    }
+    
+    html { -webkit-text-size-adjust: 100%; }
+    body { 
+      background: var(--bg-primary); 
+      color: var(--text-primary);
+      transition: background 0.3s, color 0.3s;
+    }
+    .card { 
+      background: var(--bg-secondary); 
+      border: 1px solid var(--border-color);
+    }
+    .input-field {
+      background: var(--bg-secondary);
+      border: 2px solid var(--border-color);
+      color: var(--text-primary);
+    }
+    .input-field:focus {
+      border-color: var(--accent-blue);
+      outline: none;
+    }
+    .input-field::placeholder { color: var(--text-muted); }
+    .text-secondary { color: var(--text-secondary); }
+    .text-muted { color: var(--text-muted); }
+    .bg-tertiary { background: var(--bg-tertiary); }
+    .border-custom { border-color: var(--border-color); }
+    
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-tertiary); }
+    ::-webkit-scrollbar-thumb { background: var(--text-muted); border-radius: 4px; }
+    
+    /* Animations */
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-fade-in { animation: fadeIn 0.3s ease-out; }
+    
+    /* PWA Install Banner */
+    .install-banner {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+  </style>
+</head>
+<body class="min-h-screen p-2 sm:p-4 md:p-6 transition-colors">
+  <!-- PWA Install Banner -->
+  <div id="install-banner" class="hidden fixed bottom-4 left-4 right-4 sm:left-auto sm:right-4 sm:w-80 install-banner text-white p-4 rounded-2xl shadow-2xl z-50 animate-fade-in">
+    <div class="flex items-center gap-3">
+      <span class="text-3xl">📲</span>
+      <div class="flex-1">
+        <div class="font-bold">Установить приложение</div>
+        <div class="text-sm opacity-90">Работает офлайн!</div>
+      </div>
+      <button onclick="installPWA()" class="bg-white text-purple-600 px-4 py-2 rounded-xl font-bold text-sm">Да</button>
+      <button onclick="dismissInstall()" class="text-white/70 hover:text-white">✕</button>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed top-4 right-4 z-50 hidden animate-fade-in">
+    <div class="card rounded-xl shadow-xl p-4 max-w-sm flex items-center gap-3">
+      <span id="toast-icon" class="text-2xl">ℹ️</span>
+      <div>
+        <div id="toast-message" class="font-medium"></div>
+        <div id="toast-time" class="text-xs text-muted"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Settings Modal -->
+  <div id="settings-modal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-4">
+    <div class="card rounded-3xl p-6 sm:p-8 w-full max-w-lg max-h-[90vh] overflow-y-auto animate-fade-in">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-2xl font-bold">⚙️ Настройки</h2>
+        <button onclick="closeSettings()" class="text-2xl hover:opacity-70">✕</button>
+      </div>
+      
+      <div class="space-y-6">
+        <!-- Theme -->
+        <div>
+          <label class="block font-semibold mb-2">🎨 Тема оформления</label>
+          <div class="flex gap-2">
+            <button onclick="setTheme('light')" id="theme-light-btn" class="flex-1 p-3 rounded-xl border-2 border-blue-500 bg-blue-50 text-blue-700 font-semibold">☀️ Светлая</button>
+            <button onclick="setTheme('dark')" id="theme-dark-btn" class="flex-1 p-3 rounded-xl border-2 border-gray-300 font-semibold">🌙 Тёмная</button>
+            <button onclick="setTheme('auto')" id="theme-auto-btn" class="flex-1 p-3 rounded-xl border-2 border-gray-300 font-semibold">🔄 Авто</button>
+          </div>
+        </div>
+        
+        <!-- Cloud Sync (Optional) -->
+        <div>
+          <label class="block font-semibold mb-2">☁️ Облачная синхронизация (опционально)</label>
+          <p class="text-sm text-muted mb-3">Для синхронизации между устройствами укажите данные GitHub репозитория.</p>
+          <div class="space-y-3">
+            <input type="text" id="gh-owner" placeholder="GitHub username" class="input-field w-full p-3 rounded-xl">
+            <input type="text" id="gh-repo" placeholder="Repository name" class="input-field w-full p-3 rounded-xl">
+            <input type="password" id="gh-token" placeholder="Personal Access Token (опционально)" class="input-field w-full p-3 rounded-xl">
+            <p class="text-xs text-muted">⚠️ Токен хранится только локально в вашем браузере.</p>
+          </div>
+        </div>
+        
+        <!-- Data Management -->
+        <div>
+          <label class="block font-semibold mb-2">💾 Управление данными</label>
+          <div class="flex flex-wrap gap-2">
+            <button onclick="manualCloudSync()" class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-xl font-semibold">☁️ Синхронизировать</button>
+            <button onclick="exportData()" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-xl font-semibold">📤 Экспорт</button>
+            <button onclick="document.getElementById('import-file').click()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-xl font-semibold">📥 Импорт</button>
+            <input type="file" id="import-file" accept=".json" class="hidden" onchange="importData(event)">
+            <button onclick="confirmClearData()" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-xl font-semibold">🗑️ Очистить всё</button>
+          </div>
+        </div>
+        
+        <button onclick="saveSettings()" class="w-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold py-4 rounded-2xl text-lg">Сохранить настройки</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Container -->
+  <div class="max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-4">
+      <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold">💰 Учёт финансов</h1>
+      <div class="flex items-center gap-2">
+        <button onclick="toggleTheme()" id="theme-toggle" class="card p-3 rounded-xl hover:opacity-80 transition-opacity" title="Сменить тему">🌙</button>
+        <button onclick="openSettings()" class="card p-3 rounded-xl hover:opacity-80 transition-opacity" title="Настройки">⚙️</button>
+      </div>
+    </div>
+
+    <!-- Date & Time -->
+    <div class="card rounded-2xl p-4 mb-4 text-center max-w-md mx-auto">
+      <div id="current-date" class="text-xl font-bold">—</div>
+      <div id="current-time" class="text-lg font-mono text-blue-500">—</div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <div class="card rounded-2xl p-1 mb-4 flex flex-wrap gap-1">
+      <button onclick="showTab('dashboard')" data-tab="dashboard" class="tab-btn flex-1 min-w-[120px] py-3 px-4 rounded-xl font-semibold transition-all bg-blue-500 text-white">📊 Дашборд</button>
+      <button onclick="showTab('transactions')" data-tab="transactions" class="tab-btn flex-1 min-w-[120px] py-3 px-4 rounded-xl font-semibold transition-all text-secondary hover:bg-tertiary">📋 Транзакции</button>
+      <button onclick="showTab('recurring')" data-tab="recurring" class="tab-btn flex-1 min-w-[120px] py-3 px-4 rounded-xl font-semibold transition-all text-secondary hover:bg-tertiary">🔄 Регулярные</button>
+      <button onclick="showTab('debts')" data-tab="debts" class="tab-btn flex-1 min-w-[120px] py-3 px-4 rounded-xl font-semibold transition-all text-secondary hover:bg-tertiary">💳 Долги</button>
+      <button onclick="showTab('goals')" data-tab="goals" class="tab-btn flex-1 min-w-[120px] py-3 px-4 rounded-xl font-semibold transition-all text-secondary hover:bg-tertiary">🐷 Цели</button>
+      <button onclick="showTab('analytics')" data-tab="analytics" class="tab-btn flex-1 min-w-[120px] py-3 px-4 rounded-xl font-semibold transition-all text-secondary hover:bg-tertiary">📈 Аналитика</button>
+    </div>
+
+    <!-- Dashboard Tab -->
+    <div id="tab-dashboard" class="tab-content">
+      <!-- Summary Cards -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-4">
+        <div class="card rounded-2xl p-4 sm:p-6 text-center">
+          <div class="text-2xl sm:text-3xl font-bold text-green-500" id="summary-income">0</div>
+          <div class="text-sm text-secondary">Доходы</div>
+        </div>
+        <div class="card rounded-2xl p-4 sm:p-6 text-center">
+          <div class="text-2xl sm:text-3xl font-bold text-red-500" id="summary-expenses">0</div>
+          <div class="text-sm text-secondary">Расходы</div>
+        </div>
+        <div class="card rounded-2xl p-4 sm:p-6 text-center">
+          <div class="text-2xl sm:text-3xl font-bold text-blue-500" id="summary-balance">0</div>
+          <div class="text-sm text-secondary">Баланс</div>
+        </div>
+        <div class="card rounded-2xl p-4 sm:p-6 text-center">
+          <div class="text-2xl sm:text-3xl font-bold text-orange-500" id="summary-debts">0</div>
+          <div class="text-sm text-secondary">Долги</div>
+        </div>
+      </div>
+
+      <!-- Quick Add -->
+      <div class="card rounded-2xl p-4 sm:p-6 mb-4">
+        <h3 class="font-bold mb-4">⚡ Быстрое добавление</h3>
+        <form id="quick-add-form" class="flex flex-wrap gap-3">
+          <select id="quick-type" class="input-field p-3 rounded-xl flex-1 min-w-[120px]" required>
+            <option value="expense">💸 Расход</option>
+            <option value="income">💵 Доход</option>
+          </select>
+          <select id="quick-category" class="input-field p-3 rounded-xl flex-1 min-w-[120px]" required></select>
+          <input type="number" id="quick-amount" placeholder="Сумма" class="input-field p-3 rounded-xl w-32" min="0" step="0.01" required>
+          <input type="text" id="quick-note" placeholder="Примечание" class="input-field p-3 rounded-xl flex-1 min-w-[150px]">
+          <button type="submit" class="bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold py-3 px-6 rounded-xl">Добавить</button>
+        </form>
+      </div>
+
+      <!-- Charts -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
+        <div class="card rounded-2xl p-4 sm:p-6">
+          <h3 class="font-bold mb-4 text-center">Расходы по категориям</h3>
+          <canvas id="chart-expenses-pie"></canvas>
+        </div>
+        <div class="card rounded-2xl p-4 sm:p-6">
+          <h3 class="font-bold mb-4 text-center">Баланс по месяцам</h3>
+          <canvas id="chart-balance"></canvas>
+        </div>
+      </div>
+
+      <!-- Recent Transactions -->
+      <div class="card rounded-2xl p-4 sm:p-6">
+        <h3 class="font-bold mb-4">📋 Последние транзакции</h3>
+        <div id="recent-transactions" class="space-y-2"></div>
+      </div>
+    </div>
+
+    <!-- Transactions Tab -->
+    <div id="tab-transactions" class="tab-content hidden">
+      <!-- Add Transaction Form -->
+      <div class="card rounded-2xl p-4 sm:p-6 mb-4">
+        <h3 class="font-bold mb-4">➕ Добавить транзакцию</h3>
+        <form id="transaction-form" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          <select id="tx-type" class="input-field p-3 rounded-xl" required>
+            <option value="">Тип</option>
+            <option value="income">💵 Доход</option>
+            <option value="expense">💸 Расход</option>
+          </select>
+          <select id="tx-category" class="input-field p-3 rounded-xl" required>
+            <option value="">Категория</option>
+          </select>
+          <input type="number" id="tx-amount" placeholder="Сумма, BYN" class="input-field p-3 rounded-xl" min="0" step="0.01" required>
+          <input type="date" id="tx-date" class="input-field p-3 rounded-xl" required>
+          <input type="text" id="tx-note" placeholder="Примечание" class="input-field p-3 rounded-xl sm:col-span-2 lg:col-span-1">
+          <button type="submit" class="sm:col-span-2 lg:col-span-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold py-3 rounded-xl">Добавить транзакцию</button>
+        </form>
+      </div>
+
+      <!-- Search & Filter -->
+      <div class="card rounded-2xl p-4 mb-4">
+        <div class="flex flex-wrap gap-3">
+          <input type="text" id="tx-search" placeholder="🔍 Поиск по примечанию или категории..." class="input-field p-3 rounded-xl flex-1 min-w-[200px]" oninput="filterTransactions()">
+          <select id="tx-filter-type" class="input-field p-3 rounded-xl" onchange="filterTransactions()">
+            <option value="">Все типы</option>
+            <option value="income">Доходы</option>
+            <option value="expense">Расходы</option>
+          </select>
+          <select id="tx-filter-month" class="input-field p-3 rounded-xl" onchange="filterTransactions()">
+            <option value="">Все месяцы</option>
+          </select>
+          <select id="tx-sort" class="input-field p-3 rounded-xl" onchange="filterTransactions()">
+            <option value="date-desc">Сначала новые</option>
+            <option value="date-asc">Сначала старые</option>
+            <option value="amount-desc">Сумма ↓</option>
+            <option value="amount-asc">Сумма ↑</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Transactions List -->
+      <div class="card rounded-2xl p-4 sm:p-6">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="font-bold">Транзакции</h3>
+          <span id="tx-count" class="text-sm text-muted"></span>
+        </div>
+        <div id="transactions-list" class="space-y-2"></div>
+      </div>
+    </div>
+
+    <!-- Recurring Tab -->
+    <div id="tab-recurring" class="tab-content hidden">
+      <!-- Add Recurring -->
+      <div class="card rounded-2xl p-4 sm:p-6 mb-4">
+        <h3 class="font-bold mb-4">🔄 Добавить регулярную транзакцию</h3>
+        <form id="recurring-form" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          <select id="rec-type" class="input-field p-3 rounded-xl" required>
+            <option value="">Тип</option>
+            <option value="income">💵 Доход</option>
+            <option value="expense">💸 Расход</option>
+          </select>
+          <select id="rec-category" class="input-field p-3 rounded-xl" required>
+            <option value="">Категория</option>
+          </select>
+          <input type="number" id="rec-amount" placeholder="Сумма, BYN" class="input-field p-3 rounded-xl" min="0" step="0.01" required>
+          <input type="text" id="rec-name" placeholder="Название (напр. Зарплата)" class="input-field p-3 rounded-xl" required>
+          <select id="rec-frequency" class="input-field p-3 rounded-xl" required>
+            <option value="">Частота</option>
+            <option value="daily">Ежедневно</option>
+            <option value="weekly">Еженедельно</option>
+            <option value="monthly">Ежемесячно</option>
+            <option value="yearly">Ежегодно</option>
+          </select>
+          <input type="date" id="rec-next-date" class="input-field p-3 rounded-xl" required>
+          <button type="submit" class="sm:col-span-2 lg:col-span-3 bg-gradient-to-r from-purple-500 to-indigo-600 text-white font-bold py-3 rounded-xl">Добавить регулярную транзакцию</button>
+        </form>
+      </div>
+
+      <!-- Recurring List -->
+      <div class="card rounded-2xl p-4 sm:p-6">
+        <h3 class="font-bold mb-4">Регулярные транзакции</h3>
+        <div id="recurring-list" class="space-y-3"></div>
+      </div>
+    </div>
+
+    <!-- Debts Tab -->
+    <div id="tab-debts" class="tab-content hidden">
+      <!-- Add Debt -->
+      <div class="card rounded-2xl p-4 sm:p-6 mb-4">
+        <h3 class="font-bold mb-4">💳 Добавить долг</h3>
+        <form id="debt-form" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <select id="debt-type" class="input-field p-3 rounded-xl" required>
+            <option value="">Тип долга</option>
+            <option value="credit">Кредит</option>
+            <option value="installment">Рассрочка</option>
+          </select>
+          <input type="text" id="debt-name" placeholder="Название" class="input-field p-3 rounded-xl" required>
+          <input type="number" id="debt-total" placeholder="Общая сумма" class="input-field p-3 rounded-xl" min="0" step="0.01" required>
+          <input type="number" id="debt-monthly" placeholder="Ежемесячный платёж" class="input-field p-3 rounded-xl" min="0" step="0.01" required>
+          <button type="submit" class="sm:col-span-2 bg-gradient-to-r from-red-500 to-orange-600 text-white font-bold py-3 rounded-xl">Добавить долг</button>
+        </form>
+      </div>
+
+      <!-- Search & Sort -->
+      <div class="card rounded-2xl p-4 mb-4">
+        <div class="flex flex-wrap gap-3">
+          <input type="text" id="debt-search" placeholder="🔍 Поиск..." class="input-field p-3 rounded-xl flex-1" oninput="renderDebts()">
+          <select id="debt-sort" class="input-field p-3 rounded-xl" onchange="renderDebts()">
+            <option value="remaining-desc">Остаток ↓</option>
+            <option value="remaining-asc">Остаток ↑</option>
+            <option value="name">По названию</option>
+            <option value="progress">По прогрессу</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Debts List -->
+      <div id="debts-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+    </div>
+
+    <!-- Goals Tab -->
+    <div id="tab-goals" class="tab-content hidden">
+      <!-- Add Goal -->
+      <div class="card rounded-2xl p-4 sm:p-6 mb-4">
+        <h3 class="font-bold mb-4">🐷 Добавить цель</h3>
+        <form id="goal-form" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          <input type="text" id="goal-name" placeholder="Название цели" class="input-field p-3 rounded-xl" required>
+          <input type="number" id="goal-target" placeholder="Целевая сумма" class="input-field p-3 rounded-xl" min="0" step="0.01" required>
+          <select id="goal-currency" class="input-field p-3 rounded-xl" required>
+            <option value="BYN">BYN</option>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="RUB">RUB</option>
+          </select>
+          <button type="submit" class="bg-gradient-to-r from-emerald-500 to-green-600 text-white font-bold py-3 rounded-xl">Добавить цель</button>
+        </form>
+      </div>
+
+      <!-- Search & Sort -->
+      <div class="card rounded-2xl p-4 mb-4">
+        <div class="flex flex-wrap gap-3">
+          <input type="text" id="goal-search" placeholder="🔍 Поиск..." class="input-field p-3 rounded-xl flex-1" oninput="renderGoals()">
+          <select id="goal-sort" class="input-field p-3 rounded-xl" onchange="renderGoals()">
+            <option value="progress-desc">Прогресс ↓</option>
+            <option value="progress-asc">Прогресс ↑</option>
+            <option value="name">По названию</option>
+            <option value="target-desc">Сумма ↓</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Goals List -->
+      <div id="goals-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+    </div>
+
+    <!-- Analytics Tab -->
+    <div id="tab-analytics" class="tab-content hidden">
+      <!-- Period Selector -->
+      <div class="card rounded-2xl p-4 mb-4">
+        <div class="flex flex-wrap gap-3 items-center">
+          <span class="font-semibold">Период:</span>
+          <select id="analytics-period" class="input-field p-3 rounded-xl" onchange="renderAnalytics()">
+            <option value="month">Текущий месяц</option>
+            <option value="quarter">Квартал</option>
+            <option value="year">Год</option>
+            <option value="all">Всё время</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Analytics Cards -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-4">
+        <div class="card rounded-2xl p-4 text-center">
+          <div class="text-2xl font-bold text-green-500" id="analytics-income">0</div>
+          <div class="text-sm text-secondary">Всего доходов</div>
+        </div>
+        <div class="card rounded-2xl p-4 text-center">
+          <div class="text-2xl font-bold text-red-500" id="analytics-expenses">0</div>
+          <div class="text-sm text-secondary">Всего расходов</div>
+        </div>
+        <div class="card rounded-2xl p-4 text-center">
+          <div class="text-2xl font-bold text-blue-500" id="analytics-avg-income">0</div>
+          <div class="text-sm text-secondary">Ср. доход/мес</div>
+        </div>
+        <div class="card rounded-2xl p-4 text-center">
+          <div class="text-2xl font-bold text-orange-500" id="analytics-avg-expense">0</div>
+          <div class="text-sm text-secondary">Ср. расход/мес</div>
+        </div>
+      </div>
+
+      <!-- Charts -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
+        <div class="card rounded-2xl p-4 sm:p-6">
+          <h3 class="font-bold mb-4 text-center">Доходы vs Расходы</h3>
+          <canvas id="chart-income-expenses"></canvas>
+        </div>
+        <div class="card rounded-2xl p-4 sm:p-6">
+          <h3 class="font-bold mb-4 text-center">Тренд накоплений</h3>
+          <canvas id="chart-savings-trend"></canvas>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
+        <div class="card rounded-2xl p-4 sm:p-6">
+          <h3 class="font-bold mb-4 text-center">Топ категорий расходов</h3>
+          <canvas id="chart-top-categories"></canvas>
+        </div>
+        <div class="card rounded-2xl p-4 sm:p-6">
+          <h3 class="font-bold mb-4 text-center">Доходы по категориям</h3>
+          <canvas id="chart-income-categories"></canvas>
+        </div>
+      </div>
+
+      <!-- Detailed Report -->
+      <div class="card rounded-2xl p-4 sm:p-6">
+        <h3 class="font-bold mb-4">📊 Детальный отчёт по категориям</h3>
+        <div id="category-report" class="space-y-3"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ========== CONSTANTS ==========
+    const INCOME_CATEGORIES = ['Зарплата', 'Фриланс', 'Инвестиции', 'Подарки', 'Возврат', 'Другое'];
+    const EXPENSE_CATEGORIES = ['Еда', 'Транспорт', 'Кредиты', 'Рассрочки', 'Коммуналка', 'Развлечения', 'Здоровье', 'Одежда', 'Связь', 'Другое'];
+    const CHART_COLORS = ['#EF4444', '#F59E0B', '#10B981', '#3B82F6', '#8B5CF6', '#EC4899', '#F97316', '#14B8A6', '#6366F1', '#84CC16'];
+    
+    // ========== STATE ==========
+    let data = { transactions: [], goals: [], debts: [], recurring: [], paymentHistory: [] };
+    let charts = {};
+    let exchangeRates = { USD: 3.2, EUR: 3.5, RUB: 0.035, CNY: 0.45 };
+    let deferredPrompt = null;
+    
+    // ========== UTILITIES ==========
+    const $ = id => document.getElementById(id);
+    const $$ = sel => document.querySelectorAll(sel);
+    const escapeHtml = str => String(str).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+    const fmtBYN = n => `${(Number(n)||0).toLocaleString('ru-RU', {maximumFractionDigits:2})} BYN`;
+    const fmtCurrency = (n, c) => `${(Number(n)||0).toLocaleString('ru-RU', {maximumFractionDigits:2})} ${c}`;
+    const todayISO = () => new Date().toISOString().split('T')[0];
+    const genId = () => Date.now().toString(36) + Math.random().toString(36).substr(2);
+    
+    // ========== THEME ==========
+    function getTheme() {
+      return localStorage.getItem('theme') || 'auto';
+    }
+    
+    function setTheme(theme) {
+      localStorage.setItem('theme', theme);
+      applyTheme();
+      updateThemeButtons();
+    }
+    
+    function toggleTheme() {
+      const current = getTheme();
+      const next = current === 'dark' ? 'light' : 'dark';
+      setTheme(next);
+    }
+    
+    function applyTheme() {
+      const theme = getTheme();
+      const isDark = theme === 'dark' || (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      document.documentElement.classList.toggle('dark', isDark);
+      $('theme-toggle').textContent = isDark ? '☀️' : '🌙';
+      
+      // Update chart colors
+      Chart.defaults.color = isDark ? '#cbd5e1' : '#4b5563';
+      Chart.defaults.borderColor = isDark ? '#475569' : '#e5e7eb';
+    }
+    
+    function updateThemeButtons() {
+      const theme = getTheme();
+      ['light', 'dark', 'auto'].forEach(t => {
+        const btn = $(`theme-${t}-btn`);
+        if (btn) {
+          btn.classList.toggle('border-blue-500', theme === t);
+          btn.classList.toggle('bg-blue-50', theme === t);
+          btn.classList.toggle('text-blue-700', theme === t);
+          btn.classList.toggle('border-gray-300', theme !== t);
+        }
+      });
+    }
+    
+    // ========== PWA ==========
+    function registerSW() {
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js').catch(console.warn);
+      }
+    }
+    
+    window.addEventListener('beforeinstallprompt', e => {
+      e.preventDefault();
+      deferredPrompt = e;
+      $('install-banner').classList.remove('hidden');
+    });
+    
+    function installPWA() {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then(() => {
+          deferredPrompt = null;
+          $('install-banner').classList.add('hidden');
+        });
+      }
+    }
+    
+    function dismissInstall() {
+      $('install-banner').classList.add('hidden');
+    }
+    
+    // ========== TOAST ==========
+    function showToast(message, icon = 'ℹ️') {
+      $('toast-message').textContent = message;
+      $('toast-icon').textContent = icon;
+      $('toast-time').textContent = new Date().toLocaleTimeString('ru-RU');
+      $('toast').classList.remove('hidden');
+      setTimeout(() => $('toast').classList.add('hidden'), 3000);
+    }
+    
+    // ========== DATA MANAGEMENT ==========
+    function parseData(obj) {
+      return {
+        transactions: Array.isArray(obj?.transactions) ? obj.transactions : [],
+        goals: Array.isArray(obj?.goals) ? obj.goals : [],
+        debts: Array.isArray(obj?.debts) ? obj.debts : [],
+        recurring: Array.isArray(obj?.recurring) ? obj.recurring : [],
+        paymentHistory: Array.isArray(obj?.paymentHistory) ? obj.paymentHistory : []
+      };
+    }
+    
+    function loadData() {
+      const saved = localStorage.getItem('financeData');
+      if (saved) {
+        try {
+          data = parseData(JSON.parse(saved));
+        } catch (e) {
+          console.warn('Failed to parse saved data:', e);
+        }
+      }
+      processRecurring();
+    }
+    
+    async function loadFromCloud() {
+      const owner = localStorage.getItem('gh-owner');
+      const repo = localStorage.getItem('gh-repo');
+      const token = localStorage.getItem('gh-token');
+      
+      if (!owner || !repo) {
+        showToast('GitHub не настроен (укажите owner и repo)', 'ℹ️');
+        return false;
+      }
+      
+      try {
+        showToast('Загрузка с GitHub...', '⏳');
+        
+        const headers = { 
+          'Accept': 'application/vnd.github.v3+json',
+          'Cache-Control': 'no-cache'
+        };
+        
+        // Add auth header only if token is provided
+        if (token) {
+          headers['Authorization'] = `token ${token}`;
+        }
+        
+        const url = `https://api.github.com/repos/${owner}/${repo}/contents/data.json`;
+        
+        const res = await fetch(url, { 
+          method: 'GET',
+          headers,
+          mode: 'cors'
+        });
+        
+        if (!res.ok) {
+          const errorText = await res.text().catch(() => '');
+          console.error('GitHub API error:', res.status, errorText);
+          
+          if (res.status === 404) {
+            showToast('Файл data.json не найден в репозитории', '⚠️');
+          } else if (res.status === 401) {
+            showToast('Ошибка авторизации - проверьте токен', '❌');
+          } else if (res.status === 403) {
+            showToast('Доступ запрещён - проверьте права токена', '❌');
+          } else {
+            showToast(`Ошибка GitHub: ${res.status}`, '❌');
+          }
+          return false;
+        }
+        
+        const fileData = await res.json();
+        
+        if (!fileData.content) {
+          showToast('Файл пустой или повреждён', '⚠️');
+          return false;
+        }
+        
+        localStorage.setItem('gh-sha', fileData.sha);
+        
+        // Decode base64 content
+        let content;
+        try {
+          content = decodeURIComponent(escape(atob(fileData.content.replace(/\n/g, ''))));
+        } catch (decodeErr) {
+          console.error('Base64 decode error:', decodeErr);
+          showToast('Ошибка декодирования данных', '❌');
+          return false;
+        }
+        
+        let remoteData;
+        try {
+          remoteData = JSON.parse(content);
+        } catch (parseErr) {
+          console.error('JSON parse error:', parseErr);
+          showToast('Ошибка парсинга JSON', '❌');
+          return false;
+        }
+        
+        data = parseData(remoteData);
+        localStorage.setItem('financeData', JSON.stringify(data));
+        
+        processRecurring();
+        renderAll();
+        
+        showToast('Данные загружены с GitHub', '✅');
+        return true;
+      } catch (e) {
+        console.error('Cloud load failed:', e);
+        
+        if (e.name === 'TypeError' && e.message.includes('fetch')) {
+          showToast('Ошибка сети - проверьте подключение', '❌');
+        } else {
+          showToast('Ошибка загрузки с GitHub', '❌');
+        }
+        return false;
+      }
+    }
+    
+    function saveData() {
+      localStorage.setItem('financeData', JSON.stringify(data));
+      syncToCloud();
+    }
+    
+    function exportData() {
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `finance-backup-${todayISO()}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast('Данные экспортированы', '📤');
+    }
+    
+    function importData(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const imported = JSON.parse(reader.result);
+          data = {
+            transactions: Array.isArray(imported.transactions) ? imported.transactions : [],
+            goals: Array.isArray(imported.goals) ? imported.goals : [],
+            debts: Array.isArray(imported.debts) ? imported.debts : [],
+            recurring: Array.isArray(imported.recurring) ? imported.recurring : [],
+            paymentHistory: Array.isArray(imported.paymentHistory) ? imported.paymentHistory : []
+          };
+          saveData();
+          renderAll();
+          showToast('Данные импортированы', '📥');
+        } catch (err) {
+          showToast('Ошибка импорта', '❌');
+        }
+      };
+      reader.readAsText(file);
+      e.target.value = '';
+    }
+    
+    function confirmClearData() {
+      if (confirm('Удалить все данные? Это действие необратимо!')) {
+        data = { transactions: [], goals: [], debts: [], recurring: [], paymentHistory: [] };
+        saveData();
+        renderAll();
+        showToast('Данные очищены', '🗑️');
+      }
+    }
+    
+    // ========== CLOUD SYNC (Optional) ==========
+    async function syncToCloud() {
+      const owner = localStorage.getItem('gh-owner');
+      const repo = localStorage.getItem('gh-repo');
+      const token = localStorage.getItem('gh-token');
+      
+      if (!owner || !repo || !token) return;
+      
+      try {
+        const content = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
+        const sha = localStorage.getItem('gh-sha');
+        
+        const getRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/data.json`, {
+          headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github+json' }
+        });
+        
+        const body = {
+          message: `Sync: ${new Date().toLocaleString('ru-RU')}`,
+          content,
+          branch: 'main'
+        };
+        
+        if (getRes.ok) {
+          const fileData = await getRes.json();
+          body.sha = fileData.sha;
+        }
+        
+        await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/data.json`, {
+          method: 'PUT',
+          headers: {
+            'Authorization': `token ${token}`,
+            'Accept': 'application/vnd.github+json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(body)
+        });
+      } catch (e) {
+        console.warn('Cloud sync failed:', e);
+      }
+    }
+    
+    // ========== SETTINGS ==========
+    function openSettings() {
+      $('gh-owner').value = localStorage.getItem('gh-owner') || '';
+      $('gh-repo').value = localStorage.getItem('gh-repo') || '';
+      $('gh-token').value = localStorage.getItem('gh-token') || '';
+      updateThemeButtons();
+      $('settings-modal').classList.remove('hidden');
+    }
+    
+    function closeSettings() {
+      $('settings-modal').classList.add('hidden');
+    }
+    
+    function saveSettings() {
+      localStorage.setItem('gh-owner', $('gh-owner').value.trim());
+      localStorage.setItem('gh-repo', $('gh-repo').value.trim());
+      localStorage.setItem('gh-token', $('gh-token').value.trim());
+      closeSettings();
+      showToast('Настройки сохранены', '✅');
+    }
+    
+    async function manualCloudSync() {
+      const owner = localStorage.getItem('gh-owner');
+      const repo = localStorage.getItem('gh-repo');
+      const token = localStorage.getItem('gh-token');
+      
+      if (!owner || !repo || !token) {
+        showToast('Настройте GitHub в настройках', '⚠️');
+        return;
+      }
+      
+      await loadFromCloud();
+    }
+    
+    // ========== TABS ==========
+    function showTab(tabName) {
+      $$('.tab-content').forEach(el => el.classList.add('hidden'));
+      $(`tab-${tabName}`).classList.remove('hidden');
+      
+      $$('.tab-btn').forEach(btn => {
+        const isActive = btn.dataset.tab === tabName;
+        btn.classList.toggle('bg-blue-500', isActive);
+        btn.classList.toggle('text-white', isActive);
+        btn.classList.toggle('text-secondary', !isActive);
+      });
+      
+      if (tabName === 'analytics') renderAnalytics();
+    }
+    
+    // ========== CLOCK ==========
+    function updateClock() {
+      const now = new Date();
+      const months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+      $('current-date').textContent = `${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}`;
+      $('current-time').textContent = now.toLocaleTimeString('ru-RU');
+    }
+    
+    // ========== CATEGORIES ==========
+    function populateCategories(selectId, type) {
+      const select = $(selectId);
+      if (!select) return;
+      const cats = type === 'income' ? INCOME_CATEGORIES : EXPENSE_CATEGORIES;
+      select.innerHTML = '<option value="">Категория</option>' + 
+        cats.map(c => `<option value="${c}">${c}</option>`).join('');
+    }
+    
+    // ========== TRANSACTIONS ==========
+    function addTransaction(e) {
+      e.preventDefault();
+      const type = $('tx-type').value;
+      const category = $('tx-category').value;
+      const amount = parseFloat($('tx-amount').value);
+      const date = $('tx-date').value;
+      const note = $('tx-note').value.trim();
+      
+      if (!type || !category || !amount || !date) return;
+      
+      data.transactions.push({ id: genId(), type, category, amount, date, note });
+      saveData();
+      e.target.reset();
+      $('tx-date').value = todayISO();
+      populateCategories('tx-category', '');
+      renderAll();
+      showToast('Транзакция добавлена', '✅');
+    }
+    
+    function quickAdd(e) {
+      e.preventDefault();
+      const type = $('quick-type').value;
+      const category = $('quick-category').value;
+      const amount = parseFloat($('quick-amount').value);
+      const note = $('quick-note').value.trim();
+      
+      if (!category || !amount) return;
+      
+      data.transactions.push({ id: genId(), type, category, amount, date: todayISO(), note });
+      saveData();
+      e.target.reset();
+      renderAll();
+      showToast('Добавлено', '✅');
+    }
+    
+    function deleteTransaction(id) {
+      if (!confirm('Удалить транзакцию?')) return;
+      data.transactions = data.transactions.filter(t => t.id !== id);
+      saveData();
+      renderAll();
+    }
+    
+    function filterTransactions() {
+      renderTransactionsList();
+    }
+    
+    function renderTransactionsList() {
+      const search = ($('tx-search')?.value || '').toLowerCase();
+      const typeFilter = $('tx-filter-type')?.value || '';
+      const monthFilter = $('tx-filter-month')?.value || '';
+      const sort = $('tx-sort')?.value || 'date-desc';
+      
+      let filtered = data.transactions.filter(t => {
+        if (typeFilter && t.type !== typeFilter) return false;
+        if (monthFilter) {
+          const tMonth = t.date.substring(0, 7);
+          if (tMonth !== monthFilter) return false;
+        }
+        if (search && !t.category.toLowerCase().includes(search) && !(t.note || '').toLowerCase().includes(search)) return false;
+        return true;
+      });
+      
+      // Sort
+      filtered.sort((a, b) => {
+        switch (sort) {
+          case 'date-asc': return new Date(a.date) - new Date(b.date);
+          case 'amount-desc': return b.amount - a.amount;
+          case 'amount-asc': return a.amount - b.amount;
+          default: return new Date(b.date) - new Date(a.date);
+        }
+      });
+      
+      $('tx-count').textContent = `${filtered.length} транзакций`;
+      
+      $('transactions-list').innerHTML = filtered.length === 0 
+        ? '<div class="text-center text-muted py-8">Нет транзакций</div>'
+        : filtered.map(t => `
+          <div class="flex items-center gap-3 p-3 rounded-xl bg-tertiary border-l-4 ${t.type === 'income' ? 'border-green-500' : 'border-red-500'}">
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold truncate">${escapeHtml(t.category)}</div>
+              <div class="text-sm text-muted">${new Date(t.date).toLocaleDateString('ru-RU')}${t.note ? ' • ' + escapeHtml(t.note) : ''}</div>
+            </div>
+            <div class="font-bold ${t.type === 'income' ? 'text-green-500' : 'text-red-500'}">${t.type === 'income' ? '+' : '-'}${fmtBYN(t.amount)}</div>
+            <button onclick="deleteTransaction('${t.id}')" class="text-red-500 hover:bg-red-100 p-2 rounded-lg">🗑️</button>
+          </div>
+        `).join('');
+    }
+    
+    function populateMonthFilter() {
+      const months = [...new Set(data.transactions.map(t => t.date.substring(0, 7)))].sort().reverse();
+      $('tx-filter-month').innerHTML = '<option value="">Все месяцы</option>' +
+        months.map(m => {
+          const [y, mo] = m.split('-');
+          const label = new Date(y, parseInt(mo) - 1).toLocaleDateString('ru-RU', { month: 'long', year: 'numeric' });
+          return `<option value="${m}">${label}</option>`;
+        }).join('');
+    }
+    
+    // ========== RECURRING TRANSACTIONS ==========
+    function addRecurring(e) {
+      e.preventDefault();
+      const type = $('rec-type').value;
+      const category = $('rec-category').value;
+      const amount = parseFloat($('rec-amount').value);
+      const name = $('rec-name').value.trim();
+      const frequency = $('rec-frequency').value;
+      const nextDate = $('rec-next-date').value;
+      
+      if (!type || !category || !amount || !name || !frequency || !nextDate) return;
+      
+      data.recurring.push({ id: genId(), type, category, amount, name, frequency, nextDate, active: true });
+      saveData();
+      e.target.reset();
+      $('rec-next-date').value = todayISO();
+      renderRecurring();
+      showToast('Регулярная транзакция добавлена', '✅');
+    }
+    
+    function processRecurring() {
+      const today = todayISO();
+      let changed = false;
+      
+      data.recurring.forEach(rec => {
+        if (!rec.active) return;
+        
+        while (rec.nextDate <= today) {
+          // Create transaction
+          data.transactions.push({
+            id: genId(),
+            type: rec.type,
+            category: rec.category,
+            amount: rec.amount,
+            date: rec.nextDate,
+            note: `🔄 ${rec.name}`
+          });
+          
+          // Calculate next date
+          const d = new Date(rec.nextDate);
+          switch (rec.frequency) {
+            case 'daily': d.setDate(d.getDate() + 1); break;
+            case 'weekly': d.setDate(d.getDate() + 7); break;
+            case 'monthly': d.setMonth(d.getMonth() + 1); break;
+            case 'yearly': d.setFullYear(d.getFullYear() + 1); break;
+          }
+          rec.nextDate = d.toISOString().split('T')[0];
+          changed = true;
+        }
+      });
+      
+      if (changed) saveData();
+    }
+    
+    function deleteRecurring(id) {
+      if (!confirm('Удалить регулярную транзакцию?')) return;
+      data.recurring = data.recurring.filter(r => r.id !== id);
+      saveData();
+      renderRecurring();
+    }
+    
+    function toggleRecurring(id) {
+      const rec = data.recurring.find(r => r.id === id);
+      if (rec) {
+        rec.active = !rec.active;
+        saveData();
+        renderRecurring();
+      }
+    }
+    
+    function renderRecurring() {
+      const freqLabels = { daily: 'Ежедневно', weekly: 'Еженедельно', monthly: 'Ежемесячно', yearly: 'Ежегодно' };
+      
+      $('recurring-list').innerHTML = data.recurring.length === 0
+        ? '<div class="text-center text-muted py-8">Нет регулярных транзакций</div>'
+        : data.recurring.map(r => `
+          <div class="card p-4 rounded-xl flex items-center gap-3 ${!r.active ? 'opacity-50' : ''}">
+            <div class="text-2xl">${r.type === 'income' ? '💵' : '💸'}</div>
+            <div class="flex-1 min-w-0">
+              <div class="font-bold truncate">${escapeHtml(r.name)}</div>
+              <div class="text-sm text-muted">${r.category} • ${freqLabels[r.frequency]}</div>
+              <div class="text-xs text-muted">Следующая: ${new Date(r.nextDate).toLocaleDateString('ru-RU')}</div>
+            </div>
+            <div class="font-bold ${r.type === 'income' ? 'text-green-500' : 'text-red-500'}">${fmtBYN(r.amount)}</div>
+            <button onclick="toggleRecurring('${r.id}')" class="p-2 rounded-lg hover:bg-tertiary">${r.active ? '⏸️' : '▶️'}</button>
+            <button onclick="deleteRecurring('${r.id}')" class="text-red-500 p-2 rounded-lg hover:bg-red-100">🗑️</button>
+          </div>
+        `).join('');
+    }
+    
+    // ========== DEBTS ==========
+    function addDebt(e) {
+      e.preventDefault();
+      const type = $('debt-type').value;
+      const name = $('debt-name').value.trim();
+      const total = parseFloat($('debt-total').value);
+      const monthly = parseFloat($('debt-monthly').value);
+      
+      if (!type || !name || !total || !monthly) return;
+      
+      data.debts.push({ id: genId(), type, name, total, monthly, paid: 0, createdAt: todayISO() });
+      saveData();
+      e.target.reset();
+      renderDebts();
+      renderDashboard();
+      showToast('Долг добавлен', '✅');
+    }
+    
+    function payDebt(id, amount) {
+      const debt = data.debts.find(d => d.id === id);
+      if (!debt) return;
+      
+      const remaining = debt.total - debt.paid;
+      const pay = Math.min(remaining, amount);
+      if (pay <= 0) return;
+      
+      debt.paid += pay;
+      
+      // Add payment to history
+      data.paymentHistory.push({
+        id: genId(),
+        debtId: id,
+        debtName: debt.name,
+        amount: pay,
+        date: todayISO()
+      });
+      
+      // Add as expense transaction
+      data.transactions.push({
+        id: genId(),
+        type: 'expense',
+        category: debt.type === 'installment' ? 'Рассрочки' : 'Кредиты',
+        amount: pay,
+        date: todayISO(),
+        note: `Платёж: ${debt.name}`
+      });
+      
+      saveData();
+      renderAll();
+      showToast(`Оплачено ${fmtBYN(pay)}`, '✅');
+    }
+    
+    function deleteDebt(id) {
+      if (!confirm('Удалить долг?')) return;
+      data.debts = data.debts.filter(d => d.id !== id);
+      saveData();
+      renderDebts();
+      renderDashboard();
+    }
+    
+    function renderDebts() {
+      const search = ($('debt-search')?.value || '').toLowerCase();
+      const sort = $('debt-sort')?.value || 'remaining-desc';
+      
+      let filtered = data.debts.filter(d => d.name.toLowerCase().includes(search));
+      
+      filtered.sort((a, b) => {
+        const remA = a.total - a.paid;
+        const remB = b.total - b.paid;
+        switch (sort) {
+          case 'remaining-asc': return remA - remB;
+          case 'name': return a.name.localeCompare(b.name);
+          case 'progress': return (b.paid / b.total) - (a.paid / a.total);
+          default: return remB - remA;
+        }
+      });
+      
+      $('debts-list').innerHTML = filtered.length === 0
+        ? '<div class="col-span-full text-center text-muted py-8 card rounded-2xl">Нет долгов</div>'
+        : filtered.map(d => {
+          const remaining = d.total - d.paid;
+          const progress = (d.paid / d.total) * 100;
+          const typeLabel = d.type === 'installment' ? 'Рассрочка' : 'Кредит';
+          
+          return `
+            <div class="card rounded-2xl p-5">
+              <div class="flex items-start justify-between mb-3">
+                <div>
+                  <h4 class="font-bold text-lg">${escapeHtml(d.name)}</h4>
+                  <span class="text-xs px-2 py-1 rounded-full ${d.type === 'installment' ? 'bg-emerald-100 text-emerald-700' : 'bg-red-100 text-red-700'}">${typeLabel}</span>
+                </div>
+              </div>
+              
+              <div class="space-y-1 text-sm mb-4">
+                <div class="flex justify-between"><span class="text-secondary">Сумма:</span><span class="font-semibold">${fmtBYN(d.total)}</span></div>
+                <div class="flex justify-between"><span class="text-secondary">Оплачено:</span><span class="font-semibold">${fmtBYN(d.paid)}</span></div>
+                <div class="flex justify-between"><span class="text-secondary">Остаток:</span><span class="font-bold text-orange-500">${fmtBYN(remaining)}</span></div>
+                <div class="flex justify-between"><span class="text-secondary">Ежемесячно:</span><span>${fmtBYN(d.monthly)}</span></div>
+              </div>
+              
+              <div class="mb-4">
+                <div class="h-2 bg-tertiary rounded-full overflow-hidden">
+                  <div class="h-full bg-gradient-to-r from-orange-500 to-amber-500 transition-all" style="width: ${Math.min(progress, 100)}%"></div>
+                </div>
+                <div class="text-xs text-muted mt-1">${progress.toFixed(1)}%</div>
+              </div>
+              
+              <div class="flex gap-2 mb-3">
+                <button onclick="payDebt('${d.id}', ${d.monthly})" class="flex-1 bg-orange-500 hover:bg-orange-600 text-white py-2 rounded-xl font-semibold text-sm">Ежемесячный</button>
+                <button onclick="payDebtCustom('${d.id}')" class="flex-1 bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-xl font-semibold text-sm">Другая сумма</button>
+              </div>
+              
+              <button onclick="deleteDebt('${d.id}')" class="w-full bg-red-100 hover:bg-red-200 text-red-600 py-2 rounded-xl font-semibold text-sm">Удалить</button>
+            </div>
+          `;
+        }).join('');
+    }
+    
+    function payDebtCustom(id) {
+      const amount = parseFloat(prompt('Сумма платежа:'));
+      if (amount > 0) payDebt(id, amount);
+    }
+    
+    // ========== GOALS ==========
+    function addGoal(e) {
+      e.preventDefault();
+      const name = $('goal-name').value.trim();
+      const target = parseFloat($('goal-target').value);
+      const currency = $('goal-currency').value;
+      
+      if (!name || !target) return;
+      
+      data.goals.push({ id: genId(), name, target, currency, current: 0 });
+      saveData();
+      e.target.reset();
+      renderGoals();
+      showToast('Цель добавлена', '✅');
+    }
+    
+    function addToGoal(id) {
+      const amount = parseFloat(prompt('Сумма:'));
+      if (amount > 0) {
+        const goal = data.goals.find(g => g.id === id);
+        if (goal) {
+          goal.current += amount;
+          saveData();
+          renderGoals();
+          showToast('Добавлено в копилку', '🐷');
+        }
+      }
+    }
+    
+    function deleteGoal(id) {
+      if (!confirm('Удалить цель?')) return;
+      data.goals = data.goals.filter(g => g.id !== id);
+      saveData();
+      renderGoals();
+    }
+    
+    function renderGoals() {
+      const search = ($('goal-search')?.value || '').toLowerCase();
+      const sort = $('goal-sort')?.value || 'progress-desc';
+      
+      let filtered = data.goals.filter(g => g.name.toLowerCase().includes(search));
+      
+      filtered.sort((a, b) => {
+        const progA = a.current / a.target;
+        const progB = b.current / b.target;
+        switch (sort) {
+          case 'progress-asc': return progA - progB;
+          case 'name': return a.name.localeCompare(b.name);
+          case 'target-desc': return b.target - a.target;
+          default: return progB - progA;
+        }
+      });
+      
+      $('goals-list').innerHTML = filtered.length === 0
+        ? '<div class="col-span-full text-center text-muted py-8 card rounded-2xl">Нет целей</div>'
+        : filtered.map(g => {
+          const progress = (g.current / g.target) * 100;
+          const rate = exchangeRates[g.currency] || 1;
+          const targetBYN = g.currency === 'BYN' ? g.target : g.target * rate;
+          const currentBYN = g.currency === 'BYN' ? g.current : g.current * rate;
+          
+          return `
+            <div class="card rounded-2xl p-5">
+              <div class="flex items-start justify-between mb-3">
+                <h4 class="font-bold text-lg">${escapeHtml(g.name)}</h4>
+                <span class="text-xs px-2 py-1 rounded-full bg-blue-100 text-blue-700">${g.currency}</span>
+              </div>
+              
+              <div class="mb-4">
+                <div class="h-3 bg-tertiary rounded-full overflow-hidden">
+                  <div class="h-full bg-gradient-to-r from-emerald-500 to-green-500 transition-all" style="width: ${Math.min(progress, 100)}%"></div>
+                </div>
+                <div class="text-sm text-secondary mt-2">${fmtCurrency(g.current, g.currency)} / ${fmtCurrency(g.target, g.currency)}</div>
+                <div class="text-xs text-muted">≈ ${fmtBYN(currentBYN)} / ${fmtBYN(targetBYN)} (${progress.toFixed(1)}%)</div>
+              </div>
+              
+              <div class="flex gap-2">
+                <button onclick="addToGoal('${g.id}')" class="flex-1 bg-emerald-500 hover:bg-emerald-600 text-white py-2 rounded-xl font-semibold">Добавить</button>
+                <button onclick="deleteGoal('${g.id}')" class="bg-red-100 hover:bg-red-200 text-red-600 py-2 px-4 rounded-xl">🗑️</button>
+              </div>
+            </div>
+          `;
+        }).join('');
+    }
+    
+    // ========== ANALYTICS ==========
+    function renderAnalytics() {
+      const period = $('analytics-period')?.value || 'month';
+      const now = new Date();
+      let startDate;
+      
+      switch (period) {
+        case 'month':
+          startDate = new Date(now.getFullYear(), now.getMonth(), 1);
+          break;
+        case 'quarter':
+          startDate = new Date(now.getFullYear(), now.getMonth() - 3, 1);
+          break;
+        case 'year':
+          startDate = new Date(now.getFullYear(), 0, 1);
+          break;
+        default:
+          startDate = new Date(0);
+      }
+      
+      const filtered = data.transactions.filter(t => new Date(t.date) >= startDate);
+      
+      const income = filtered.filter(t => t.type === 'income').reduce((s, t) => s + t.amount, 0);
+      const expenses = filtered.filter(t => t.type === 'expense').reduce((s, t) => s + t.amount, 0);
+      
+      const months = Math.max(1, Math.ceil((now - startDate) / (30 * 24 * 60 * 60 * 1000)));
+      
+      $('analytics-income').textContent = fmtBYN(income);
+      $('analytics-expenses').textContent = fmtBYN(expenses);
+      $('analytics-avg-income').textContent = fmtBYN(income / months);
+      $('analytics-avg-expense').textContent = fmtBYN(expenses / months);
+      
+      renderAnalyticsCharts(filtered);
+      renderCategoryReport(filtered);
+    }
+    
+    function renderAnalyticsCharts(transactions) {
+      // Income vs Expenses by month
+      const monthlyData = {};
+      transactions.forEach(t => {
+        const month = t.date.substring(0, 7);
+        if (!monthlyData[month]) monthlyData[month] = { income: 0, expenses: 0 };
+        if (t.type === 'income') monthlyData[month].income += t.amount;
+        else monthlyData[month].expenses += t.amount;
+      });
+      
+      const months = Object.keys(monthlyData).sort();
+      const incomeData = months.map(m => monthlyData[m].income);
+      const expenseData = months.map(m => monthlyData[m].expenses);
+      const labels = months.map(m => {
+        const [y, mo] = m.split('-');
+        return new Date(y, parseInt(mo) - 1).toLocaleDateString('ru-RU', { month: 'short' });
+      });
+      
+      if (charts.incomeExpenses) charts.incomeExpenses.destroy();
+      charts.incomeExpenses = new Chart($('chart-income-expenses'), {
+        type: 'bar',
+        data: {
+          labels,
+          datasets: [
+            { label: 'Доходы', data: incomeData, backgroundColor: '#10B981' },
+            { label: 'Расходы', data: expenseData, backgroundColor: '#EF4444' }
+          ]
+        },
+        options: { responsive: true, scales: { y: { beginAtZero: true } } }
+      });
+      
+      // Savings trend
+      let cumulative = 0;
+      const savingsData = months.map(m => {
+        cumulative += monthlyData[m].income - monthlyData[m].expenses;
+        return cumulative;
+      });
+      
+      if (charts.savingsTrend) charts.savingsTrend.destroy();
+      charts.savingsTrend = new Chart($('chart-savings-trend'), {
+        type: 'line',
+        data: {
+          labels,
+          datasets: [{
+            label: 'Накопления',
+            data: savingsData,
+            borderColor: '#3B82F6',
+            backgroundColor: 'rgba(59, 130, 246, 0.1)',
+            fill: true,
+            tension: 0.3
+          }]
+        },
+        options: { responsive: true }
+      });
+      
+      // Top expense categories
+      const expenseCats = {};
+      transactions.filter(t => t.type === 'expense').forEach(t => {
+        expenseCats[t.category] = (expenseCats[t.category] || 0) + t.amount;
+      });
+      
+      const sortedCats = Object.entries(expenseCats).sort((a, b) => b[1] - a[1]);
+      
+      if (charts.topCategories) charts.topCategories.destroy();
+      charts.topCategories = new Chart($('chart-top-categories'), {
+        type: 'doughnut',
+        data: {
+          labels: sortedCats.map(([c]) => c),
+          datasets: [{ data: sortedCats.map(([, v]) => v), backgroundColor: CHART_COLORS }]
+        },
+        options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
+      });
+      
+      // Income categories
+      const incomeCats = {};
+      transactions.filter(t => t.type === 'income').forEach(t => {
+        incomeCats[t.category] = (incomeCats[t.category] || 0) + t.amount;
+      });
+      
+      const sortedIncome = Object.entries(incomeCats).sort((a, b) => b[1] - a[1]);
+      
+      if (charts.incomeCategories) charts.incomeCategories.destroy();
+      charts.incomeCategories = new Chart($('chart-income-categories'), {
+        type: 'pie',
+        data: {
+          labels: sortedIncome.map(([c]) => c),
+          datasets: [{ data: sortedIncome.map(([, v]) => v), backgroundColor: CHART_COLORS }]
+        },
+        options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
+      });
+    }
+    
+    function renderCategoryReport(transactions) {
+      const catData = {};
+      transactions.forEach(t => {
+        const key = `${t.type}-${t.category}`;
+        if (!catData[key]) catData[key] = { type: t.type, category: t.category, total: 0, count: 0 };
+        catData[key].total += t.amount;
+        catData[key].count++;
+      });
+      
+      const sorted = Object.values(catData).sort((a, b) => b.total - a.total);
+      
+      $('category-report').innerHTML = sorted.length === 0
+        ? '<div class="text-center text-muted py-4">Нет данных</div>'
+        : sorted.map(c => `
+          <div class="flex items-center gap-3 p-3 rounded-xl bg-tertiary">
+            <div class="text-xl">${c.type === 'income' ? '💵' : '💸'}</div>
+            <div class="flex-1">
+              <div class="font-semibold">${escapeHtml(c.category)}</div>
+              <div class="text-xs text-muted">${c.count} транзакций</div>
+            </div>
+            <div class="font-bold ${c.type === 'income' ? 'text-green-500' : 'text-red-500'}">${fmtBYN(c.total)}</div>
+          </div>
+        `).join('');
+    }
+    
+    // ========== DASHBOARD ==========
+    function renderDashboard() {
+      const now = new Date();
+      const currentMonth = now.getMonth();
+      const currentYear = now.getFullYear();
+      
+      const monthTx = data.transactions.filter(t => {
+        const d = new Date(t.date);
+        return d.getMonth() === currentMonth && d.getFullYear() === currentYear;
+      });
+      
+      const income = monthTx.filter(t => t.type === 'income').reduce((s, t) => s + t.amount, 0);
+      const expenses = monthTx.filter(t => t.type === 'expense').reduce((s, t) => s + t.amount, 0);
+      const debtsRemaining = data.debts.reduce((s, d) => s + (d.total - d.paid), 0);
+      
+      $('summary-income').textContent = fmtBYN(income);
+      $('summary-expenses').textContent = fmtBYN(expenses);
+      $('summary-balance').textContent = fmtBYN(income - expenses);
+      $('summary-debts').textContent = fmtBYN(debtsRemaining);
+      
+      // Recent transactions
+      const recent = [...data.transactions].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 5);
+      $('recent-transactions').innerHTML = recent.length === 0
+        ? '<div class="text-center text-muted py-4">Нет транзакций</div>'
+        : recent.map(t => `
+          <div class="flex items-center gap-3 p-2 rounded-xl bg-tertiary">
+            <div class="text-lg">${t.type === 'income' ? '💵' : '💸'}</div>
+            <div class="flex-1 min-w-0">
+              <div class="font-medium truncate">${escapeHtml(t.category)}</div>
+              <div class="text-xs text-muted">${new Date(t.date).toLocaleDateString('ru-RU')}</div>
+            </div>
+            <div class="font-bold ${t.type === 'income' ? 'text-green-500' : 'text-red-500'}">${t.type === 'income' ? '+' : '-'}${fmtBYN(t.amount)}</div>
+          </div>
+        `).join('');
+      
+      renderDashboardCharts();
+    }
+    
+    function renderDashboardCharts() {
+      const now = new Date();
+      const currentMonth = now.getMonth();
+      const currentYear = now.getFullYear();
+      
+      // Expenses pie
+      const monthExpenses = data.transactions.filter(t => {
+        const d = new Date(t.date);
+        return t.type === 'expense' && d.getMonth() === currentMonth && d.getFullYear() === currentYear;
+      });
+      
+      const catTotals = {};
+      monthExpenses.forEach(t => {
+        catTotals[t.category] = (catTotals[t.category] || 0) + t.amount;
+      });
+      
+      if (charts.expensesPie) charts.expensesPie.destroy();
+      charts.expensesPie = new Chart($('chart-expenses-pie'), {
+        type: 'doughnut',
+        data: {
+          labels: Object.keys(catTotals).length ? Object.keys(catTotals) : ['Нет данных'],
+          datasets: [{ 
+            data: Object.values(catTotals).length ? Object.values(catTotals) : [1], 
+            backgroundColor: Object.keys(catTotals).length ? CHART_COLORS : ['#e5e7eb'] 
+          }]
+        },
+        options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
+      });
+      
+      // Balance chart
+      const labels = [];
+      const balances = [];
+      for (let i = 5; i >= 0; i--) {
+        const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
+        labels.push(d.toLocaleDateString('ru-RU', { month: 'short' }));
+        
+        const monthTx = data.transactions.filter(t => {
+          const td = new Date(t.date);
+          return td.getMonth() === d.getMonth() && td.getFullYear() === d.getFullYear();
+        });
+        
+        const inc = monthTx.filter(t => t.type === 'income').reduce((s, t) => s + t.amount, 0);
+        const exp = monthTx.filter(t => t.type === 'expense').reduce((s, t) => s + t.amount, 0);
+        balances.push(inc - exp);
+      }
+      
+      if (charts.balance) charts.balance.destroy();
+      charts.balance = new Chart($('chart-balance'), {
+        type: 'bar',
+        data: {
+          labels,
+          datasets: [{ label: 'Баланс', data: balances, backgroundColor: balances.map(b => b >= 0 ? '#10B981' : '#EF4444') }]
+        },
+        options: { responsive: true, scales: { y: { beginAtZero: true } } }
+      });
+    }
+    
+    // ========== EXCHANGE RATES ==========
+    async function fetchExchangeRates() {
+      try {
+        const res = await fetch('https://www.nbrb.by/api/exrates/rates?periodicity=0');
+        if (!res.ok) throw new Error();
+        const rates = await res.json();
+        
+        rates.forEach(r => {
+          if (['USD', 'EUR', 'RUB', 'CNY'].includes(r.Cur_Abbreviation)) {
+            exchangeRates[r.Cur_Abbreviation] = r.Cur_OfficialRate / r.Cur_Scale;
+          }
+        });
+      } catch (e) {
+        console.warn('Failed to fetch exchange rates');
+      }
+    }
+    
+    // ========== RENDER ALL ==========
+    function renderAll() {
+      renderDashboard();
+      renderTransactionsList();
+      renderRecurring();
+      renderDebts();
+      renderGoals();
+      populateMonthFilter();
+    }
+    
+    // ========== INIT ==========
+    document.addEventListener('DOMContentLoaded', async () => {
+      // Theme
+      applyTheme();
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme);
+      
+      // PWA
+      registerSW();
+      
+      // Clock
+      updateClock();
+      setInterval(updateClock, 1000);
+      
+      // Set default dates
+      $('tx-date').value = todayISO();
+      $('rec-next-date').value = todayISO();
+      
+      // Category selects
+      $('tx-type').addEventListener('change', e => populateCategories('tx-category', e.target.value));
+      $('rec-type').addEventListener('change', e => populateCategories('rec-category', e.target.value));
+      $('quick-type').addEventListener('change', e => populateCategories('quick-category', e.target.value));
+      populateCategories('quick-category', 'expense');
+      
+      // Forms
+      $('transaction-form').addEventListener('submit', addTransaction);
+      $('quick-add-form').addEventListener('submit', quickAdd);
+      $('recurring-form').addEventListener('submit', addRecurring);
+      $('debt-form').addEventListener('submit', addDebt);
+      $('goal-form').addEventListener('submit', addGoal);
+      
+      // Load data - try cloud first, then local
+      const owner = localStorage.getItem('gh-owner');
+      const repo = localStorage.getItem('gh-repo');
+      const token = localStorage.getItem('gh-token');
+      
+      if (owner && repo && token) {
+        // GitHub configured - load from cloud
+        const cloudLoaded = await loadFromCloud();
+        if (!cloudLoaded) {
+          // Cloud failed, fall back to local
+          loadData();
+          renderAll();
+        }
+      } else {
+        // No GitHub - load from local storage
+        loadData();
+        renderAll();
+      }
+      
+      // Exchange rates
+      fetchExchangeRates().then(() => renderGoals());
+      
+      // Auto-sync from cloud every 60 seconds
+      setInterval(async () => {
+        const owner = localStorage.getItem('gh-owner');
+        const repo = localStorage.getItem('gh-repo');
+        const token = localStorage.getItem('gh-token');
+        if (owner && repo && token && navigator.onLine) {
+          await loadFromCloud();
+        }
+      }, 60000);
+      
+      // Sync when coming back online or when page becomes visible
+      window.addEventListener('online', () => {
+        const owner = localStorage.getItem('gh-owner');
+        const repo = localStorage.getItem('gh-repo');
+        const token = localStorage.getItem('gh-token');
+        if (owner && repo && token) {
+          loadFromCloud();
+        }
+      });
+      
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') {
+          const owner = localStorage.getItem('gh-owner');
+          const repo = localStorage.getItem('gh-repo');
+          const token = localStorage.getItem('gh-token');
+          if (owner && repo && token) {
+            loadFromCloud();
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
