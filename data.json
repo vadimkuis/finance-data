@@ -343,6 +343,14 @@
       "amount": 1328.05,
       "date": "2021-12-30",
       "note": ""
+    },
+    {
+      "id": "milxcewzbx148i80n39",
+      "type": "expense",
+      "category": "Рассрочки",
+      "amount": 166.66,
+      "date": "2025-11-30",
+      "note": ""
     }
   ],
   "goals": [
