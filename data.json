@@ -71,6 +71,14 @@
       "amount": 7.65,
       "date": "2025-11-30",
       "note": "Столовая"
+    },
+    {
+      "id": "mils3727m13sbyzarn",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 1.5,
+      "date": "2025-11-30",
+      "note": "домофон"
     }
   ],
   "goals": [],
