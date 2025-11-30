@@ -39,6 +39,14 @@
       "amount": 166.66,
       "date": "2025-11-30",
       "note": "Платёж: Окно"
+    },
+    {
+      "id": "mils12y3ioa766fwvo",
+      "type": "expense",
+      "category": "Связь",
+      "amount": 8.1,
+      "date": "2025-11-30",
+      "note": "дом тел"
     }
   ],
   "goals": [],
