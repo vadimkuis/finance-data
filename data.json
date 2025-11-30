@@ -91,6 +91,15 @@
       "monthly": 307,
       "paid": 0,
       "createdAt": "2025-11-30"
+    },
+    {
+      "id": "mils5pt7qocqjp4z61",
+      "type": "installment",
+      "name": "Окно",
+      "total": 501.52,
+      "monthly": 166.66,
+      "paid": 0,
+      "createdAt": "2025-11-30"
     }
   ],
   "recurring": [],
