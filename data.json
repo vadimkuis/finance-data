@@ -311,6 +311,14 @@
       "amount": 673.29,
       "date": "2021-08-30",
       "note": ""
+    },
+    {
+      "id": "milum0ghc318pv1s6ot",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 1062.45,
+      "date": "2021-09-30",
+      "note": ""
     }
   ],
   "goals": [
