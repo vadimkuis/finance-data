@@ -151,6 +151,14 @@
       "amount": 636.72,
       "date": "2025-08-08",
       "note": ""
+    },
+    {
+      "id": "milsmonp44yuvjbwo5c",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 1938.89,
+      "date": "2025-08-12",
+      "note": ""
     }
   ],
   "goals": [
