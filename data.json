@@ -31,6 +31,14 @@
       "amount": 29.9,
       "date": "2025-11-30",
       "note": "мой"
+    },
+    {
+      "id": "mils01fru3swf08c5el",
+      "type": "expense",
+      "category": "Рассрочки",
+      "amount": 166.66,
+      "date": "2025-11-30",
+      "note": "Платёж: Окно"
     }
   ],
   "goals": [],
@@ -41,10 +49,18 @@
       "name": "Окно",
       "total": 501.52,
       "monthly": 166.66,
-      "paid": 0,
+      "paid": 166.66,
       "createdAt": "2025-11-30"
     }
   ],
   "recurring": [],
-  "paymentHistory": []
+  "paymentHistory": [
+    {
+      "id": "mils01fr78yiyn4aiki",
+      "debtId": "milr61ds1m9rcgz2qj8",
+      "debtName": "Окно",
+      "amount": 166.66,
+      "date": "2025-11-30"
+    }
+  ]
 }
