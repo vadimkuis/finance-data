@@ -1,5 +1,14 @@
 {
-  "transactions": [],
+  "transactions": [
+    {
+      "id": "milr4ug5t58tqhpts5c",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 1566.94,
+      "date": "2025-11-10",
+      "note": ""
+    }
+  ],
   "goals": [],
   "debts": [],
   "recurring": [],
