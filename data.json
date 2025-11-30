@@ -239,6 +239,14 @@
       "amount": 51.47,
       "date": "2025-11-30",
       "note": "Емолл"
+    },
+    {
+      "id": "milt96sfgpvbq527h6g",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 932.71,
+      "date": "2025-11-30",
+      "note": "Доставка Китай"
     }
   ],
   "goals": [
