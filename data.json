@@ -55,6 +55,14 @@
       "amount": 54.06,
       "date": "2025-11-30",
       "note": "санта"
+    },
+    {
+      "id": "mils2axrrlc8rkm3t9",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 10.55,
+      "date": "2025-11-30",
+      "note": "Столовая"
     }
   ],
   "goals": [],
