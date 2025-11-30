@@ -223,6 +223,14 @@
       "amount": 4.31,
       "date": "2025-11-30",
       "note": ""
+    },
+    {
+      "id": "milt2g8rnub48j4z4ha",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 53.95,
+      "date": "2025-11-30",
+      "note": "Грошык"
     }
   ],
   "goals": [
