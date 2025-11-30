@@ -191,6 +191,14 @@
       "amount": 294,
       "date": "2025-10-03",
       "note": ""
+    },
+    {
+      "id": "milsp15dl82avyx4ish",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 1566.94,
+      "date": "2025-10-10",
+      "note": ""
     }
   ],
   "goals": [
