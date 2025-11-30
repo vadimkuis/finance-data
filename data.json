@@ -359,6 +359,14 @@
       "amount": 30.42,
       "date": "2025-11-30",
       "note": ""
+    },
+    {
+      "id": "mim7iqqeej9yyw7p4yo",
+      "type": "income",
+      "category": "Возврат",
+      "amount": 30.42,
+      "date": "2025-12-01",
+      "note": ""
     }
   ],
   "goals": [
