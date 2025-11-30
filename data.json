@@ -79,6 +79,14 @@
       "amount": 1.5,
       "date": "2025-11-30",
       "note": "домофон"
+    },
+    {
+      "id": "milsaqsgwk5xpsfawkl",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 2461.35,
+      "date": "2025-09-12",
+      "note": "Отпускные"
     }
   ],
   "goals": [
