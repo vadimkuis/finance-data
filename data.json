@@ -207,6 +207,14 @@
       "amount": 11.99,
       "date": "2025-11-30",
       "note": "Яндекс музыка"
+    },
+    {
+      "id": "milt1qxuz3z4lza4aw",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 57.68,
+      "date": "2025-11-30",
+      "note": "Светафор"
     }
   ],
   "goals": [
