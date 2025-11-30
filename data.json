@@ -303,6 +303,14 @@
       "amount": 626.2,
       "date": "2021-07-30",
       "note": ""
+    },
+    {
+      "id": "miluln05qs08tt3rjw",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 673.29,
+      "date": "2021-08-30",
+      "note": ""
     }
   ],
   "goals": [
