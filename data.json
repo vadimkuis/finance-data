@@ -7,6 +7,14 @@
       "amount": 1566.94,
       "date": "2025-11-10",
       "note": ""
+    },
+    {
+      "id": "milry92z13b5jziekdqk",
+      "type": "expense",
+      "category": "Коммуналка",
+      "amount": 116.09,
+      "date": "2025-11-30",
+      "note": ""
     }
   ],
   "goals": [],
