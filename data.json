@@ -23,6 +23,14 @@
       "amount": 29.9,
       "date": "2025-11-30",
       "note": "Алине"
+    },
+    {
+      "id": "milrzl2n2chp8zdrzku",
+      "type": "expense",
+      "category": "Связь",
+      "amount": 29.9,
+      "date": "2025-11-30",
+      "note": "мой"
     }
   ],
   "goals": [],
