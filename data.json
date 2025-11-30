@@ -351,6 +351,14 @@
       "amount": 166.66,
       "date": "2025-11-30",
       "note": ""
+    },
+    {
+      "id": "mim7hr8l6cmk19al8o5",
+      "type": "income",
+      "category": "Возврат",
+      "amount": 30.42,
+      "date": "2025-11-30",
+      "note": ""
     }
   ],
   "goals": [
