@@ -271,6 +271,14 @@
       "amount": 223.78,
       "date": "2021-03-10",
       "note": ""
+    },
+    {
+      "id": "milujb6xdrmqj1uvxje",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 532.93,
+      "date": "2021-04-30",
+      "note": ""
     }
   ],
   "goals": [
