@@ -255,6 +255,14 @@
       "amount": 649.13,
       "date": "2021-01-11",
       "note": ""
+    },
+    {
+      "id": "miluhc9lpy24ueojz2",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 988.9,
+      "date": "2021-02-10",
+      "note": ""
     }
   ],
   "goals": [
