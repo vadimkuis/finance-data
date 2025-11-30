@@ -343,6 +343,14 @@
       "amount": 962.05,
       "date": "2021-11-30",
       "note": ""
+    },
+    {
+      "id": "milunx7jjl9gxgezfb",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 1328.05,
+      "date": "2021-12-30",
+      "note": ""
     }
   ],
   "goals": [
