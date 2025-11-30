@@ -215,6 +215,14 @@
       "amount": 57.68,
       "date": "2025-11-30",
       "note": "Светафор"
+    },
+    {
+      "id": "milt24k2asznqz42ush",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 4.31,
+      "date": "2025-11-30",
+      "note": ""
     }
   ],
   "goals": [
