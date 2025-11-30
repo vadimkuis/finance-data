@@ -33,14 +33,6 @@
       "note": "мой"
     },
     {
-      "id": "mils01fru3swf08c5el",
-      "type": "expense",
-      "category": "Рассрочки",
-      "amount": 166.66,
-      "date": "2025-11-30",
-      "note": "Платёж: Окно"
-    },
-    {
       "id": "mils12y3ioa766fwvo",
       "type": "expense",
       "category": "Связь",
