@@ -360,6 +360,13 @@
       "target": 18000,
       "currency": "USD",
       "current": 2100
+    },
+    {
+      "id": "milvyqn9fdffjlszg2v",
+      "name": "На кровать Вие",
+      "target": 1000,
+      "currency": "BYN",
+      "current": 0
     }
   ],
   "debts": [
