@@ -327,6 +327,14 @@
       "amount": 332.33,
       "date": "2021-10-30",
       "note": ""
+    },
+    {
+      "id": "milun2895tte29l7ilh",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 332.33,
+      "date": "2021-10-30",
+      "note": ""
     }
   ],
   "goals": [
