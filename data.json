@@ -95,6 +95,14 @@
       "amount": 2049.07,
       "date": "2025-01-10",
       "note": ""
+    },
+    {
+      "id": "milsgb80yp48bvrdzg",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 2467.13,
+      "date": "2025-02-10",
+      "note": ""
     }
   ],
   "goals": [
