@@ -119,6 +119,14 @@
       "amount": 274,
       "date": "2025-04-18",
       "note": "На пасху"
+    },
+    {
+      "id": "milsjjw5hch0n1tewm",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 1953.81,
+      "date": "2025-05-08",
+      "note": ""
     }
   ],
   "goals": [
