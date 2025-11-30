@@ -183,6 +183,14 @@
       "amount": 129,
       "date": "2025-10-03",
       "note": ""
+    },
+    {
+      "id": "milsoks969exbnibqn6",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 294,
+      "date": "2025-10-03",
+      "note": ""
     }
   ],
   "goals": [
