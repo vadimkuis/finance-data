@@ -367,6 +367,14 @@
       "amount": 30.42,
       "date": "2025-12-01",
       "note": ""
+    },
+    {
+      "id": "min8h3s2w7svryr2hzj",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 2.07,
+      "date": "2025-12-01",
+      "note": "Вояж"
     }
   ],
   "goals": [
