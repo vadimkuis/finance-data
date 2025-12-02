@@ -389,7 +389,6 @@
       "type": "transfer",
       "amount": 5000,
       "date": "2025-12-02",
-      "toAccountId": "miotr77ad9yhkfukvk",
       "note": ""
     }
   ],
@@ -448,7 +447,7 @@
   ],
   "accounts": [
     {
-      "id": "miotr77ad9yhkfukvk",
+      "id": "miotryvemrf2y0zbpwm",
       "name": "Карта",
       "type": "card",
       "initial": 0,
