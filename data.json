@@ -447,14 +447,6 @@
   ],
   "accounts": [
     {
-      "id": "miox75i466bszhv6xv8",
-      "name": "Карта",
-      "type": "card",
-      "initial": 0,
-      "createdAt": "2025-12-02",
-      "currency": "BYN"
-    },
-    {
       "id": "miox9f6tgxgnm5szb65",
       "name": "На машину",
       "type": "deposit",
