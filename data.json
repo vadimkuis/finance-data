@@ -440,9 +440,9 @@
   ],
   "accounts": [
     {
-      "id": "miotf8jfb3it7vvpg75",
-      "name": "Наличные",
-      "type": "cash",
+      "id": "miotfuktjoqtcdm82br",
+      "name": "Карта",
+      "type": "card",
       "initial": 0,
       "createdAt": "2025-12-02"
     }
