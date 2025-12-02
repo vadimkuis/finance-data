@@ -440,13 +440,6 @@
   ],
   "accounts": [
     {
-      "id": "miotqjdq496pea2bf2k",
-      "name": "Карта",
-      "type": "card",
-      "initial": 0,
-      "createdAt": "2025-12-02"
-    },
-    {
       "id": "miotr0qiv4krff3617",
       "name": "вклда",
       "type": "card",
