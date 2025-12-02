@@ -445,6 +445,14 @@
       "type": "card",
       "initial": 0,
       "createdAt": "2025-12-02"
+    },
+    {
+      "id": "miotriw21yimserhymm",
+      "name": "вклда",
+      "type": "deposit",
+      "initial": 5000,
+      "currency": "BYN",
+      "createdAt": "2025-12-02"
     }
   ]
 }
