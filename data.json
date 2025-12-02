@@ -437,5 +437,14 @@
       "amount": 166.66,
       "date": "2025-11-30"
     }
+  ],
+  "accounts": [
+    {
+      "id": "miotf8jfb3it7vvpg75",
+      "name": "Наличные",
+      "type": "cash",
+      "initial": 0,
+      "createdAt": "2025-12-02"
+    }
   ]
 }
