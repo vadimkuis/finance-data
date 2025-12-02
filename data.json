@@ -452,14 +452,6 @@
       "type": "card",
       "initial": 0,
       "createdAt": "2025-12-02"
-    },
-    {
-      "id": "miox7getebmsexisacp",
-      "name": "На машину",
-      "type": "deposit",
-      "initial": 2100,
-      "currency": "USD",
-      "createdAt": "2025-12-02"
     }
   ]
 }
