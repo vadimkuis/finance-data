@@ -440,11 +440,10 @@
   ],
   "accounts": [
     {
-      "id": "miotr0qiv4krff3617",
-      "name": "вклда",
+      "id": "miotr77ad9yhkfukvk",
+      "name": "Карта",
       "type": "card",
-      "initial": 4000,
-      "currency": "BYN",
+      "initial": 0,
       "createdAt": "2025-12-02"
     }
   ]
