@@ -1,0 +1,76 @@
+:root {
+  --bg-primary: #f0f5ff;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f3f4f6;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #9ca3af;
+  --border-color: #e5e7eb;
+  --accent-blue: #3b82f6;
+  --accent-green: #10b981;
+  --accent-red: #ef4444;
+  --accent-orange: #f59e0b;
+  --shadow-color: rgba(0,0,0,0.1);
+}
+
+.dark {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #64748b;
+  --border-color: #475569;
+  --shadow-color: rgba(0,0,0,0.3);
+}
+
+html { -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background 0.3s, color 0.3s;
+}
+.card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+}
+.input-field {
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  color: var(--text-primary);
+}
+.input-field:focus {
+  border-color: var(--accent-blue);
+  outline: none;
+}
+.input-field::placeholder { color: var(--text-muted); }
+.text-secondary { color: var(--text-secondary); }
+.text-muted { color: var(--text-muted); }
+.bg-tertiary { background: var(--bg-tertiary); }
+.border-custom { border-color: var(--border-color); }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-tertiary); }
+::-webkit-scrollbar-thumb { background: var(--text-muted); border-radius: 4px; }
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in { animation: fadeIn 0.3s ease-out; }
+
+/* PWA Install Banner */
+.install-banner {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Month Comparison */
+.comparison-item {
+  transition: all 0.2s ease;
+}
+.comparison-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
