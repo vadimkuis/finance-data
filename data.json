@@ -383,6 +383,15 @@
       "amount": 13.42,
       "date": "2025-12-01",
       "note": "Хит"
+    },
+    {
+      "id": "miotrtu6b36eig9z8xa",
+      "type": "transfer",
+      "amount": 5000,
+      "date": "2025-12-02",
+      "fromAccountId": "miotriw21yimserhymm",
+      "toAccountId": "miotr77ad9yhkfukvk",
+      "note": ""
     }
   ],
   "goals": [
