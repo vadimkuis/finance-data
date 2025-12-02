@@ -75,6 +75,15 @@
     .install-banner {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     }
+    
+    /* Month Comparison */
+    .comparison-item {
+      transition: all 0.2s ease;
+    }
+    .comparison-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
   </style>
 </head>
 <body class="min-h-screen p-2 sm:p-4 md:p-6 transition-colors">
@@ -174,6 +183,7 @@
       <button onclick="showTab('recurring')" data-tab="recurring" class="tab-btn flex-1 min-w-[120px] py-3 px-4 rounded-xl font-semibold transition-all text-secondary hover:bg-tertiary">🔄 Регулярные</button>
       <button onclick="showTab('debts')" data-tab="debts" class="tab-btn flex-1 min-w-[120px] py-3 px-4 rounded-xl font-semibold transition-all text-secondary hover:bg-tertiary">💳 Долги</button>
       <button onclick="showTab('goals')" data-tab="goals" class="tab-btn flex-1 min-w-[120px] py-3 px-4 rounded-xl font-semibold transition-all text-secondary hover:bg-tertiary">🐷 Цели</button>
+      <button onclick="showTab('accounts')" data-tab="accounts" class="tab-btn flex-1 min-w-[120px] py-3 px-4 rounded-xl font-semibold transition-all text-secondary hover:bg-tertiary">🏦 Счета</button>
       <button onclick="showTab('analytics')" data-tab="analytics" class="tab-btn flex-1 min-w-[120px] py-3 px-4 rounded-xl font-semibold transition-all text-secondary hover:bg-tertiary">📈 Аналитика</button>
     </div>
 
@@ -184,18 +194,23 @@
         <div class="card rounded-2xl p-4 sm:p-6 text-center">
           <div class="text-2xl sm:text-3xl font-bold text-green-500" id="summary-income">0</div>
           <div class="text-sm text-secondary">Доходы</div>
+          <div class="text-xs mt-1" id="summary-income-change">vs прошлый: —</div>
         </div>
         <div class="card rounded-2xl p-4 sm:p-6 text-center">
           <div class="text-2xl sm:text-3xl font-bold text-red-500" id="summary-expenses">0</div>
           <div class="text-sm text-secondary">Расходы</div>
+          <div class="text-xs mt-1" id="summary-expenses-change">vs прошлый: —</div>
         </div>
         <div class="card rounded-2xl p-4 sm:p-6 text-center">
           <div class="text-2xl sm:text-3xl font-bold text-blue-500" id="summary-balance">0</div>
           <div class="text-sm text-secondary">Баланс</div>
+          <div class="text-xs mt-1" id="summary-balance-change">vs прошлый: —</div>
         </div>
         <div class="card rounded-2xl p-4 sm:p-6 text-center">
           <div class="text-2xl sm:text-3xl font-bold text-orange-500" id="summary-debts">0</div>
           <div class="text-sm text-secondary">Долги</div>
+          <div class="text-xs mt-1" id="summary-debts-change">vs прошлый: —</div>
+          <div class="text-xs mt-1 text-secondary" id="summary-debts-monthly">Ежемесячно: —</div>
         </div>
       </div>
 
@@ -390,6 +405,89 @@
       <div id="goals-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
     </div>
 
+    <!-- Accounts Tab -->
+    <div id="tab-accounts" class="tab-content hidden">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <!-- Accounts list -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="card rounded-2xl p-4 sm:p-6">
+            <div class="flex items-center justify-between gap-3 mb-4">
+              <h3 class="font-bold">🏦 Счета и кошельки</h3>
+              <button onclick="seedDefaultAccounts()" class="bg-tertiary hover:opacity-80 px-3 py-2 rounded-xl text-sm font-semibold">+ Примеры</button>
+            </div>
+            <div id="accounts-summary" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+            <div class="mt-4">
+              <h4 class="font-bold mb-2">Все счета</h4>
+              <div id="accounts-list" class="space-y-2"></div>
+            </div>
+          </div>
+
+          <div class="card rounded-2xl p-4 sm:p-6">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="font-bold">📜 История переводов</h3>
+              <span class="text-sm text-muted" id="transfer-count"></span>
+            </div>
+            <div id="transfers-list" class="space-y-2"></div>
+          </div>
+        </div>
+
+        <!-- Add account + transfer -->
+        <div class="space-y-4">
+          <div class="card rounded-2xl p-4 sm:p-6">
+            <h3 class="font-bold mb-4">➕ Добавить счёт</h3>
+            <form id="account-form" class="space-y-3">
+              <input id="acc-name" type="text" class="input-field w-full p-3 rounded-xl" placeholder="Название (напр. Карта)" required>
+              <select id="acc-type" class="input-field w-full p-3 rounded-xl" required>
+                <option value="">Тип</option>
+                <option value="cash">Наличные</option>
+                <option value="card">Карта</option>
+                <option value="deposit">Вклад</option>
+                <option value="metals">Вклад в драгметаллы</option>
+                <option value="other">Другое</option>
+              </select>
+
+              <!-- Валюта счёта -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <select id="acc-currency" class="input-field w-full p-3 rounded-xl">
+                  <option value="BYN">Валюта: BYN</option>
+                  <option value="USD">USD</option>
+                  <option value="EUR">EUR</option>
+                  <option value="RUB">RUB</option>
+                </select>
+                <input id="acc-initial" type="number" class="input-field w-full p-3 rounded-xl" min="0" step="0.01" placeholder="Начальный баланс">
+              </div>
+
+              <!-- Поля для драгметаллов -->
+              <div id="metals-extra" class="grid grid-cols-1 sm:grid-cols-2 gap-3 hidden">
+                <select id="metal-type" class="input-field w-full p-3 rounded-xl">
+                  <option value="gold">Золото</option>
+                  <option value="silver">Серебро</option>
+                </select>
+                <input id="metal-grams" type="number" class="input-field w-full p-3 rounded-xl" min="0" step="0.01" placeholder="Количество грамм">
+              </div>
+
+              <button type="submit" class="w-full bg-gradient-to-r from-indigo-500 to-blue-600 text-white font-bold py-3 rounded-xl">Добавить</button>
+            </form>
+          </div>
+
+          <div class="card rounded-2xl p-4 sm:p-6">
+            <h3 class="font-bold mb-4">🔁 Перевод между счетами</h3>
+            <form id="transfer-form" class="space-y-3">
+              <div class="grid grid-cols-1 gap-3">
+                <select id="tr-from" class="input-field w-full p-3 rounded-xl" required></select>
+                <select id="tr-to" class="input-field w-full p-3 rounded-xl" required></select>
+              </div>
+              <input id="tr-amount" type="number" class="input-field w-full p-3 rounded-xl" min="0" step="0.01" placeholder="Сумма (BYN)" required>
+              <input id="tr-date" type="date" class="input-field w-full p-3 rounded-xl" required>
+              <input id="tr-note" type="text" class="input-field w-full p-3 rounded-xl" placeholder="Комментарий (опц.)">
+              <button type="submit" class="w-full bg-gradient-to-r from-emerald-500 to-green-600 text-white font-bold py-3 rounded-xl">Сделать перевод</button>
+              <div class="text-xs text-muted">Переводы не считаются доходом/расходом и не искажают аналитику.</div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Analytics Tab -->
     <div id="tab-analytics" class="tab-content hidden">
       <!-- Period Selector -->
@@ -410,18 +508,155 @@
         <div class="card rounded-2xl p-4 text-center">
           <div class="text-2xl font-bold text-green-500" id="analytics-income">0</div>
           <div class="text-sm text-secondary">Всего доходов</div>
+          <div class="text-xs mt-1" id="analytics-income-change">vs прошлый период: —</div>
         </div>
         <div class="card rounded-2xl p-4 text-center">
           <div class="text-2xl font-bold text-red-500" id="analytics-expenses">0</div>
           <div class="text-sm text-secondary">Всего расходов</div>
+          <div class="text-xs mt-1" id="analytics-expenses-change">vs прошлый период: —</div>
         </div>
         <div class="card rounded-2xl p-4 text-center">
           <div class="text-2xl font-bold text-blue-500" id="analytics-avg-income">0</div>
           <div class="text-sm text-secondary">Ср. доход/мес</div>
+          <div class="text-xs mt-1" id="analytics-avg-income-change">vs прошлый период: —</div>
         </div>
         <div class="card rounded-2xl p-4 text-center">
           <div class="text-2xl font-bold text-orange-500" id="analytics-avg-expense">0</div>
           <div class="text-sm text-secondary">Ср. расход/мес</div>
+          <div class="text-xs mt-1" id="analytics-avg-expense-change">vs прошлый период: —</div>
+        </div>
+      </div>
+
+      <!-- Month-over-Month Comparison -->
+      <div class="card rounded-2xl p-4 sm:p-6 mb-4">
+        <h3 class="font-bold mb-4 text-center">Сравнение с предыдущим периодом</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-tertiary rounded-xl p-4">
+            <h4 class="font-bold mb-2">Доходы по месяцам</h4>
+            <div id="income-comparison" class="space-y-2"></div>
+          </div>
+          <div class="bg-tertiary rounded-xl p-4">
+            <h4 class="font-bold mb-2">Расходы по месяцам</h4>
+            <div id="expense-comparison" class="space-y-2"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Yearly Report -->
+      <div class="card rounded-2xl p-4 sm:p-6 mb-4">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+          <h3 class="font-bold">📅 Годовой отчёт</h3>
+          <div class="flex items-center gap-2">
+            <span class="text-sm text-secondary">Год:</span>
+            <select id="year-report-year" class="input-field p-2 rounded-xl" onchange="renderYearReport()"></select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-4">
+          <div class="bg-tertiary rounded-xl p-4 text-center">
+            <div class="text-xl sm:text-2xl font-bold text-green-500" id="year-total-income">0</div>
+            <div class="text-xs text-secondary">Доходы</div>
+          </div>
+          <div class="bg-tertiary rounded-xl p-4 text-center">
+            <div class="text-xl sm:text-2xl font-bold text-red-500" id="year-total-expenses">0</div>
+            <div class="text-xs text-secondary">Расходы</div>
+          </div>
+          <div class="bg-tertiary rounded-xl p-4 text-center">
+            <div class="text-xl sm:text-2xl font-bold text-blue-500" id="year-total-balance">0</div>
+            <div class="text-xs text-secondary">Баланс</div>
+          </div>
+          <div class="bg-tertiary rounded-xl p-4 text-center">
+            <div class="text-xl sm:text-2xl font-bold text-purple-500" id="year-savings-rate">—</div>
+            <div class="text-xs text-secondary">Норма накоплений</div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div class="bg-tertiary rounded-xl p-4">
+            <h4 class="font-bold mb-3 text-center">Доходы / расходы по месяцам</h4>
+            <canvas id="chart-year-income-expenses"></canvas>
+          </div>
+
+          <div class="bg-tertiary rounded-xl p-4">
+            <h4 class="font-bold mb-3">Итоги и рекорды</h4>
+            <div id="year-report-highlights" class="space-y-2 text-sm"></div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+              <div>
+                <h4 class="font-bold mb-2">Топ расходов</h4>
+                <div id="year-top-expense-categories" class="space-y-2"></div>
+              </div>
+              <div>
+                <h4 class="font-bold mb-2">Топ доходов</h4>
+                <div id="year-top-income-categories" class="space-y-2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <h4 class="font-bold mb-3 text-center">Помесячная сводка</h4>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="text-left text-secondary border-b border-custom">
+                  <th class="py-2 pr-4">Месяц</th>
+                  <th class="py-2 pr-4">Доходы</th>
+                  <th class="py-2 pr-4">Расходы</th>
+                  <th class="py-2">Баланс</th>
+                </tr>
+              </thead>
+              <tbody id="year-report-table"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- 🔮 Forecasting -->
+      <div class="card rounded-2xl p-4 sm:p-6 mb-4">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+          <h3 class="font-bold">🔮 Прогнозирование</h3>
+          <div class="flex items-center gap-2">
+            <span class="text-sm text-secondary">Метод:</span>
+            <select id="forecast-method" class="input-field p-2 rounded-xl" onchange="renderForecasting()">
+              <option value="pace">По темпу этого месяца</option>
+              <option value="avg3">Среднее за 3 месяца</option>
+              <option value="avg6">Среднее за 6 месяцев</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+          <div class="bg-tertiary rounded-xl p-4">
+            <div class="text-sm text-secondary mb-1">Расходы сейчас (MTD)</div>
+            <div class="text-2xl font-bold text-red-500" id="forecast-expenses-mtd">—</div>
+            <div class="text-xs text-muted mt-1" id="forecast-days">—</div>
+          </div>
+
+          <div class="bg-tertiary rounded-xl p-4">
+            <div class="text-sm text-secondary mb-1">Сколько потрачу к концу месяца?</div>
+            <div class="text-2xl font-bold text-orange-500" id="forecast-expenses-eom">—</div>
+            <div class="text-xs mt-1" id="forecast-eom-note">—</div>
+          </div>
+
+          <div class="bg-tertiary rounded-xl p-4">
+            <div class="text-sm text-secondary mb-1">Ожидаемая экономия/перерасход vs ср.</div>
+            <div class="text-2xl font-bold" id="forecast-delta">—</div>
+            <div class="text-xs text-muted mt-1" id="forecast-delta-note">—</div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
+          <div class="bg-tertiary rounded-xl p-4">
+            <h4 class="font-bold mb-3 text-center">Прогноз расходов (день → сумма)</h4>
+            <canvas id="chart-forecast-expenses"></canvas>
+            <div class="text-xs text-muted mt-2">Линия = фактические траты по дням; пунктир = прогноз до конца месяца.</div>
+          </div>
+
+          <div class="bg-tertiary rounded-xl p-4">
+            <h4 class="font-bold mb-3">Рекомендации по экономии</h4>
+            <div id="saving-recommendations" class="space-y-2 text-sm"></div>
+          </div>
         </div>
       </div>
 
@@ -463,10 +698,273 @@
     const CHART_COLORS = ['#EF4444', '#F59E0B', '#10B981', '#3B82F6', '#8B5CF6', '#EC4899', '#F97316', '#14B8A6', '#6366F1', '#84CC16'];
     
     // ========== STATE ==========
-    let data = { transactions: [], goals: [], debts: [], recurring: [], paymentHistory: [] };
+    let data = { transactions: [], goals: [], debts: [], recurring: [], paymentHistory: [], accounts: [] };
     let charts = {};
     let exchangeRates = { USD: 3.2, EUR: 3.5, RUB: 0.035, CNY: 0.45 };
     let deferredPrompt = null;
+
+    // ========== ACCOUNTS ==========
+    const ACCOUNT_TYPES = {
+      cash: { label: 'Наличные', icon: '💵' },
+      card: { label: 'Карта', icon: '💳' },
+      deposit: { label: 'Вклад', icon: '🏦' },
+      metals: { label: 'Вклад в драгметаллы', icon: '🥇' },
+      other: { label: 'Другое', icon: '📦' }
+    };
+
+    function ensureAccounts() {
+      if (!Array.isArray(data.accounts)) data.accounts = [];
+      // Создаём счета по умолчанию, если их нет
+      if (data.accounts.length === 0) {
+        data.accounts.push({ id: genId(), name: 'Карта', type: 'card', initial: 0, createdAt: todayISO() });
+        data.accounts.push({ id: genId(), name: 'Наличные', type: 'cash', initial: 0, createdAt: todayISO() });
+      }
+      // НЕ привязываем старые транзакции автоматически к счетам,
+      // т.к. это искажает баланс. Старые транзакции (без accountId)
+      // просто не будут учитываться в балансе счетов.
+    }
+
+    function getAccountById(id) {
+      return (data.accounts || []).find(a => a.id === id);
+    }
+
+    function calcAccountBalances() {
+      const balances = {};
+      (data.accounts || []).forEach(a => {
+        balances[a.id] = Number(a.initial) || 0;
+      });
+
+      (data.transactions || []).forEach(t => {
+        // Пропускаем транзакции без привязки к счёту (старые данные)
+        if (t.type === 'income') {
+          const accId = t.accountId;
+          if (!accId || !balances.hasOwnProperty(accId)) return;
+          const amt = Number(t.amount) || 0;
+          balances[accId] = (balances[accId] || 0) + amt;
+        } else if (t.type === 'expense') {
+          const accId = t.accountId;
+          if (!accId || !balances.hasOwnProperty(accId)) return;
+          const amt = Number(t.amount) || 0;
+          balances[accId] = (balances[accId] || 0) - amt;
+        } else if (t.type === 'transfer') {
+          const amt = Number(t.amount) || 0;
+          if (t.fromAccountId && balances.hasOwnProperty(t.fromAccountId)) {
+            balances[t.fromAccountId] = (balances[t.fromAccountId] || 0) - amt;
+          }
+          if (t.toAccountId && balances.hasOwnProperty(t.toAccountId)) {
+            balances[t.toAccountId] = (balances[t.toAccountId] || 0) + amt;
+          }
+        }
+      });
+
+      return balances;
+    }
+
+    function populateAccountSelects() {
+      const fromSel = $('tr-from');
+      const toSel = $('tr-to');
+      if (!fromSel || !toSel) return;
+
+      const opts = (data.accounts || []).map(a => {
+        const meta = ACCOUNT_TYPES[a.type] || ACCOUNT_TYPES.other;
+        return `<option value="${a.id}">${meta.icon} ${escapeHtml(a.name)}</option>`;
+      }).join('');
+
+      fromSel.innerHTML = '<option value="">Откуда</option>' + opts;
+      toSel.innerHTML = '<option value="">Куда</option>' + opts;
+
+      if ((data.accounts || []).length >= 2) {
+        fromSel.value = data.accounts[0].id;
+        toSel.value = data.accounts[1].id;
+      } else if ((data.accounts || []).length === 1) {
+        fromSel.value = data.accounts[0].id;
+        toSel.value = data.accounts[0].id;
+      }
+    }
+
+    function seedDefaultAccounts() {
+      if ((data.accounts || []).length >= 4) {
+        showToast('Примеры уже добавлены', 'ℹ️');
+        return;
+      }
+      const existingNames = new Set((data.accounts || []).map(a => (a.name || '').toLowerCase()));
+      const presets = [
+        { name: 'Наличные', type: 'cash' },
+        { name: 'Карта', type: 'card' },
+        { name: 'Вклад', type: 'deposit' },
+        { name: 'Вклад в драгметаллы', type: 'metals' }
+      ];
+      presets.forEach(p => {
+        if (!existingNames.has(p.name.toLowerCase())) {
+          data.accounts.push({ id: genId(), name: p.name, type: p.type, initial: 0, createdAt: todayISO() });
+        }
+      });
+      saveData();
+      renderAccounts();
+      populateAccountSelects();
+      showToast('Добавлены примеры счетов', '✅');
+    }
+
+    function addAccount(e) {
+      e.preventDefault();
+      const name = $('acc-name').value.trim();
+      const type = $('acc-type').value;
+      const initial = parseFloat($('acc-initial').value || '0') || 0;
+      const currency = $('acc-currency').value || 'BYN';
+      const metalType = $('metal-type')?.value || null;
+      const metalGrams = parseFloat($('metal-grams')?.value || '0') || 0;
+
+      if (!name || !type) return;
+
+      const account = { id: genId(), name, type, initial, currency, createdAt: todayISO() };
+      if (type === 'metals') {
+        account.metalType = metalType;
+        account.metalGrams = metalGrams;
+      }
+
+      data.accounts.push(account);
+      saveData();
+      e.target.reset();
+      $('metals-extra').classList.add('hidden');
+      renderAccounts();
+      populateAccountSelects();
+      showToast('Счёт добавлен', '✅');
+    }
+
+    function deleteAccount(id) {
+      const acc = getAccountById(id);
+      if (!acc) return;
+
+      const related = (data.transactions || []).some(t => t.accountId === id || t.fromAccountId === id || t.toAccountId === id);
+      const msg = related
+        ? `Удалить счёт «${acc.name}»? Он используется в транзакциях/переводах. Транзакции НЕ удалятся, но потеряют привязку.`
+        : `Удалить счёт «${acc.name}»?`;
+
+      if (!confirm(msg)) return;
+
+      data.accounts = (data.accounts || []).filter(a => a.id !== id);
+      // detach transactions
+      (data.transactions || []).forEach(t => {
+        if (t.accountId === id) delete t.accountId;
+        if (t.fromAccountId === id) delete t.fromAccountId;
+        if (t.toAccountId === id) delete t.toAccountId;
+      });
+
+      // ensure at least 1 account
+      if ((data.accounts || []).length === 0) {
+        data.accounts.push({ id: genId(), name: 'Карта', type: 'card', initial: 0, createdAt: todayISO() });
+      }
+
+      saveData();
+      renderAccounts();
+      populateAccountSelects();
+      showToast('Счёт удалён', '🗑️');
+    }
+
+    function addTransfer(e) {
+      e.preventDefault();
+      const fromAccountId = $('tr-from').value;
+      const toAccountId = $('tr-to').value;
+      const amount = parseFloat($('tr-amount').value);
+      const date = $('tr-date').value;
+      const note = $('tr-note').value.trim();
+
+      if (!fromAccountId || !toAccountId || !amount || !date) return;
+      if (fromAccountId === toAccountId) {
+        showToast('Выберите разные счета для перевода', '⚠️');
+        return;
+      }
+
+      // optional: prevent going negative? We'll allow but warn
+      const balances = calcAccountBalances();
+      if ((balances[fromAccountId] || 0) < amount) {
+        if (!confirm('На счёте-источнике недостаточно средств. Сделать перевод всё равно?')) return;
+      }
+
+      data.transactions.push({
+        id: genId(),
+        type: 'transfer',
+        amount,
+        date,
+        fromAccountId,
+        toAccountId,
+        note
+      });
+
+      saveData();
+      e.target.reset();
+      $('tr-date').value = todayISO();
+      populateAccountSelects();
+      renderAll();
+      showToast('Перевод выполнен', '✅');
+    }
+
+    function renderAccounts() {
+      const listEl = $('accounts-list');
+      const summaryEl = $('accounts-summary');
+      const transfersEl = $('transfers-list');
+      if (!listEl || !summaryEl || !transfersEl) return;
+
+      ensureAccounts();
+      const balances = calcAccountBalances();
+
+      const total = (data.accounts || []).reduce((s, a) => s + (balances[a.id] || 0), 0);
+
+      summaryEl.innerHTML = `
+        <div class="bg-tertiary rounded-xl p-4">
+          <div class="text-sm text-secondary">Всего по всем счетам</div>
+          <div class="text-2xl font-bold text-blue-500">${fmtBYN(total)}</div>
+          <div class="text-xs text-muted mt-1">Сумма балансов всех счетов (BYN)</div>
+        </div>
+        <div class="bg-tertiary rounded-xl p-4">
+          <div class="text-sm text-secondary">Счетов</div>
+          <div class="text-2xl font-bold">${(data.accounts || []).length}</div>
+          <div class="text-xs text-muted mt-1">Наличные, карты, вклады…</div>
+        </div>
+      `;
+
+      listEl.innerHTML = (data.accounts || []).map(a => {
+        const meta = ACCOUNT_TYPES[a.type] || ACCOUNT_TYPES.other;
+        const b = balances[a.id] || 0;
+        const cls = b >= 0 ? 'text-green-500' : 'text-red-500';
+        return `
+          <div class="flex items-center gap-3 p-3 rounded-xl bg-tertiary">
+            <div class="text-2xl">${meta.icon}</div>
+            <div class="flex-1 min-w-0">
+              <div class="font-semibold truncate">${escapeHtml(a.name)}</div>
+              <div class="text-xs text-muted">${meta.label} • нач.: ${fmtBYN(a.initial || 0)}</div>
+            </div>
+            <div class="font-bold ${cls}">${fmtBYN(b)}</div>
+            <button onclick="deleteAccount('${a.id}')" class="text-red-500 hover:bg-red-100 p-2 rounded-lg">🗑️</button>
+          </div>
+        `;
+      }).join('');
+
+      const transfers = (data.transactions || [])
+        .filter(t => t.type === 'transfer')
+        .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+      $('transfer-count').textContent = `${transfers.length} шт.`;
+
+      transfersEl.innerHTML = transfers.length === 0
+        ? '<div class="text-center text-muted py-6">Переводов пока нет</div>'
+        : transfers.slice(0, 30).map(t => {
+          const fromA = getAccountById(t.fromAccountId);
+          const toA = getAccountById(t.toAccountId);
+          const fromName = fromA ? fromA.name : '—';
+          const toName = toA ? toA.name : '—';
+          return `
+            <div class="flex items-center gap-3 p-3 rounded-xl bg-tertiary border-l-4 border-blue-500">
+              <div class="text-xl">🔁</div>
+              <div class="flex-1 min-w-0">
+                <div class="font-semibold truncate">${escapeHtml(fromName)} → ${escapeHtml(toName)}</div>
+                <div class="text-sm text-muted">${new Date(t.date).toLocaleDateString('ru-RU')}${t.note ? ' • ' + escapeHtml(t.note) : ''}</div>
+              </div>
+              <div class="font-bold text-blue-500">${fmtBYN(t.amount)}</div>
+            </div>
+          `;
+        }).join('');
+    }
     
     // ========== UTILITIES ==========
     const $ = id => document.getElementById(id);
@@ -476,6 +974,30 @@
     const fmtCurrency = (n, c) => `${(Number(n)||0).toLocaleString('ru-RU', {maximumFractionDigits:2})} ${c}`;
     const todayISO = () => new Date().toISOString().split('T')[0];
     const genId = () => Date.now().toString(36) + Math.random().toString(36).substr(2);
+    
+    // ========== MONTH COMPARISON ==========
+    function getMonthData(year, month) {
+      return data.transactions.filter(t => {
+        const d = new Date(t.date);
+        return d.getFullYear() === year && d.getMonth() === month;
+      });
+    }
+    
+    function setChange(elId, current, prev, goodIncrease = true) {
+      const delta = current - prev;
+      const absDelta = Math.abs(delta);
+      const isGood = goodIncrease ? (delta >= 0) : (delta <= 0);
+      let pct = 0;
+      if (Math.abs(prev) > 0.01) {
+        pct = Math.abs((delta / prev) * 100);
+      } else if (absDelta > 0.01) {
+        pct = Infinity;
+      }
+      const pctStr = Number.isFinite(pct) ? pct.toFixed(1) : '∞';
+      const colorClass = isGood ? 'text-green-500' : 'text-red-500';
+      const icon = absDelta < 0.01 ? '➡️' : (isGood ? '📈' : '📉');
+      $(elId).innerHTML = `vs прошлый: <span class="font-semibold ${colorClass}">${pctStr}%</span><span class="ml-1">${icon}</span>`;
+    }
     
     // ========== THEME ==========
     function getTheme() {
@@ -561,7 +1083,8 @@
         goals: Array.isArray(obj?.goals) ? obj.goals : [],
         debts: Array.isArray(obj?.debts) ? obj.debts : [],
         recurring: Array.isArray(obj?.recurring) ? obj.recurring : [],
-        paymentHistory: Array.isArray(obj?.paymentHistory) ? obj.paymentHistory : []
+        paymentHistory: Array.isArray(obj?.paymentHistory) ? obj.paymentHistory : [],
+        accounts: Array.isArray(obj?.accounts) ? obj.accounts : []
       };
     }
     
@@ -837,6 +1360,11 @@
       });
       
       if (tabName === 'analytics') renderAnalytics();
+      if (tabName === 'accounts') {
+        ensureAccounts();
+        populateAccountSelects();
+        renderAccounts();
+      }
     }
     
     // ========== CLOCK ==========
@@ -1253,40 +1781,615 @@
         }).join('');
     }
     
+    // ========== FORECASTING ==========
+    function daysInMonth(d) {
+      return new Date(d.getFullYear(), d.getMonth() + 1, 0).getDate();
+    }
+
+    function getMonthKey(year, monthIdx) {
+      const m = String(monthIdx + 1).padStart(2, '0');
+      return `${year}-${m}`;
+    }
+
+    function sumExpensesInMonth(year, monthIdx) {
+      return data.transactions
+        .filter(t => {
+          const d = new Date(t.date);
+          return !isNaN(d) && t.type === 'expense' && d.getFullYear() === year && d.getMonth() === monthIdx;
+        })
+        .reduce((s, t) => s + (Number(t.amount) || 0), 0);
+    }
+
+    function getMonthlyTotalsRange(countBack) {
+      // returns array of last N full months totals (excluding current month)
+      const now = new Date();
+      const res = [];
+      for (let i = 1; i <= countBack; i++) {
+        const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
+        res.push({
+          year: d.getFullYear(),
+          month: d.getMonth(),
+          total: sumExpensesInMonth(d.getFullYear(), d.getMonth())
+        });
+      }
+      return res;
+    }
+
+    function getDailyExpensesCurrentMonth() {
+      const now = new Date();
+      const y = now.getFullYear();
+      const m = now.getMonth();
+      const dim = daysInMonth(now);
+
+      const daily = Array.from({ length: dim }, () => 0);
+      data.transactions
+        .filter(t => {
+          const d = new Date(t.date);
+          return !isNaN(d) && t.type === 'expense' && d.getFullYear() === y && d.getMonth() === m;
+        })
+        .forEach(t => {
+          const d = new Date(t.date);
+          const idx = d.getDate() - 1;
+          if (idx >= 0 && idx < daily.length) daily[idx] += Number(t.amount) || 0;
+        });
+
+      return { year: y, month: m, daily, dim };
+    }
+
+    function buildRecommendations({ method, mtd, eom, avgBaseline, categoryThisMonth, pacePerDay, remainingDays }) {
+      const rec = [];
+
+      // 1) Overall overspend/underspend vs baseline
+      if (Number.isFinite(avgBaseline) && avgBaseline > 0.01) {
+        const delta = eom - avgBaseline;
+        const pct = (delta / avgBaseline) * 100;
+        if (delta > 0) {
+          rec.push({
+            type: 'warn',
+            title: 'Вероятен перерасход',
+            text: `По прогнозу (${escapeHtml(method)}) вы потратите на ${fmtBYN(delta)} больше среднего (${fmtBYN(avgBaseline)}). Попробуйте снизить ежедневный темп на ${(Math.max(0, delta) / Math.max(1, remainingDays)).toFixed(2)} BYN/день.`
+          });
+        } else {
+          rec.push({
+            type: 'ok',
+            title: 'Хороший темп',
+            text: `По прогнозу вы идёте ниже/на уровне среднего. Если удержите темп ~${pacePerDay.toFixed(2)} BYN/день, месяц будет закрыт около ${fmtBYN(eom)}.`
+          });
+        }
+      } else {
+        rec.push({
+          type: 'info',
+          title: 'Недостаточно истории',
+          text: 'Для более точных рекомендаций добавьте траты хотя бы за 3 месяца.'
+        });
+      }
+
+      // 2) Top categories this month
+      const topCats = Object.entries(categoryThisMonth)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 3);
+
+      if (topCats.length) {
+        const topLine = topCats.map(([c, v]) => `${escapeHtml(c)}: ${fmtBYN(v)}`).join(' • ');
+        rec.push({
+          type: 'info',
+          title: 'Топ категорий месяца',
+          text: topLine
+        });
+
+        // Suggest small cuts
+        const biggest = topCats[0];
+        if (biggest && biggest[1] > 0) {
+          const cut5 = biggest[1] * 0.05;
+          rec.push({
+            type: 'tip',
+            title: `Идея: урезать «${escapeHtml(biggest[0])}» на 5%`,
+            text: `Это даст экономию примерно ${fmtBYN(cut5)} за месяц.`
+          });
+        }
+      } else {
+        rec.push({
+          type: 'info',
+          title: 'Пока нет расходов в этом месяце',
+          text: 'Добавьте хотя бы одну расходную транзакцию, и прогноз станет информативнее.'
+        });
+      }
+
+      // 3) Simple habit suggestion if pace is high
+      if (pacePerDay > 0 && avgBaseline > 0) {
+        const avgPerDay = avgBaseline / 30;
+        if (pacePerDay > avgPerDay * 1.25) {
+          rec.push({
+            type: 'warn',
+            title: 'Темп выше обычного',
+            text: `Текущий темп ${pacePerDay.toFixed(2)} BYN/день заметно выше среднего ~${avgPerDay.toFixed(2)} BYN/день. Проверьте необязательные траты (развлечения/еда вне дома/импульсные покупки).`
+          });
+        }
+      }
+
+      return rec;
+    }
+
+    function renderForecasting() {
+      if (!$('tab-analytics') || $('tab-analytics').classList.contains('hidden')) return;
+
+      const methodKey = $('forecast-method')?.value || 'pace';
+      const now = new Date();
+      const dayOfMonth = now.getDate();
+      const dim = daysInMonth(now);
+      const remainingDays = Math.max(0, dim - dayOfMonth);
+
+      const { daily } = getDailyExpensesCurrentMonth();
+      const cumulativeActual = [];
+      let cum = 0;
+      for (let i = 0; i < daily.length; i++) {
+        cum += daily[i];
+        cumulativeActual.push(cum);
+      }
+
+      const mtd = cumulativeActual[dayOfMonth - 1] || 0;
+      const pacePerDay = dayOfMonth > 0 ? (mtd / dayOfMonth) : 0;
+
+      // Baseline average for "avg3/avg6"
+      const monthsBack = methodKey === 'avg6' ? 6 : 3;
+      const hist = getMonthlyTotalsRange(monthsBack);
+      const avgBaseline = hist.length ? (hist.reduce((s, x) => s + x.total, 0) / hist.length) : 0;
+
+      // Forecast end-of-month
+      let eom;
+      let methodLabel;
+      if (methodKey === 'pace') {
+        eom = pacePerDay * dim;
+        methodLabel = 'темп текущего месяца';
+      } else {
+        eom = avgBaseline; // assume will end around average
+        methodLabel = `среднее за ${monthsBack} мес.`;
+      }
+
+      // Delta vs baseline (for pace method compare to avg; for avg method compare to avg too => 0)
+      const delta = eom - avgBaseline;
+
+      // Category breakdown this month
+      const y = now.getFullYear();
+      const m = now.getMonth();
+      const categoryThisMonth = {};
+      data.transactions
+        .filter(t => {
+          const d = new Date(t.date);
+          return !isNaN(d) && t.type === 'expense' && d.getFullYear() === y && d.getMonth() === m;
+        })
+        .forEach(t => {
+          categoryThisMonth[t.category] = (categoryThisMonth[t.category] || 0) + (Number(t.amount) || 0);
+        });
+
+      // UI text
+      if ($('forecast-expenses-mtd')) $('forecast-expenses-mtd').textContent = fmtBYN(mtd);
+      if ($('forecast-days')) $('forecast-days').textContent = `День ${dayOfMonth} из ${dim} • осталось ${remainingDays} дн. • темп: ${pacePerDay.toFixed(2)} BYN/день`;
+
+      if ($('forecast-expenses-eom')) $('forecast-expenses-eom').textContent = fmtBYN(eom);
+      if ($('forecast-eom-note')) $('forecast-eom-note').innerHTML = `Оценка по методу: <span class="font-semibold">${escapeHtml(methodLabel)}</span>`;
+
+      const deltaEl = $('forecast-delta');
+      const deltaNoteEl = $('forecast-delta-note');
+      if (deltaEl && deltaNoteEl) {
+        if (avgBaseline <= 0.01) {
+          deltaEl.textContent = '—';
+          deltaEl.className = 'text-2xl font-bold text-purple-500';
+          deltaNoteEl.textContent = 'Недостаточно истории для сравнения со средним.';
+        } else {
+          const cls = delta <= 0 ? 'text-green-500' : 'text-red-500';
+          deltaEl.className = `text-2xl font-bold ${cls}`;
+          deltaEl.textContent = `${delta <= 0 ? '-' : '+'}${fmtBYN(Math.abs(delta))}`;
+          deltaNoteEl.textContent = `Сравнение с вашим средним за последние ${hist.length} мес.: ${fmtBYN(avgBaseline)}.`;
+        }
+      }
+
+      // Chart: actual cumulative + forecast
+      const labels = Array.from({ length: dim }, (_, i) => String(i + 1));
+      const predicted = [];
+      const lastActual = mtd;
+      if (methodKey === 'pace') {
+        for (let day = 1; day <= dim; day++) {
+          if (day <= dayOfMonth) predicted.push(null);
+          else predicted.push(pacePerDay * day);
+        }
+      } else {
+        const avgPerDay = dim > 0 ? (eom / dim) : 0;
+        for (let day = 1; day <= dim; day++) {
+          if (day <= dayOfMonth) predicted.push(null);
+          else predicted.push(avgPerDay * day);
+        }
+      }
+
+      if (charts.forecastExpenses) charts.forecastExpenses.destroy();
+      charts.forecastExpenses = new Chart($('chart-forecast-expenses'), {
+        type: 'line',
+        data: {
+          labels,
+          datasets: [
+            {
+              label: 'Факт (накоп.)',
+              data: cumulativeActual,
+              borderColor: '#EF4444',
+              backgroundColor: 'rgba(239, 68, 68, 0.08)',
+              fill: true,
+              tension: 0.25,
+              pointRadius: 0
+            },
+            {
+              label: 'Прогноз',
+              data: predicted,
+              borderColor: '#F59E0B',
+              borderDash: [6, 6],
+              tension: 0.25,
+              pointRadius: 0
+            },
+            {
+              label: 'Текущее значение',
+              data: labels.map((_, i) => (i + 1 === dayOfMonth ? lastActual : null)),
+              borderColor: '#3B82F6',
+              pointBackgroundColor: '#3B82F6',
+              showLine: false,
+              pointRadius: 4
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          plugins: { legend: { position: 'bottom' } },
+          scales: { y: { beginAtZero: true } }
+        }
+      });
+
+      // Recommendations
+      const methodTitle = methodKey === 'pace' ? 'По темпу этого месяца' : (methodKey === 'avg6' ? 'Среднее за 6 месяцев' : 'Среднее за 3 месяца');
+      const recs = buildRecommendations({
+        method: methodTitle,
+        mtd,
+        eom,
+        avgBaseline,
+        categoryThisMonth,
+        pacePerDay,
+        remainingDays
+      });
+
+      const typeBadge = (t) => {
+        if (t === 'warn') return '<span class="text-xs px-2 py-0.5 rounded-full bg-red-100 text-red-700">Важно</span>';
+        if (t === 'ok') return '<span class="text-xs px-2 py-0.5 rounded-full bg-green-100 text-green-700">Ок</span>';
+        if (t === 'tip') return '<span class="text-xs px-2 py-0.5 rounded-full bg-amber-100 text-amber-800">Совет</span>';
+        return '<span class="text-xs px-2 py-0.5 rounded-full bg-blue-100 text-blue-700">Инфо</span>';
+      };
+
+      $('saving-recommendations').innerHTML = recs.map(r => `
+        <div class="p-3 rounded-xl bg-white dark:bg-gray-700 flex items-start justify-between gap-3">
+          <div class="min-w-0">
+            <div class="font-semibold">${escapeHtml(r.title)}</div>
+            <div class="text-secondary text-sm">${r.text}</div>
+          </div>
+          <div class="shrink-0">${typeBadge(r.type)}</div>
+        </div>
+      `).join('');
+    }
+
     // ========== ANALYTICS ==========
     function renderAnalytics() {
       const period = $('analytics-period')?.value || 'month';
       const now = new Date();
       let startDate;
+      let prevStartDate;
+      let prevEndDate;
       
       switch (period) {
         case 'month':
           startDate = new Date(now.getFullYear(), now.getMonth(), 1);
+          prevStartDate = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+          prevEndDate = new Date(now.getFullYear(), now.getMonth(), 1);
           break;
         case 'quarter':
-          startDate = new Date(now.getFullYear(), now.getMonth() - 3, 1);
+          startDate = new Date(now.getFullYear(), now.getMonth() - 2, 1);
+          prevStartDate = new Date(now.getFullYear(), now.getMonth() - 5, 1);
+          prevEndDate = new Date(now.getFullYear(), now.getMonth() - 2, 1);
           break;
         case 'year':
           startDate = new Date(now.getFullYear(), 0, 1);
+          prevStartDate = new Date(now.getFullYear() - 1, 0, 1);
+          prevEndDate = new Date(now.getFullYear(), 0, 1);
           break;
         default:
           startDate = new Date(0);
+          prevStartDate = new Date(0);
+          prevEndDate = new Date(0);
       }
       
       const filtered = data.transactions.filter(t => new Date(t.date) >= startDate);
+      const prevFiltered = data.transactions.filter(t => 
+        new Date(t.date) >= prevStartDate && new Date(t.date) < prevEndDate);
       
       const income = filtered.filter(t => t.type === 'income').reduce((s, t) => s + t.amount, 0);
       const expenses = filtered.filter(t => t.type === 'expense').reduce((s, t) => s + t.amount, 0);
+      const prevIncome = prevFiltered.filter(t => t.type === 'income').reduce((s, t) => s + t.amount, 0);
+      const prevExpenses = prevFiltered.filter(t => t.type === 'expense').reduce((s, t) => s + t.amount, 0);
       
       const months = Math.max(1, Math.ceil((now - startDate) / (30 * 24 * 60 * 60 * 1000)));
+      const prevMonths = Math.max(1, Math.ceil((prevEndDate - prevStartDate) / (30 * 24 * 60 * 60 * 1000)));
+      
+      const avgIncome = income / months;
+      const avgExpenses = expenses / months;
+      const prevAvgIncome = prevIncome / prevMonths;
+      const prevAvgExpenses = prevExpenses / prevMonths;
       
       $('analytics-income').textContent = fmtBYN(income);
       $('analytics-expenses').textContent = fmtBYN(expenses);
-      $('analytics-avg-income').textContent = fmtBYN(income / months);
-      $('analytics-avg-expense').textContent = fmtBYN(expenses / months);
+      $('analytics-avg-income').textContent = fmtBYN(avgIncome);
+      $('analytics-avg-expense').textContent = fmtBYN(avgExpenses);
+      
+      // Display period-over-period changes
+      setChange('analytics-income-change', income, prevIncome, true);
+      setChange('analytics-expenses-change', expenses, prevExpenses, false);
+      setChange('analytics-avg-income-change', avgIncome, prevAvgIncome, true);
+      setChange('analytics-avg-expense-change', avgExpenses, prevAvgExpenses, false);
       
       renderAnalyticsCharts(filtered);
       renderCategoryReport(filtered);
+      renderMonthComparison();
+      renderYearReport();
+      renderForecasting();
+    }
+    
+    function renderMonthComparison() {
+      const now = new Date();
+      const months = [];
+      
+      // Get last 6 months
+      for (let i = 5; i >= 0; i--) {
+        const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
+        months.push({
+          year: d.getFullYear(),
+          month: d.getMonth(),
+          label: d.toLocaleDateString('ru-RU', { month: 'short' })
+        });
+      }
+      
+      // Calculate income and expenses for each month
+      const incomeData = [];
+      const expenseData = [];
+      
+      months.forEach(m => {
+        const monthTransactions = data.transactions.filter(t => {
+          const d = new Date(t.date);
+          return d.getFullYear() === m.year && d.getMonth() === m.month;
+        });
+        
+        const income = monthTransactions
+          .filter(t => t.type === 'income')
+          .reduce((sum, t) => sum + t.amount, 0);
+          
+        const expenses = monthTransactions
+          .filter(t => t.type === 'expense')
+          .reduce((sum, t) => sum + t.amount, 0);
+          
+        incomeData.push(income);
+        expenseData.push(expenses);
+      });
+      
+      // Render income comparison
+      let incomeHTML = '';
+      for (let i = 1; i < months.length; i++) {
+        const current = incomeData[i];
+        const previous = incomeData[i-1];
+        const delta = current - previous;
+        const pct = previous > 0 ? ((delta / previous) * 100).toFixed(1) : '∞';
+        const isPositive = delta >= 0;
+        const colorClass = isPositive ? 'text-green-500' : 'text-red-500';
+        const icon = isPositive ? '▲' : '▼';
+        
+        incomeHTML += `
+          <div class="flex justify-between items-center p-2 rounded-lg bg-white dark:bg-gray-700">
+            <span>${months[i].label}</span>
+            <div class="flex items-center gap-2">
+              <span class="font-medium">${fmtBYN(current)}</span>
+              <span class="${colorClass} text-sm flex items-center">
+                ${icon} ${Math.abs(pct)}%
+              </span>
+            </div>
+          </div>
+        `;
+      }
+      $('income-comparison').innerHTML = incomeHTML;
+      
+      // Render expense comparison
+      let expenseHTML = '';
+      for (let i = 1; i < months.length; i++) {
+        const current = expenseData[i];
+        const previous = expenseData[i-1];
+        const delta = current - previous;
+        const pct = previous > 0 ? ((delta / previous) * 100).toFixed(1) : '∞';
+        const isPositive = delta >= 0;
+        const colorClass = isPositive ? 'text-red-500' : 'text-green-500';
+        const icon = isPositive ? '▲' : '▼';
+        
+        expenseHTML += `
+          <div class="flex justify-between items-center p-2 rounded-lg bg-white dark:bg-gray-700">
+            <span>${months[i].label}</span>
+            <div class="flex items-center gap-2">
+              <span class="font-medium">${fmtBYN(current)}</span>
+              <span class="${colorClass} text-sm flex items-center">
+                ${icon} ${Math.abs(pct)}%
+              </span>
+            </div>
+          </div>
+        `;
+      }
+      $('expense-comparison').innerHTML = expenseHTML;
+    }
+
+    // ========== YEAR REPORT ==========
+    function getAvailableYears() {
+      const years = new Set();
+      data.transactions.forEach(t => {
+        const d = new Date(t.date);
+        if (!isNaN(d)) years.add(d.getFullYear());
+      });
+      if (years.size === 0) years.add(new Date().getFullYear());
+      return [...years].sort((a, b) => b - a);
+    }
+
+    function populateYearReportSelect() {
+      const sel = $('year-report-year');
+      if (!sel) return;
+
+      const years = getAvailableYears();
+      const prev = sel.value ? Number(sel.value) : null;
+
+      sel.innerHTML = years.map(y => `<option value="${y}">${y}</option>`).join('');
+
+      const fallback = new Date().getFullYear();
+      const next = (prev && years.includes(prev)) ? prev : (years.includes(fallback) ? fallback : years[0]);
+      sel.value = String(next);
+    }
+
+    function renderYearReport(forceYear) {
+      const sel = $('year-report-year');
+      if (!sel) return;
+
+      // Keep year selector up to date
+      populateYearReportSelect();
+
+      const year = Number(forceYear || sel.value || new Date().getFullYear());
+      sel.value = String(year);
+
+      const monthsShort = Array.from({ length: 12 }, (_, m) =>
+        new Date(year, m, 1).toLocaleDateString('ru-RU', { month: 'short' })
+      );
+
+      const monthly = Array.from({ length: 12 }, () => ({ income: 0, expense: 0 }));
+
+      const tx = data.transactions.filter(t => {
+        const d = new Date(t.date);
+        return !isNaN(d) && d.getFullYear() === year;
+      });
+
+      tx.forEach(t => {
+        const d = new Date(t.date);
+        const m = d.getMonth();
+        if (m < 0 || m > 11) return;
+        if (t.type === 'income') monthly[m].income += Number(t.amount) || 0;
+        else if (t.type === 'expense') monthly[m].expense += Number(t.amount) || 0;
+      });
+
+      const incomeByMonth = monthly.map(m => m.income);
+      const expenseByMonth = monthly.map(m => m.expense);
+      const balanceByMonth = monthly.map(m => m.income - m.expense);
+
+      const totalIncome = incomeByMonth.reduce((a, b) => a + b, 0);
+      const totalExpense = expenseByMonth.reduce((a, b) => a + b, 0);
+      const totalBalance = totalIncome - totalExpense;
+
+      // Cards
+      $('year-total-income').textContent = fmtBYN(totalIncome);
+      $('year-total-expenses').textContent = fmtBYN(totalExpense);
+      $('year-total-balance').textContent = fmtBYN(totalBalance);
+
+      const rateEl = $('year-savings-rate');
+      if (rateEl) {
+        if (Math.abs(totalIncome) < 0.01) {
+          rateEl.textContent = '—';
+          rateEl.classList.remove('text-green-500', 'text-red-500');
+          rateEl.classList.add('text-purple-500');
+        } else {
+          const rate = (totalBalance / totalIncome) * 100;
+          rateEl.textContent = `${rate.toFixed(1)}%`;
+          rateEl.classList.remove('text-purple-500', 'text-green-500', 'text-red-500');
+          rateEl.classList.add(rate >= 0 ? 'text-green-500' : 'text-red-500');
+        }
+      }
+
+      // Top categories
+      const sumCats = (type) => {
+        const out = {};
+        tx.filter(t => t.type === type).forEach(t => {
+          out[t.category] = (out[t.category] || 0) + (Number(t.amount) || 0);
+        });
+        return Object.entries(out).sort((a, b) => b[1] - a[1]);
+      };
+
+      const topExpenses = sumCats('expense').slice(0, 5);
+      const topIncome = sumCats('income').slice(0, 5);
+
+      $('year-top-expense-categories').innerHTML = topExpenses.length
+        ? topExpenses.map(([c, v]) => `
+          <div class="flex items-center justify-between p-2 rounded-lg bg-white dark:bg-gray-700">
+            <span class="truncate pr-2">${escapeHtml(c)}</span>
+            <span class="font-semibold text-red-500">${fmtBYN(v)}</span>
+          </div>
+        `).join('')
+        : '<div class="text-muted">Нет данных</div>';
+
+      $('year-top-income-categories').innerHTML = topIncome.length
+        ? topIncome.map(([c, v]) => `
+          <div class="flex items-center justify-between p-2 rounded-lg bg-white dark:bg-gray-700">
+            <span class="truncate pr-2">${escapeHtml(c)}</span>
+            <span class="font-semibold text-green-500">${fmtBYN(v)}</span>
+          </div>
+        `).join('')
+        : '<div class="text-muted">Нет данных</div>';
+
+      // Highlights
+      const bestIdx = balanceByMonth.indexOf(Math.max(...balanceByMonth));
+      const worstIdx = balanceByMonth.indexOf(Math.min(...balanceByMonth));
+      const bestLabel = new Date(year, bestIdx, 1).toLocaleDateString('ru-RU', { month: 'long' });
+      const worstLabel = new Date(year, worstIdx, 1).toLocaleDateString('ru-RU', { month: 'long' });
+
+      const biggestIncomeTx = tx.filter(t => t.type === 'income').sort((a, b) => (b.amount || 0) - (a.amount || 0))[0];
+      const biggestExpenseTx = tx.filter(t => t.type === 'expense').sort((a, b) => (b.amount || 0) - (a.amount || 0))[0];
+
+      const avgIncome = totalIncome / 12;
+      const avgExpense = totalExpense / 12;
+
+      $('year-report-highlights').innerHTML = `
+        <div class="flex justify-between gap-3"><span class="text-secondary">Транзакций:</span><span class="font-semibold">${tx.length}</span></div>
+        <div class="flex justify-between gap-3"><span class="text-secondary">Лучший месяц:</span><span class="font-semibold">${escapeHtml(bestLabel)} • <span class="text-green-500">${fmtBYN(balanceByMonth[bestIdx])}</span></span></div>
+        <div class="flex justify-between gap-3"><span class="text-secondary">Худший месяц:</span><span class="font-semibold">${escapeHtml(worstLabel)} • <span class="text-red-500">${fmtBYN(balanceByMonth[worstIdx])}</span></span></div>
+        <div class="flex justify-between gap-3"><span class="text-secondary">Средний доход/мес:</span><span class="font-semibold text-green-500">${fmtBYN(avgIncome)}</span></div>
+        <div class="flex justify-between gap-3"><span class="text-secondary">Средний расход/мес:</span><span class="font-semibold text-red-500">${fmtBYN(avgExpense)}</span></div>
+        <div class="flex justify-between gap-3"><span class="text-secondary">Крупнейший доход:</span><span class="font-semibold">${biggestIncomeTx ? `${fmtBYN(biggestIncomeTx.amount)} • ${escapeHtml(biggestIncomeTx.category)}` : '—'}</span></div>
+        <div class="flex justify-between gap-3"><span class="text-secondary">Крупнейший расход:</span><span class="font-semibold">${biggestExpenseTx ? `${fmtBYN(biggestExpenseTx.amount)} • ${escapeHtml(biggestExpenseTx.category)}` : '—'}</span></div>
+      `;
+
+      // Table
+      $('year-report-table').innerHTML = monthly.map((m, idx) => {
+        const bal = m.income - m.expense;
+        const cls = bal >= 0 ? 'text-green-500' : 'text-red-500';
+        const label = new Date(year, idx, 1).toLocaleDateString('ru-RU', { month: 'long' });
+        return `
+          <tr class="border-b border-custom">
+            <td class="py-2 pr-4 whitespace-nowrap">${escapeHtml(label)}</td>
+            <td class="py-2 pr-4 text-green-500 font-semibold whitespace-nowrap">${fmtBYN(m.income)}</td>
+            <td class="py-2 pr-4 text-red-500 font-semibold whitespace-nowrap">${fmtBYN(m.expense)}</td>
+            <td class="py-2 font-bold whitespace-nowrap ${cls}">${fmtBYN(bal)}</td>
+          </tr>
+        `;
+      }).join('');
+
+      // Chart (render only when analytics tab is visible to avoid 0-size canvases)
+      if ($('tab-analytics')?.classList.contains('hidden')) return;
+
+      if (charts.yearIncomeExpenses) charts.yearIncomeExpenses.destroy();
+      charts.yearIncomeExpenses = new Chart($('chart-year-income-expenses'), {
+        type: 'bar',
+        data: {
+          labels: monthsShort,
+          datasets: [
+            { label: 'Доходы', data: incomeByMonth, backgroundColor: '#10B981' },
+            { label: 'Расходы', data: expenseByMonth, backgroundColor: '#EF4444' }
+          ]
+        },
+        options: {
+          responsive: true,
+          plugins: { legend: { position: 'bottom' } },
+          scales: { y: { beginAtZero: true } }
+        }
+      });
     }
     
     function renderAnalyticsCharts(transactions) {
@@ -1411,7 +2514,10 @@
       const now = new Date();
       const currentMonth = now.getMonth();
       const currentYear = now.getFullYear();
+      const prevMonth = currentMonth === 0 ? 11 : currentMonth - 1;
+      const prevYear = currentMonth === 0 ? currentYear - 1 : currentYear;
       
+      // Current month data
       const monthTx = data.transactions.filter(t => {
         const d = new Date(t.date);
         return d.getMonth() === currentMonth && d.getFullYear() === currentYear;
@@ -1419,12 +2525,34 @@
       
       const income = monthTx.filter(t => t.type === 'income').reduce((s, t) => s + t.amount, 0);
       const expenses = monthTx.filter(t => t.type === 'expense').reduce((s, t) => s + t.amount, 0);
+      const balance = income - expenses;
       const debtsRemaining = data.debts.reduce((s, d) => s + (d.total - d.paid), 0);
+      const debtsMonthly = data.debts.reduce((s, d) => s + (Number(d.monthly) || 0), 0);
       
+      // Previous month data
+      const prevMonthTx = data.transactions.filter(t => {
+        const d = new Date(t.date);
+        return d.getMonth() === prevMonth && d.getFullYear() === prevYear;
+      });
+      
+      const prevIncome = prevMonthTx.filter(t => t.type === 'income').reduce((s, t) => s + t.amount, 0);
+      const prevExpenses = prevMonthTx.filter(t => t.type === 'expense').reduce((s, t) => s + t.amount, 0);
+      const prevBalance = prevIncome - prevExpenses;
+      
+      // Display current values
       $('summary-income').textContent = fmtBYN(income);
       $('summary-expenses').textContent = fmtBYN(expenses);
-      $('summary-balance').textContent = fmtBYN(income - expenses);
+      $('summary-balance').textContent = fmtBYN(balance);
       $('summary-debts').textContent = fmtBYN(debtsRemaining);
+      if ($('summary-debts-monthly')) {
+        $('summary-debts-monthly').textContent = `Ежемесячно: ${fmtBYN(debtsMonthly)}`;
+      }
+      
+      // Display month-over-month changes
+      setChange('summary-income-change', income, prevIncome, true);
+      setChange('summary-expenses-change', expenses, prevExpenses, false);
+      setChange('summary-balance-change', balance, prevBalance, true);
+      setChange('summary-debts-change', debtsRemaining, debtsRemaining, true); // Placeholder for debts change
       
       // Recent transactions
       const recent = [...data.transactions].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 5);
@@ -1520,11 +2648,14 @@
     
     // ========== RENDER ALL ==========
     function renderAll() {
+      ensureAccounts();
       renderDashboard();
       renderTransactionsList();
       renderRecurring();
       renderDebts();
       renderGoals();
+      renderAccounts();
+      populateAccountSelects();
       populateMonthFilter();
     }
     
@@ -1550,6 +2681,20 @@
       $('rec-type').addEventListener('change', e => populateCategories('rec-category', e.target.value));
       $('quick-type').addEventListener('change', e => populateCategories('quick-category', e.target.value));
       populateCategories('quick-category', 'expense');
+
+      // Toggle metals extra fields
+      const accTypeEl = $('acc-type');
+      if (accTypeEl) {
+        accTypeEl.addEventListener('change', e => {
+          const wrap = $('metals-extra');
+          if (!wrap) return;
+          if (e.target.value === 'metals') {
+            wrap.classList.remove('hidden');
+          } else {
+            wrap.classList.add('hidden');
+          }
+        });
+      }
       
       // Forms
       $('transaction-form').addEventListener('submit', addTransaction);
@@ -1557,6 +2702,8 @@
       $('recurring-form').addEventListener('submit', addRecurring);
       $('debt-form').addEventListener('submit', addDebt);
       $('goal-form').addEventListener('submit', addGoal);
+      $('account-form')?.addEventListener('submit', addAccount);
+      $('transfer-form')?.addEventListener('submit', addTransfer);
       
       // Load data - try cloud first, then local
       const owner = localStorage.getItem('gh-owner');
