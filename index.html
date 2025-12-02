@@ -698,7 +698,7 @@
     const CHART_COLORS = ['#EF4444', '#F59E0B', '#10B981', '#3B82F6', '#8B5CF6', '#EC4899', '#F97316', '#14B8A6', '#6366F1', '#84CC16'];
     
     // ========== STATE ==========
-    let data = { transactions: [], goals: [], debts: [], recurring: [], paymentHistory: [], accounts: [] };
+    let data = { transactions: [], goals: [], debts: [], recurring: [], paymentHistory: [], accounts: [], customCategories: { income: [], expense: [] } };
     let charts = {};
     let exchangeRates = { USD: 3.2, EUR: 3.5, RUB: 0.035, CNY: 0.45 };
     let deferredPrompt = null;
@@ -716,9 +716,16 @@
       if (!Array.isArray(data.accounts)) data.accounts = [];
       // Создаём счета по умолчанию, если их нет
       if (data.accounts.length === 0) {
-        data.accounts.push({ id: genId(), name: 'Карта', type: 'card', initial: 0, createdAt: todayISO() });
-        data.accounts.push({ id: genId(), name: 'Наличные', type: 'cash', initial: 0, createdAt: todayISO() });
+        data.accounts.push({ id: genId(), name: 'Карта', type: 'card', initial: 0, currency: 'BYN', createdAt: todayISO() });
+        data.accounts.push({ id: genId(), name: 'Наличные', type: 'cash', initial: 0, currency: 'BYN', createdAt: todayISO() });
       }
+
+      // Нормализуем валюту для уже существующих счетов (совместимость со старыми данными)
+      (data.accounts || []).forEach(a => {
+        if (!a.currency) a.currency = 'BYN';
+        a.currency = String(a.currency).toUpperCase();
+      });
+
       // НЕ привязываем старые транзакции автоматически к счетам,
       // т.к. это искажает баланс. Старые транзакции (без accountId)
       // просто не будут учитываться в балансе счетов.
@@ -796,7 +803,7 @@
       ];
       presets.forEach(p => {
         if (!existingNames.has(p.name.toLowerCase())) {
-          data.accounts.push({ id: genId(), name: p.name, type: p.type, initial: 0, createdAt: todayISO() });
+          data.accounts.push({ id: genId(), name: p.name, type: p.type, initial: 0, currency: 'BYN', createdAt: todayISO() });
         }
       });
       saveData();
@@ -852,7 +859,7 @@
 
       // ensure at least 1 account
       if ((data.accounts || []).length === 0) {
-        data.accounts.push({ id: genId(), name: 'Карта', type: 'card', initial: 0, createdAt: todayISO() });
+        data.accounts.push({ id: genId(), name: 'Карта', type: 'card', initial: 0, currency: 'BYN', createdAt: todayISO() });
       }
 
       saveData();
@@ -908,13 +915,17 @@
       ensureAccounts();
       const balances = calcAccountBalances();
 
-      const total = (data.accounts || []).reduce((s, a) => s + (balances[a.id] || 0), 0);
+      const totalBYN = (data.accounts || []).reduce((s, a) => {
+        const cur = String(a.currency || 'BYN').toUpperCase();
+        const rate = cur === 'BYN' ? 1 : (exchangeRates[cur] || 1);
+        return s + ((balances[a.id] || 0) * rate);
+      }, 0);
 
       summaryEl.innerHTML = `
         <div class="bg-tertiary rounded-xl p-4">
           <div class="text-sm text-secondary">Всего по всем счетам</div>
-          <div class="text-2xl font-bold text-blue-500">${fmtBYN(total)}</div>
-          <div class="text-xs text-muted mt-1">Сумма балансов всех счетов (BYN)</div>
+          <div class="text-2xl font-bold text-blue-500">${fmtBYN(totalBYN)}</div>
+          <div class="text-xs text-muted mt-1">≈ сумма балансов с конвертацией по курсам (BYN)</div>
         </div>
         <div class="bg-tertiary rounded-xl p-4">
           <div class="text-sm text-secondary">Счетов</div>
@@ -927,14 +938,15 @@
         const meta = ACCOUNT_TYPES[a.type] || ACCOUNT_TYPES.other;
         const b = balances[a.id] || 0;
         const cls = b >= 0 ? 'text-green-500' : 'text-red-500';
+        const cur = String(a.currency || 'BYN').toUpperCase();
         return `
           <div class="flex items-center gap-3 p-3 rounded-xl bg-tertiary">
             <div class="text-2xl">${meta.icon}</div>
             <div class="flex-1 min-w-0">
               <div class="font-semibold truncate">${escapeHtml(a.name)}</div>
-              <div class="text-xs text-muted">${meta.label} • нач.: ${fmtBYN(a.initial || 0)}</div>
+              <div class="text-xs text-muted">${meta.label} • нач.: ${fmtCurrency(a.initial || 0, cur)}</div>
             </div>
-            <div class="font-bold ${cls}">${fmtBYN(b)}</div>
+            <div class="font-bold ${cls}">${fmtCurrency(b, cur)}</div>
             <button onclick="deleteAccount('${a.id}')" class="text-red-500 hover:bg-red-100 p-2 rounded-lg">🗑️</button>
           </div>
         `;
