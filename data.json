@@ -445,6 +445,14 @@
       "type": "card",
       "initial": 0,
       "createdAt": "2025-12-02"
+    },
+    {
+      "id": "miotr0qiv4krff3617",
+      "name": "вклда",
+      "type": "card",
+      "initial": 4000,
+      "currency": "BYN",
+      "createdAt": "2025-12-02"
     }
   ]
 }
