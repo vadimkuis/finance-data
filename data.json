@@ -389,7 +389,6 @@
       "type": "transfer",
       "amount": 5000,
       "date": "2025-12-02",
-      "fromAccountId": "miotriw21yimserhymm",
       "toAccountId": "miotr77ad9yhkfukvk",
       "note": ""
     }
@@ -453,14 +452,6 @@
       "name": "Карта",
       "type": "card",
       "initial": 0,
-      "createdAt": "2025-12-02"
-    },
-    {
-      "id": "miotriw21yimserhymm",
-      "name": "вклда",
-      "type": "deposit",
-      "initial": 5000,
-      "currency": "BYN",
       "createdAt": "2025-12-02"
     }
   ]
