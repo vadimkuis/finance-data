@@ -421,6 +421,13 @@
       "target": 700,
       "currency": "BYN",
       "current": 0
+    },
+    {
+      "id": "miu8j1ifll9mdowsuu",
+      "name": "Отдых",
+      "target": 2000,
+      "currency": "BYN",
+      "current": 0
     }
   ],
   "debts": [
