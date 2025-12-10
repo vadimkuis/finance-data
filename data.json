@@ -471,6 +471,14 @@
       "amount": 29.9,
       "date": "2025-12-10",
       "note": "Мтс Алина"
+    },
+    {
+      "id": "mj021ucpuynvu5a6n7",
+      "type": "expense",
+      "category": "Связь",
+      "amount": 29.9,
+      "date": "2025-12-10",
+      "note": "Мой мтс"
     }
   ],
   "goals": [
