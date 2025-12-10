@@ -415,6 +415,14 @@
       "amount": 310,
       "date": "2025-12-10",
       "note": "Платёж: Айфоны"
+    },
+    {
+      "id": "mizz9tfy6lxeavluges",
+      "type": "expense",
+      "category": "Связь",
+      "amount": 8.1,
+      "date": "2025-12-10",
+      "note": "Домашний телефон"
     }
   ],
   "goals": [
