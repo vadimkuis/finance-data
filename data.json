@@ -439,6 +439,14 @@
       "amount": 192.26,
       "date": "2025-12-10",
       "note": "Подарок Маме"
+    },
+    {
+      "id": "mj01kyv146evsfs6hi6",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 53.17,
+      "date": "2025-12-10",
+      "note": "Налог НПД Ноябрь"
     }
   ],
   "goals": [
