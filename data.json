@@ -399,6 +399,14 @@
       "amount": 2429.38,
       "date": "2025-12-10",
       "note": ""
+    },
+    {
+      "id": "mizrxr6qvi8cfbcki0p",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 400,
+      "date": "2025-12-10",
+      "note": ""
     }
   ],
   "goals": [
