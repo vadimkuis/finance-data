@@ -391,6 +391,14 @@
       "amount": 2.19,
       "date": "2025-12-03",
       "note": ""
+    },
+    {
+      "id": "mizrxauqvt8bzsc2q3k",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 2429.38,
+      "date": "2025-12-10",
+      "note": ""
     }
   ],
   "goals": [
