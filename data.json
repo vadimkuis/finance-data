@@ -407,6 +407,14 @@
       "amount": 400,
       "date": "2025-12-10",
       "note": ""
+    },
+    {
+      "id": "mizz5js63ghugmai1vj",
+      "type": "expense",
+      "category": "Кредиты",
+      "amount": 310,
+      "date": "2025-12-10",
+      "note": "Платёж: Айфоны"
     }
   ],
   "goals": [
@@ -453,7 +461,7 @@
       "name": "Айфоны",
       "total": 5603.17,
       "monthly": 307,
-      "paid": 0,
+      "paid": 310,
       "createdAt": "2025-11-30"
     },
     {
@@ -474,6 +482,13 @@
       "debtName": "Окно",
       "amount": 166.66,
       "date": "2025-11-30"
+    },
+    {
+      "id": "mizz5js68kijgqnfhtp",
+      "debtId": "mils59fozdl0gdqlap8",
+      "debtName": "Айфоны",
+      "amount": 310,
+      "date": "2025-12-10"
     }
   ],
   "accounts": [
