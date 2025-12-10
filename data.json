@@ -487,6 +487,14 @@
       "amount": 26.01,
       "date": "2025-12-10",
       "note": "Санта"
+    },
+    {
+      "id": "mj04udaekf91yj20iu",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 20,
+      "date": "2025-12-10",
+      "note": "Цветок Алине"
     }
   ],
   "goals": [
