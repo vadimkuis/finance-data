@@ -447,6 +447,14 @@
       "amount": 53.17,
       "date": "2025-12-10",
       "note": "Налог НПД Ноябрь"
+    },
+    {
+      "id": "mj01nubgdrpperqtaab",
+      "type": "expense",
+      "category": "Рассрочки",
+      "amount": 166.66,
+      "date": "2025-12-10",
+      "note": "Платёж: Окно"
     }
   ],
   "goals": [
@@ -502,7 +510,7 @@
       "name": "Окно",
       "total": 501.52,
       "monthly": 166.66,
-      "paid": 0,
+      "paid": 166.66,
       "createdAt": "2025-11-30"
     }
   ],
@@ -520,6 +528,13 @@
       "debtId": "mils59fozdl0gdqlap8",
       "debtName": "Айфоны",
       "amount": 310,
+      "date": "2025-12-10"
+    },
+    {
+      "id": "mj01nubgdhsmm0f99g",
+      "debtId": "mils5pt7qocqjp4z61",
+      "debtName": "Окно",
+      "amount": 166.66,
       "date": "2025-12-10"
     }
   ],
