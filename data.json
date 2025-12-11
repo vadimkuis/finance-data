@@ -575,6 +575,15 @@
       "monthly": 166.66,
       "paid": 166.66,
       "createdAt": "2025-11-30"
+    },
+    {
+      "id": "mj1fmxk6go4oesbsh16",
+      "type": "credit",
+      "name": "Айфоны",
+      "total": 5320.18,
+      "monthly": 310,
+      "paid": 0,
+      "createdAt": "2025-12-11"
     }
   ],
   "recurring": [],
