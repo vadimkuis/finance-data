@@ -519,6 +519,14 @@
       "amount": 100,
       "date": "2025-12-11",
       "note": "На Дверь"
+    },
+    {
+      "id": "mj14rj481ksazzvrava",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 42.79,
+      "date": "2025-12-11",
+      "note": "Покупка акции БЭРН"
     }
   ],
   "goals": [
