@@ -527,6 +527,14 @@
       "amount": 42.79,
       "date": "2025-12-11",
       "note": "Покупка акции БЭРН"
+    },
+    {
+      "id": "mj1kjwdm934tne9t654",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 109.46,
+      "date": "2025-12-11",
+      "note": "Копеечка"
     }
   ],
   "goals": [
