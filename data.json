@@ -511,6 +511,14 @@
       "amount": 295,
       "date": "2025-12-11",
       "note": "На машину"
+    },
+    {
+      "id": "mj0wo7nokong8wjyko",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 100,
+      "date": "2025-12-11",
+      "note": "На Дверь"
     }
   ],
   "goals": [
