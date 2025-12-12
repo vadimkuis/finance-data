@@ -535,6 +535,14 @@
       "amount": 109.46,
       "date": "2025-12-11",
       "note": "Копеечка"
+    },
+    {
+      "id": "mj2mjyz2et1ehf3xkm",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 9.98,
+      "date": "2025-12-12",
+      "note": "Столовая"
     }
   ],
   "goals": [
