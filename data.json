@@ -551,6 +551,14 @@
       "amount": 68.57,
       "date": "2025-12-12",
       "note": "Грошык"
+    },
+    {
+      "id": "mj4669tfl8a2kvvfpqq",
+      "type": "expense",
+      "category": "Развлечения",
+      "amount": 4.6,
+      "date": "2025-12-13",
+      "note": ""
     }
   ],
   "goals": [
