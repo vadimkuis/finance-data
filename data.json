@@ -567,6 +567,14 @@
       "amount": 68.6,
       "date": "2025-12-13",
       "note": ""
+    },
+    {
+      "id": "mj4ckxsqrvxv9rolcr",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 43.16,
+      "date": "2025-12-13",
+      "note": "Кубики Вие"
     }
   ],
   "goals": [
