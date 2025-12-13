@@ -575,6 +575,14 @@
       "amount": 43.16,
       "date": "2025-12-13",
       "note": "Кубики Вие"
+    },
+    {
+      "id": "mj4qobpv61ijnb5h4z6",
+      "type": "expense",
+      "category": "Транспорт",
+      "amount": 11.27,
+      "date": "2025-12-13",
+      "note": "Билет Вероника"
     }
   ],
   "goals": [
