@@ -583,6 +583,14 @@
       "amount": 11.27,
       "date": "2025-12-13",
       "note": "Билет Вероника"
+    },
+    {
+      "id": "mj78jszldw2ri05vff",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 18.48,
+      "date": "2025-12-15",
+      "note": "Хит"
     }
   ],
   "goals": [
