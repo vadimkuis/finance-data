@@ -591,6 +591,14 @@
       "amount": 18.48,
       "date": "2025-12-15",
       "note": "Хит"
+    },
+    {
+      "id": "mj8ovr8x9xar4tp0mp6",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 30,
+      "date": "2025-12-16",
+      "note": "Капибара"
     }
   ],
   "goals": [
