@@ -615,6 +615,14 @@
       "amount": 104.82,
       "date": "2025-12-17",
       "note": "Санта"
+    },
+    {
+      "id": "mjbby7cwh6ftouy3zc",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 9.15,
+      "date": "2025-12-18",
+      "note": "Столовая"
     }
   ],
   "goals": [
