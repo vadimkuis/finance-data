@@ -623,6 +623,14 @@
       "amount": 9.15,
       "date": "2025-12-18",
       "note": "Столовая"
+    },
+    {
+      "id": "mjcyrnqlt72jxzvxh8a",
+      "type": "expense",
+      "category": "Здоровье",
+      "amount": 4.75,
+      "date": "2025-12-19",
+      "note": "Слеза"
     }
   ],
   "goals": [
