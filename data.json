@@ -663,6 +663,14 @@
       "amount": 7.35,
       "date": "2025-12-22",
       "note": "Столовая"
+    },
+    {
+      "id": "mjh80rsota6sxzbzsqa",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 49.47,
+      "date": "2025-12-22",
+      "note": "Подарок Давиду"
     }
   ],
   "goals": [
