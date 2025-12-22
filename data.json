@@ -647,6 +647,14 @@
       "amount": 51.45,
       "date": "2025-12-20",
       "note": "Телефон бабе"
+    },
+    {
+      "id": "mjh585a8433ydagialq",
+      "type": "income",
+      "category": "Возврат",
+      "amount": 8.44,
+      "date": "2025-12-22",
+      "note": "Бонус сбербанк"
     }
   ],
   "goals": [
