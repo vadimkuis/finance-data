@@ -703,6 +703,14 @@
       "amount": 1.5,
       "date": "2025-12-24",
       "note": "Домофон"
+    },
+    {
+      "id": "mjkbvnwjiacgm82xxso",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 20,
+      "date": "2025-12-24",
+      "note": "На дверь"
     }
   ],
   "goals": [
