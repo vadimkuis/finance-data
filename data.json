@@ -671,6 +671,14 @@
       "amount": 49.47,
       "date": "2025-12-22",
       "note": "Подарок Давиду"
+    },
+    {
+      "id": "mjjruy5hc0h3z11mrzh",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 9.15,
+      "date": "2025-12-24",
+      "note": "Столовая"
     }
   ],
   "goals": [
