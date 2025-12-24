@@ -695,6 +695,14 @@
       "amount": 100,
       "date": "2025-12-24",
       "note": "На двери"
+    },
+    {
+      "id": "mjkbue39qscgq09wrtl",
+      "type": "expense",
+      "category": "Связь",
+      "amount": 1.5,
+      "date": "2025-12-24",
+      "note": "Домофон"
     }
   ],
   "goals": [
