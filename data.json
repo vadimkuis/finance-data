@@ -727,6 +727,14 @@
       "amount": 48.78,
       "date": "2025-12-25",
       "note": "Две бутылки алко в припятском"
+    },
+    {
+      "id": "mjo2a4vtspvgzr4ao1",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 29.9,
+      "date": "2025-12-27",
+      "note": "Сало на рынке"
     }
   ],
   "goals": [
