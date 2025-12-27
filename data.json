@@ -735,6 +735,14 @@
       "amount": 29.9,
       "date": "2025-12-27",
       "note": "Сало на рынке"
+    },
+    {
+      "id": "mjo2alenyviy4tp577k",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 10.14,
+      "date": "2025-12-27",
+      "note": "Игрушка конь"
     }
   ],
   "goals": [
