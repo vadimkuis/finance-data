@@ -751,6 +751,14 @@
       "amount": 30,
       "date": "2025-12-27",
       "note": "Цветы"
+    },
+    {
+      "id": "mjo3ouudo9swskrq0bl",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 10,
+      "date": "2025-12-27",
+      "note": "Яблоки на рынке"
     }
   ],
   "goals": [
