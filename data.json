@@ -743,6 +743,14 @@
       "amount": 10.14,
       "date": "2025-12-27",
       "note": "Игрушка конь"
+    },
+    {
+      "id": "mjo2axad0t3q9w2y60y",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 30,
+      "date": "2025-12-27",
+      "note": "Цветы"
     }
   ],
   "goals": [
