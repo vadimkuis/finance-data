@@ -775,6 +775,14 @@
       "amount": 7.2,
       "date": "2025-12-28",
       "note": ""
+    },
+    {
+      "id": "mjr9bdwv39mfbjswf9",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 9.48,
+      "date": "2025-12-29",
+      "note": ""
     }
   ],
   "goals": [
