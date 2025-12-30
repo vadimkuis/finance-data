@@ -831,6 +831,14 @@
       "amount": 50.57,
       "date": "2025-12-30",
       "note": ""
+    },
+    {
+      "id": "mjsmf91bg0v131vo5wv",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 200.57,
+      "date": "2025-12-30",
+      "note": "На двери"
     }
   ],
   "goals": [
