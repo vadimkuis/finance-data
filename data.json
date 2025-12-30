@@ -783,6 +783,14 @@
       "amount": 9.48,
       "date": "2025-12-29",
       "note": ""
+    },
+    {
+      "id": "mjs27k17s2lw3rjd62",
+      "type": "expense",
+      "category": "Развлечения",
+      "amount": 11.99,
+      "date": "2025-12-30",
+      "note": "Я. Музыка"
     }
   ],
   "goals": [
