@@ -823,6 +823,14 @@
       "amount": 50,
       "date": "2025-12-30",
       "note": "Платёж: Айфоны"
+    },
+    {
+      "id": "mjsltrryuxyob0rp0ng",
+      "type": "income",
+      "category": "Возврат",
+      "amount": 50.57,
+      "date": "2025-12-30",
+      "note": ""
     }
   ],
   "goals": [
