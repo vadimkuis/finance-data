@@ -799,6 +799,14 @@
       "amount": 774,
       "date": "2025-12-30",
       "note": "Премия к Новому году"
+    },
+    {
+      "id": "mjslj0sj7bew11ib59l",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 292,
+      "date": "2025-12-30",
+      "note": "Купил 100$"
     }
   ],
   "goals": [
