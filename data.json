@@ -807,6 +807,14 @@
       "amount": 292,
       "date": "2025-12-30",
       "note": "Купил 100$"
+    },
+    {
+      "id": "mjslr9zieytc9zemf",
+      "type": "expense",
+      "category": "Кредиты",
+      "amount": 100,
+      "date": "2025-12-30",
+      "note": "Айфон"
     }
   ],
   "goals": [
