@@ -839,6 +839,14 @@
       "amount": 200.57,
       "date": "2025-12-30",
       "note": "На двери"
+    },
+    {
+      "id": "mjsygfulp21ui1ccsl",
+      "type": "expense",
+      "category": "Развлечения",
+      "amount": 114.42,
+      "date": "2025-12-30",
+      "note": "Подарок Алине"
     }
   ],
   "goals": [
