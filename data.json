@@ -791,6 +791,14 @@
       "amount": 11.99,
       "date": "2025-12-30",
       "note": "Я. Музыка"
+    },
+    {
+      "id": "mjsjrwhxgsdhdo9q5er",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 774,
+      "date": "2025-12-30",
+      "note": "Премия к Новому году"
     }
   ],
   "goals": [
