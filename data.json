@@ -863,6 +863,14 @@
       "amount": 9.45,
       "date": "2026-01-05",
       "note": "Столовая"
+    },
+    {
+      "id": "mk19t6ti8xkdijqo4t4",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 15.92,
+      "date": "2026-01-05",
+      "note": "Вояж"
     }
   ],
   "goals": [
