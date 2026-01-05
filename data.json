@@ -901,6 +901,13 @@
       "target": 2000,
       "currency": "BYN",
       "current": 0
+    },
+    {
+      "id": "mk1dyo788dzzbwqdy85",
+      "name": "На кровать вие",
+      "target": 1500,
+      "currency": "BYN",
+      "current": 0
     }
   ],
   "debts": [
