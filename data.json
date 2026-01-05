@@ -847,6 +847,14 @@
       "amount": 114.42,
       "date": "2025-12-30",
       "note": "Подарок Алине"
+    },
+    {
+      "id": "mk0umzt8itm8q0sf7lg",
+      "type": "income",
+      "category": "Возврат",
+      "amount": 113.12,
+      "date": "2026-01-05",
+      "note": "Баланс декабрь"
     }
   ],
   "goals": [
