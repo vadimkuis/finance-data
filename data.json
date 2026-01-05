@@ -855,6 +855,14 @@
       "amount": 113.12,
       "date": "2026-01-05",
       "note": "Баланс декабрь"
+    },
+    {
+      "id": "mk0x3wcokc76n3ntr9",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 9.45,
+      "date": "2026-01-05",
+      "note": "Столовая"
     }
   ],
   "goals": [
