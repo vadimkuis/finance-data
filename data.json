@@ -887,6 +887,14 @@
       "amount": 200,
       "date": "2026-01-06",
       "note": "На двери"
+    },
+    {
+      "id": "mk2ptjiom51b6ozna4r",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 37.24,
+      "date": "2026-01-06",
+      "note": "Хит"
     }
   ],
   "goals": [
