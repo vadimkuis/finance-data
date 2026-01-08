@@ -903,6 +903,14 @@
       "amount": 26.37,
       "date": "2026-01-07",
       "note": "Хит"
+    },
+    {
+      "id": "mk57e4gjbeb02kegrpm",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 2.05,
+      "date": "2026-01-08",
+      "note": "Столовая"
     }
   ],
   "goals": [
