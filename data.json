@@ -919,6 +919,14 @@
       "amount": 72.98,
       "date": "2026-01-09",
       "note": "Санта"
+    },
+    {
+      "id": "mka28q5ubxwfmd09i4q",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 22.5,
+      "date": "2026-01-11",
+      "note": "Налог на профдоход"
     }
   ],
   "goals": [
