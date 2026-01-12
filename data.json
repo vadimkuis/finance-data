@@ -927,6 +927,14 @@
       "amount": 22.5,
       "date": "2026-01-11",
       "note": "Налог на профдоход"
+    },
+    {
+      "id": "mkarhg0g4jjrondvr9v",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 1637.74,
+      "date": "2026-01-12",
+      "note": ""
     }
   ],
   "goals": [
