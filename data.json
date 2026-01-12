@@ -943,6 +943,14 @@
       "amount": 7.55,
       "date": "2026-01-12",
       "note": "Столовая"
+    },
+    {
+      "id": "mkb2xl6xgiwpevkqxa",
+      "type": "income",
+      "category": "Подарки",
+      "amount": 200,
+      "date": "2026-01-12",
+      "note": "От мамы"
     }
   ],
   "goals": [
