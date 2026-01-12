@@ -935,6 +935,14 @@
       "amount": 1637.74,
       "date": "2026-01-12",
       "note": ""
+    },
+    {
+      "id": "mkaxh7k97yxs2l3qlwi",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 7.55,
+      "date": "2026-01-12",
+      "note": "Столовая"
     }
   ],
   "goals": [
