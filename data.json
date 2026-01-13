@@ -975,6 +975,14 @@
       "amount": 67.99,
       "date": "2026-01-13",
       "note": "Хит"
+    },
+    {
+      "id": "mkcpy82cz0ugthl8foa",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 31.84,
+      "date": "2026-01-13",
+      "note": "Санта"
     }
   ],
   "goals": [
