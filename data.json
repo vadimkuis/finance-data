@@ -991,6 +991,14 @@
       "amount": 0.17,
       "date": "2026-01-14",
       "note": "Три цены"
+    },
+    {
+      "id": "mkdkyquuvk0f19wdy2o",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 23,
+      "date": "2026-01-14",
+      "note": "Командировочные"
     }
   ],
   "goals": [
