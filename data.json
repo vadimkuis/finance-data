@@ -983,6 +983,14 @@
       "amount": 31.84,
       "date": "2026-01-13",
       "note": "Санта"
+    },
+    {
+      "id": "mkdky19b0rx36k37ovm",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 0.17,
+      "date": "2026-01-14",
+      "note": "Три цены"
     }
   ],
   "goals": [
