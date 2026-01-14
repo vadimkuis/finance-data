@@ -999,6 +999,14 @@
       "amount": 23,
       "date": "2026-01-14",
       "note": "Командировочные"
+    },
+    {
+      "id": "mkejqxk40v3n6poulmwg",
+      "type": "expense",
+      "category": "Коммуналка",
+      "amount": 1.5,
+      "date": "2026-01-14",
+      "note": "Домофон"
     }
   ],
   "goals": [
