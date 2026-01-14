@@ -1007,6 +1007,14 @@
       "amount": 1.5,
       "date": "2026-01-14",
       "note": "Домофон"
+    },
+    {
+      "id": "mkejt3iyu7zkgeqmb4p",
+      "type": "expense",
+      "category": "Кредиты",
+      "amount": 310,
+      "date": "2026-01-14",
+      "note": "Платёж: Айфоны"
     }
   ],
   "goals": [
@@ -1062,7 +1070,7 @@
       "name": "Айфоны",
       "total": 5320.18,
       "monthly": 310,
-      "paid": 50,
+      "paid": 360,
       "createdAt": "2025-12-11"
     }
   ],
@@ -1095,6 +1103,13 @@
       "debtName": "Айфоны",
       "amount": 50,
       "date": "2025-12-30"
+    },
+    {
+      "id": "mkejt3iyhpyo09bq5nm",
+      "debtId": "mj1fmxk6go4oesbsh16",
+      "debtName": "Айфоны",
+      "amount": 310,
+      "date": "2026-01-14"
     }
   ],
   "accounts": [
