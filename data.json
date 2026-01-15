@@ -1055,6 +1055,14 @@
       "amount": 200,
       "date": "2026-01-15",
       "note": "На кровать"
+    },
+    {
+      "id": "mkfkiowit737ztcaaue",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 9.32,
+      "date": "2026-01-15",
+      "note": "Емолл"
     }
   ],
   "goals": [
