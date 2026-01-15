@@ -1039,6 +1039,14 @@
       "amount": 130.77,
       "date": "2026-01-15",
       "note": ""
+    },
+    {
+      "id": "mkf7tdwdvsnt1f011p9",
+      "type": "expense",
+      "category": "Кредиты",
+      "amount": 5,
+      "date": "2026-01-15",
+      "note": "Кредит"
     }
   ],
   "goals": [
