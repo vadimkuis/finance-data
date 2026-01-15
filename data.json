@@ -1047,6 +1047,14 @@
       "amount": 5,
       "date": "2026-01-15",
       "note": "Кредит"
+    },
+    {
+      "id": "mkfgfhlh111bfuxx4tu",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 200,
+      "date": "2026-01-15",
+      "note": "На кровать"
     }
   ],
   "goals": [
