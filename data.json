@@ -1023,6 +1023,14 @@
       "amount": 12,
       "date": "2026-01-15",
       "note": "Коммандировка"
+    },
+    {
+      "id": "mkf4z5xodumku343jc6",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 100,
+      "date": "2026-01-15",
+      "note": "Предоплата за тахту"
     }
   ],
   "goals": [
