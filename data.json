@@ -1063,6 +1063,14 @@
       "amount": 9.32,
       "date": "2026-01-15",
       "note": "Емолл"
+    },
+    {
+      "id": "mkfkj2jpl28oyatg1e",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 11.18,
+      "date": "2026-01-15",
+      "note": "Зодиак"
     }
   ],
   "goals": [
