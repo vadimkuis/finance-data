@@ -1031,6 +1031,14 @@
       "amount": 100,
       "date": "2026-01-15",
       "note": "Предоплата за тахту"
+    },
+    {
+      "id": "mkf68s3s3ag7t011jkq",
+      "type": "expense",
+      "category": "Коммуналка",
+      "amount": 130.77,
+      "date": "2026-01-15",
+      "note": ""
     }
   ],
   "goals": [
