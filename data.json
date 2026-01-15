@@ -1015,6 +1015,14 @@
       "amount": 310,
       "date": "2026-01-14",
       "note": "Платёж: Айфоны"
+    },
+    {
+      "id": "mkf3j6kjfy7qafuk78e",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 12,
+      "date": "2026-01-15",
+      "note": "Коммандировка"
     }
   ],
   "goals": [
