@@ -1111,6 +1111,14 @@
       "amount": 333,
       "date": "2026-01-16",
       "note": "Платёж: Окно"
+    },
+    {
+      "id": "mkgwu0ncpdvf1fo1mhr",
+      "type": "expense",
+      "category": "Рассрочки",
+      "amount": 1,
+      "date": "2026-01-16",
+      "note": "Платёж: Окно"
     }
   ],
   "goals": [
@@ -1157,7 +1165,7 @@
       "name": "Окно",
       "total": 501.52,
       "monthly": 166.66,
-      "paid": 499.65999999999997,
+      "paid": 500.65999999999997,
       "createdAt": "2025-11-30"
     },
     {
@@ -1212,6 +1220,13 @@
       "debtId": "mils5pt7qocqjp4z61",
       "debtName": "Окно",
       "amount": 333,
+      "date": "2026-01-16"
+    },
+    {
+      "id": "mkgwu0nc4fmwtkouu7f",
+      "debtId": "mils5pt7qocqjp4z61",
+      "debtName": "Окно",
+      "amount": 1,
       "date": "2026-01-16"
     }
   ],
