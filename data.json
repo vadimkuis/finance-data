@@ -1119,6 +1119,14 @@
       "amount": 1,
       "date": "2026-01-16",
       "note": "Платёж: Окно"
+    },
+    {
+      "id": "mkgwvpmrg7u7uqeas2",
+      "type": "income",
+      "category": "Возврат",
+      "amount": 229.95,
+      "date": "2026-01-16",
+      "note": ""
     }
   ],
   "goals": [
