@@ -1127,6 +1127,14 @@
       "amount": 229.95,
       "date": "2026-01-16",
       "note": ""
+    },
+    {
+      "id": "mkgwwo05rpo2w36qkpl",
+      "type": "income",
+      "category": "Возврат",
+      "amount": 104.05,
+      "date": "2026-01-16",
+      "note": ""
     }
   ],
   "goals": [
