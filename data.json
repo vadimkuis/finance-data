@@ -1095,6 +1095,14 @@
       "amount": 293,
       "date": "2026-01-16",
       "note": "Доллары"
+    },
+    {
+      "id": "mkgwt8k3398renf3qmn",
+      "type": "expense",
+      "category": "Рассрочки",
+      "amount": 336.03,
+      "date": "2026-01-16",
+      "note": "Окно"
     }
   ],
   "goals": [
