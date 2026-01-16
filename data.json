@@ -1143,6 +1143,14 @@
       "amount": 30.3,
       "date": "2026-01-16",
       "note": "Хит"
+    },
+    {
+      "id": "mkgzkysd38j1tckzo26",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 3.75,
+      "date": "2026-01-16",
+      "note": "Фикс прайс"
     }
   ],
   "goals": [
