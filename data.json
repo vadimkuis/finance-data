@@ -1160,15 +1160,6 @@
   ],
   "debts": [
     {
-      "id": "mils5pt7qocqjp4z61",
-      "type": "installment",
-      "name": "Окно",
-      "total": 501.52,
-      "monthly": 166.66,
-      "paid": 500.65999999999997,
-      "createdAt": "2025-11-30"
-    },
-    {
       "id": "mj1fmxk6go4oesbsh16",
       "type": "credit",
       "name": "Айфоны",
