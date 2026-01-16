@@ -1135,6 +1135,14 @@
       "amount": 104.05,
       "date": "2026-01-16",
       "note": ""
+    },
+    {
+      "id": "mkgzknj48arfe2rsr7k",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 30.3,
+      "date": "2026-01-16",
+      "note": "Хит"
     }
   ],
   "goals": [
