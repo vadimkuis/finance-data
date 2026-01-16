@@ -1087,6 +1087,14 @@
       "amount": 136.79,
       "date": "2026-01-16",
       "note": ""
+    },
+    {
+      "id": "mkgwov8b5jkvndtaq34",
+      "type": "expense",
+      "category": "Транспорт",
+      "amount": 293,
+      "date": "2026-01-16",
+      "note": "Доллары"
     }
   ],
   "goals": [
