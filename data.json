@@ -1079,6 +1079,14 @@
       "amount": 12.46,
       "date": "2026-01-15",
       "note": "Вояж"
+    },
+    {
+      "id": "mkguj30kce0pst98s2",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 136.79,
+      "date": "2026-01-16",
+      "note": ""
     }
   ],
   "goals": [
