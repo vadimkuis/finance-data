@@ -1103,6 +1103,14 @@
       "amount": 336.03,
       "date": "2026-01-16",
       "note": "Окно"
+    },
+    {
+      "id": "mkgwtn2l3cjai3scusy",
+      "type": "expense",
+      "category": "Рассрочки",
+      "amount": 333,
+      "date": "2026-01-16",
+      "note": "Платёж: Окно"
     }
   ],
   "goals": [
@@ -1149,7 +1157,7 @@
       "name": "Окно",
       "total": 501.52,
       "monthly": 166.66,
-      "paid": 166.66,
+      "paid": 499.65999999999997,
       "createdAt": "2025-11-30"
     },
     {
@@ -1198,6 +1206,13 @@
       "debtName": "Айфоны",
       "amount": 310,
       "date": "2026-01-14"
+    },
+    {
+      "id": "mkgwtn2ljntxcaxwbf",
+      "debtId": "mils5pt7qocqjp4z61",
+      "debtName": "Окно",
+      "amount": 333,
+      "date": "2026-01-16"
     }
   ],
   "accounts": [
