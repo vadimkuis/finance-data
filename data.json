@@ -1151,6 +1151,14 @@
       "amount": 3.75,
       "date": "2026-01-16",
       "note": "Фикс прайс"
+    },
+    {
+      "id": "mki7d1w1kj3n2br4lti",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 39,
+      "date": "2026-01-17",
+      "note": "Дверь"
     }
   ],
   "goals": [
