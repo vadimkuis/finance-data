@@ -1190,7 +1190,17 @@
       "current": 750
     }
   ],
-  "debts": [],
+  "debts": [
+    {
+      "id": "mkhw82jku4zm3iltan",
+      "type": "credit",
+      "name": "Айфоны",
+      "total": 5005.21,
+      "monthly": 310,
+      "paid": 0,
+      "createdAt": "2026-01-17"
+    }
+  ],
   "recurring": [],
   "paymentHistory": [
     {
