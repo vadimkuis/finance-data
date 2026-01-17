@@ -1159,6 +1159,14 @@
       "amount": 39,
       "date": "2026-01-17",
       "note": "Дверь"
+    },
+    {
+      "id": "mkiij7wgcimviroxkw",
+      "type": "expense",
+      "category": "Развлечения",
+      "amount": 5.36,
+      "date": "2026-01-17",
+      "note": "Три цены"
     }
   ],
   "goals": [
