@@ -1191,6 +1191,14 @@
       "amount": 69.04,
       "date": "2026-01-18",
       "note": "Копеечка"
+    },
+    {
+      "id": "mkkxeun1y3qvtow9bo",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 9.65,
+      "date": "2026-01-19",
+      "note": "Столовая"
     }
   ],
   "goals": [
