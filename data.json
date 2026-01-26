@@ -1215,6 +1215,14 @@
       "amount": 7.8,
       "date": "2026-01-22",
       "note": "Столовая"
+    },
+    {
+      "id": "mkv538l6jxineqnoit",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 452.12,
+      "date": "2026-01-26",
+      "note": "Аванс"
     }
   ],
   "goals": [
