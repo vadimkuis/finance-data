@@ -1223,6 +1223,14 @@
       "amount": 452.12,
       "date": "2026-01-26",
       "note": "Аванс"
+    },
+    {
+      "id": "mkv9v2t92ir6x8e6iq3",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 12.97,
+      "date": "2026-01-26",
+      "note": "Хит"
     }
   ],
   "goals": [
