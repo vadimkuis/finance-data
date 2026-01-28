@@ -1247,6 +1247,14 @@
       "amount": 60.7,
       "date": "2026-01-27",
       "note": "Доставка китая"
+    },
+    {
+      "id": "mkxssjsebbcnziiwczo",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 7.55,
+      "date": "2026-01-28",
+      "note": "Столовая"
     }
   ],
   "goals": [
