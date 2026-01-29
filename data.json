@@ -1255,6 +1255,14 @@
       "amount": 7.55,
       "date": "2026-01-28",
       "note": "Столовая"
+    },
+    {
+      "id": "mkyxg32mczk1gyfxsgr",
+      "type": "expense",
+      "category": "Развлечения",
+      "amount": 11.99,
+      "date": "2026-01-29",
+      "note": "Яндекс музыка"
     }
   ],
   "goals": [
