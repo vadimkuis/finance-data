@@ -1263,6 +1263,14 @@
       "amount": 11.99,
       "date": "2026-01-29",
       "note": "Яндекс музыка"
+    },
+    {
+      "id": "mkzpru3a3284tlz9o2l",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 29.74,
+      "date": "2026-01-29",
+      "note": "Санта"
     }
   ],
   "goals": [
