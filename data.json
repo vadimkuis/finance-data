@@ -1279,6 +1279,14 @@
       "amount": 8.25,
       "date": "2026-01-30",
       "note": "Столовая"
+    },
+    {
+      "id": "ml1000hhu8mclkq4txd",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 21.11,
+      "date": "2026-01-30",
+      "note": "Хит"
     }
   ],
   "goals": [
