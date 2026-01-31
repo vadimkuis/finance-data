@@ -1287,6 +1287,14 @@
       "amount": 21.11,
       "date": "2026-01-30",
       "note": "Хит"
+    },
+    {
+      "id": "ml1utf5szmk3tjav76",
+      "type": "expense",
+      "category": "Транспорт",
+      "amount": 4.26,
+      "date": "2026-01-31",
+      "note": "Жд"
     }
   ],
   "goals": [
