@@ -1311,6 +1311,14 @@
       "amount": 51.38,
       "date": "2026-02-02",
       "note": "Хит"
+    },
+    {
+      "id": "ml6cwgl6wc7zoya2dvq",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 8.95,
+      "date": "2026-02-03",
+      "note": "Столовая"
     }
   ],
   "goals": [
