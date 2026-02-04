@@ -1319,6 +1319,14 @@
       "amount": 8.95,
       "date": "2026-02-03",
       "note": "Столовая"
+    },
+    {
+      "id": "ml7vi4lz3r40mps7q1q",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 9.15,
+      "date": "2026-02-04",
+      "note": "Столовая"
     }
   ],
   "goals": [
