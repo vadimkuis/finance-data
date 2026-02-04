@@ -1327,6 +1327,14 @@
       "amount": 9.15,
       "date": "2026-02-04",
       "note": "Столовая"
+    },
+    {
+      "id": "ml7vifcha9b2rr3bil",
+      "type": "expense",
+      "category": "Транспорт",
+      "amount": 26.24,
+      "date": "2026-02-04",
+      "note": "Белжд"
     }
   ],
   "goals": [
