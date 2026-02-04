@@ -1335,6 +1335,14 @@
       "amount": 26.24,
       "date": "2026-02-04",
       "note": "Белжд"
+    },
+    {
+      "id": "ml7vj4z7cnslf7u3ok",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 4.27,
+      "date": "2026-02-04",
+      "note": "Вояж"
     }
   ],
   "goals": [
