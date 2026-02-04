@@ -1343,6 +1343,14 @@
       "amount": 4.27,
       "date": "2026-02-04",
       "note": "Вояж"
+    },
+    {
+      "id": "ml84u54814kty2bvdyx",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 31.15,
+      "date": "2026-02-04",
+      "note": "Санта"
     }
   ],
   "goals": [
