@@ -1351,6 +1351,14 @@
       "amount": 31.15,
       "date": "2026-02-04",
       "note": "Санта"
+    },
+    {
+      "id": "ml97u45girsmjh14u2j",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 8.35,
+      "date": "2026-02-05",
+      "note": "Столовая"
     }
   ],
   "goals": [
