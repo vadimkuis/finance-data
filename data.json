@@ -1359,6 +1359,14 @@
       "amount": 8.35,
       "date": "2026-02-05",
       "note": "Столовая"
+    },
+    {
+      "id": "mlakvxf2u9grqeibr8h",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 90,
+      "date": "2026-02-06",
+      "note": "Премия на юбилей завода"
     }
   ],
   "goals": [
