@@ -1367,6 +1367,14 @@
       "amount": 90,
       "date": "2026-02-06",
       "note": "Премия на юбилей завода"
+    },
+    {
+      "id": "mlf3jfnwqbdeo9ivuos",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 138.45,
+      "date": "2026-02-09",
+      "note": ""
     }
   ],
   "goals": [
