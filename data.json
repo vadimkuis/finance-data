@@ -1391,6 +1391,14 @@
       "amount": 32.25,
       "date": "2026-02-10",
       "note": "Байфлай"
+    },
+    {
+      "id": "mlgj1atutjmj0lekp",
+      "type": "expense",
+      "category": "Связь",
+      "amount": 22.92,
+      "date": "2026-02-10",
+      "note": ""
     }
   ],
   "goals": [
