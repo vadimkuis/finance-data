@@ -1455,6 +1455,14 @@
       "amount": 210,
       "date": "2026-02-10",
       "note": "Шкаф"
+    },
+    {
+      "id": "mlgq6cgjtlooze93q",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 18.48,
+      "date": "2026-02-10",
+      "note": ""
     }
   ],
   "goals": [
