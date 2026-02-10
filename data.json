@@ -1413,6 +1413,13 @@
       "target": 1580,
       "currency": "BYN",
       "current": 1580
+    },
+    {
+      "id": "mlgg4f3z4j0yzj9cuex",
+      "name": "Шкаф",
+      "target": 700,
+      "currency": "BYN",
+      "current": 0
     }
   ],
   "debts": [
