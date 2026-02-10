@@ -1375,6 +1375,14 @@
       "amount": 138.45,
       "date": "2026-02-09",
       "note": ""
+    },
+    {
+      "id": "mlga692tvlhn1hj1g3",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 1771.66,
+      "date": "2026-02-10",
+      "note": "Январь"
     }
   ],
   "goals": [
