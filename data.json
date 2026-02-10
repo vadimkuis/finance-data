@@ -1431,6 +1431,14 @@
       "amount": 350,
       "date": "2026-02-10",
       "note": "Платёж: Айфоны"
+    },
+    {
+      "id": "mlgjbk65aehs5ogxqy",
+      "type": "income",
+      "category": "Возврат",
+      "amount": 59,
+      "date": "2026-02-10",
+      "note": ""
     }
   ],
   "goals": [
