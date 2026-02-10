@@ -1415,6 +1415,14 @@
       "amount": 8.1,
       "date": "2026-02-10",
       "note": ""
+    },
+    {
+      "id": "mlgj5noh1223zoquqmzn",
+      "type": "expense",
+      "category": "Кредиты",
+      "amount": 350,
+      "date": "2026-02-10",
+      "note": ""
     }
   ],
   "goals": [
