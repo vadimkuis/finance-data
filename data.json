@@ -1447,6 +1447,14 @@
       "amount": 145.5,
       "date": "2026-02-10",
       "note": "Авто"
+    },
+    {
+      "id": "mlgjfrd93ntcrw3e2jk",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 210,
+      "date": "2026-02-10",
+      "note": "Шкаф"
     }
   ],
   "goals": [
