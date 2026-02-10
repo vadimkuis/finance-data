@@ -1423,6 +1423,14 @@
       "amount": 350,
       "date": "2026-02-10",
       "note": ""
+    },
+    {
+      "id": "mlgj5y2rce2v42ty3vk",
+      "type": "expense",
+      "category": "Кредиты",
+      "amount": 350,
+      "date": "2026-02-10",
+      "note": "Платёж: Айфоны"
     }
   ],
   "goals": [
@@ -1469,7 +1477,7 @@
       "name": "Айфоны",
       "total": 5005.21,
       "monthly": 310,
-      "paid": 0,
+      "paid": 350,
       "createdAt": "2026-01-17"
     }
   ],
@@ -1523,6 +1531,13 @@
       "debtName": "Окно",
       "amount": 1,
       "date": "2026-01-16"
+    },
+    {
+      "id": "mlgj5y2rby7r7k8wf6m",
+      "debtId": "mkhw82jku4zm3iltan",
+      "debtName": "Айфоны",
+      "amount": 350,
+      "date": "2026-02-10"
     }
   ],
   "accounts": [
