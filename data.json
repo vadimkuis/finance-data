@@ -1399,6 +1399,14 @@
       "amount": 22.92,
       "date": "2026-02-10",
       "note": ""
+    },
+    {
+      "id": "mlgj2kfwx0td8jvzt2h",
+      "type": "expense",
+      "category": "Связь",
+      "amount": 29,
+      "date": "2026-02-10",
+      "note": ""
     }
   ],
   "goals": [
