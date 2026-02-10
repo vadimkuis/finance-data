@@ -1471,6 +1471,14 @@
       "amount": 23.68,
       "date": "2026-02-10",
       "note": ""
+    },
+    {
+      "id": "mlgqwpz7trw3jptb2jb",
+      "type": "expense",
+      "category": "Коммуналка",
+      "amount": 142,
+      "date": "2026-02-10",
+      "note": ""
     }
   ],
   "goals": [
