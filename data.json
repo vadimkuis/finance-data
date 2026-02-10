@@ -1407,6 +1407,14 @@
       "amount": 29,
       "date": "2026-02-10",
       "note": ""
+    },
+    {
+      "id": "mlgj3u87i6bioa144wk",
+      "type": "expense",
+      "category": "Связь",
+      "amount": 8.1,
+      "date": "2026-02-10",
+      "note": ""
     }
   ],
   "goals": [
