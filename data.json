@@ -1439,6 +1439,14 @@
       "amount": 59,
       "date": "2026-02-10",
       "note": ""
+    },
+    {
+      "id": "mlgjdtg42x6iz99h5h8",
+      "type": "expense",
+      "category": "Транспорт",
+      "amount": 145.5,
+      "date": "2026-02-10",
+      "note": "Авто"
     }
   ],
   "goals": [
