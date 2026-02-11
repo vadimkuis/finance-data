@@ -1479,6 +1479,14 @@
       "amount": 142,
       "date": "2026-02-10",
       "note": ""
+    },
+    {
+      "id": "mlhpdhjae2dpx8j6djt",
+      "type": "expense",
+      "category": "Коммуналка",
+      "amount": 1.5,
+      "date": "2026-02-11",
+      "note": "Домофон"
     }
   ],
   "goals": [
