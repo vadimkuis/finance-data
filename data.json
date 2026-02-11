@@ -1,21 +1,7 @@
 {
-  "transactions": [
-    {
-      "id": "mlhsdk3ojiacw9io1uo",
-      "type": "expense",
-      "category": "Еда",
-      "amount": 9.3,
-      "date": "2026-02-11",
-      "note": ""
-    }
-  ],
+  "transactions": [],
   "goals": [],
   "debts": [],
   "recurring": [],
-  "paymentHistory": [],
-  "accounts": [],
-  "customCategories": {
-    "income": [],
-    "expense": []
-  }
+  "paymentHistory": []
 }
