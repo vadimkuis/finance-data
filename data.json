@@ -1,0 +1,1609 @@
+{
+  "transactions": [
+    {
+      "id": "milr4ug5t58tqhpts5c",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 1566.94,
+      "date": "2025-11-10",
+      "note": ""
+    },
+    {
+      "id": "milry92z13b5jziekdqk",
+      "type": "expense",
+      "category": "Коммуналка",
+      "amount": 116.09,
+      "date": "2025-11-30",
+      "note": ""
+    },
+    {
+      "id": "milrzdg7ocpcur1umrh",
+      "type": "expense",
+      "category": "Связь",
+      "amount": 29.9,
+      "date": "2025-11-30",
+      "note": "Алине"
+    },
+    {
+      "id": "milrzl2n2chp8zdrzku",
+      "type": "expense",
+      "category": "Связь",
+      "amount": 29.9,
+      "date": "2025-11-30",
+      "note": "мой"
+    },
+    {
+      "id": "mils12y3ioa766fwvo",
+      "type": "expense",
+      "category": "Связь",
+      "amount": 8.1,
+      "date": "2025-11-30",
+      "note": "дом тел"
+    },
+    {
+      "id": "mils1vxjlywwnvj9j0h",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 54.06,
+      "date": "2025-11-30",
+      "note": "санта"
+    },
+    {
+      "id": "mils2axrrlc8rkm3t9",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 10.55,
+      "date": "2025-11-30",
+      "note": "Столовая"
+    },
+    {
+      "id": "mils2vdrhincgr7o0t6",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 7.65,
+      "date": "2025-11-30",
+      "note": "Столовая"
+    },
+    {
+      "id": "mils3727m13sbyzarn",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 1.5,
+      "date": "2025-11-30",
+      "note": "домофон"
+    },
+    {
+      "id": "milsaqsgwk5xpsfawkl",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 2461.35,
+      "date": "2025-09-12",
+      "note": "Отпускные"
+    },
+    {
+      "id": "milsbtrgd34r10mxtp",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 2049.07,
+      "date": "2025-01-10",
+      "note": ""
+    },
+    {
+      "id": "milsgb80yp48bvrdzg",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 2467.13,
+      "date": "2025-02-10",
+      "note": ""
+    },
+    {
+      "id": "milshl34f60jocfoh06",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 365,
+      "date": "2025-04-10",
+      "note": "За выступление"
+    },
+    {
+      "id": "milsid217v2233dq0c",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 274,
+      "date": "2025-04-18",
+      "note": "На пасху"
+    },
+    {
+      "id": "milsjjw5hch0n1tewm",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 1953.81,
+      "date": "2025-05-08",
+      "note": ""
+    },
+    {
+      "id": "milsl68d6oah4926s8",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 2176.99,
+      "date": "2025-06-10",
+      "note": ""
+    },
+    {
+      "id": "milslmh18rxvawacs6",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 2442.9,
+      "date": "2025-07-10",
+      "note": ""
+    },
+    {
+      "id": "milslywtqk4nxr0bnf",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 636.72,
+      "date": "2025-08-08",
+      "note": ""
+    },
+    {
+      "id": "milsmonp44yuvjbwo5c",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 1938.89,
+      "date": "2025-08-12",
+      "note": ""
+    },
+    {
+      "id": "milsn50xnexly1hsiob",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 252.84,
+      "date": "2025-08-15",
+      "note": ""
+    },
+    {
+      "id": "milsnlfxllsyd5lg81",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 2199.79,
+      "date": "2025-09-10",
+      "note": ""
+    },
+    {
+      "id": "milso6xtkixr293sh0g",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 129,
+      "date": "2025-10-03",
+      "note": ""
+    },
+    {
+      "id": "milsoks969exbnibqn6",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 294,
+      "date": "2025-10-03",
+      "note": ""
+    },
+    {
+      "id": "milsp15dl82avyx4ish",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 1566.94,
+      "date": "2025-10-10",
+      "note": ""
+    },
+    {
+      "id": "milt1dj6gdmxum7xl7v",
+      "type": "expense",
+      "category": "Развлечения",
+      "amount": 11.99,
+      "date": "2025-11-30",
+      "note": "Яндекс музыка"
+    },
+    {
+      "id": "milt1qxuz3z4lza4aw",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 57.68,
+      "date": "2025-11-30",
+      "note": "Светафор"
+    },
+    {
+      "id": "milt24k2asznqz42ush",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 4.31,
+      "date": "2025-11-30",
+      "note": ""
+    },
+    {
+      "id": "milt2g8rnub48j4z4ha",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 53.95,
+      "date": "2025-11-30",
+      "note": "Грошык"
+    },
+    {
+      "id": "milt31eqevsiw4xhu",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 51.47,
+      "date": "2025-11-30",
+      "note": "Емолл"
+    },
+    {
+      "id": "milt96sfgpvbq527h6g",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 932.71,
+      "date": "2025-11-30",
+      "note": "Доставка Китай"
+    },
+    {
+      "id": "milugvy1wnvpqvrehh",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 649.13,
+      "date": "2021-01-11",
+      "note": ""
+    },
+    {
+      "id": "miluhc9lpy24ueojz2",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 988.9,
+      "date": "2021-02-10",
+      "note": ""
+    },
+    {
+      "id": "miluiu09lndcl30nzpp",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 223.78,
+      "date": "2021-03-10",
+      "note": ""
+    },
+    {
+      "id": "milujb6xdrmqj1uvxje",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 532.93,
+      "date": "2021-04-30",
+      "note": ""
+    },
+    {
+      "id": "milujwbd3gtu8ozqrt4",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 595.18,
+      "date": "2021-05-30",
+      "note": ""
+    },
+    {
+      "id": "milukeuxt1b2wddkjdk",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 715.06,
+      "date": "2021-06-30",
+      "note": ""
+    },
+    {
+      "id": "milukr3tzvo3wibp2n9",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 626.2,
+      "date": "2021-07-30",
+      "note": ""
+    },
+    {
+      "id": "miluln05qs08tt3rjw",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 673.29,
+      "date": "2021-08-30",
+      "note": ""
+    },
+    {
+      "id": "milum0ghc318pv1s6ot",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 1062.45,
+      "date": "2021-09-30",
+      "note": ""
+    },
+    {
+      "id": "milummhlo65kdohyncp",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 332.33,
+      "date": "2021-10-30",
+      "note": ""
+    },
+    {
+      "id": "milun2895tte29l7ilh",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 332.33,
+      "date": "2021-10-30",
+      "note": ""
+    },
+    {
+      "id": "milunh7hii75losf1c",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 962.05,
+      "date": "2021-11-30",
+      "note": ""
+    },
+    {
+      "id": "milunx7jjl9gxgezfb",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 1328.05,
+      "date": "2021-12-30",
+      "note": ""
+    },
+    {
+      "id": "milxcewzbx148i80n39",
+      "type": "expense",
+      "category": "Рассрочки",
+      "amount": 166.66,
+      "date": "2025-11-30",
+      "note": ""
+    },
+    {
+      "id": "mim7hr8l6cmk19al8o5",
+      "type": "income",
+      "category": "Возврат",
+      "amount": 30.42,
+      "date": "2025-11-30",
+      "note": ""
+    },
+    {
+      "id": "mimnm9igx3yfob0nky",
+      "type": "income",
+      "category": "Возврат",
+      "amount": 30.42,
+      "date": "2025-12-01",
+      "note": ""
+    },
+    {
+      "id": "min8h3s2w7svryr2hzj",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 2.07,
+      "date": "2025-12-01",
+      "note": "Вояж"
+    },
+    {
+      "id": "min8wwdpb40vd8kby5",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 13.42,
+      "date": "2025-12-01",
+      "note": "Хит"
+    },
+    {
+      "id": "miq3aykwpmvqpi29b3",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 2.19,
+      "date": "2025-12-03",
+      "note": ""
+    },
+    {
+      "id": "mizrxauqvt8bzsc2q3k",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 2429.38,
+      "date": "2025-12-10",
+      "note": ""
+    },
+    {
+      "id": "mizrxr6qvi8cfbcki0p",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 400,
+      "date": "2025-12-10",
+      "note": ""
+    },
+    {
+      "id": "mizz5js63ghugmai1vj",
+      "type": "expense",
+      "category": "Кредиты",
+      "amount": 310,
+      "date": "2025-12-10",
+      "note": "Платёж: Айфоны"
+    },
+    {
+      "id": "mizz9tfy6lxeavluges",
+      "type": "expense",
+      "category": "Связь",
+      "amount": 8.1,
+      "date": "2025-12-10",
+      "note": "Домашний телефон"
+    },
+    {
+      "id": "mj007t1ihsag1rto0n5",
+      "type": "expense",
+      "category": "Связь",
+      "amount": 32.25,
+      "date": "2025-12-10",
+      "note": "Byfly"
+    },
+    {
+      "id": "mj00a6w1nepgowuhtu",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 192.26,
+      "date": "2025-12-10",
+      "note": "Подарок Маме"
+    },
+    {
+      "id": "mj01kyv146evsfs6hi6",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 53.17,
+      "date": "2025-12-10",
+      "note": "Налог НПД Ноябрь"
+    },
+    {
+      "id": "mj01nubgdrpperqtaab",
+      "type": "expense",
+      "category": "Рассрочки",
+      "amount": 166.66,
+      "date": "2025-12-10",
+      "note": "Платёж: Окно"
+    },
+    {
+      "id": "mj01p5gyg6s5uqeh8y6",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 2,
+      "date": "2025-12-10",
+      "note": "Комиссия за перевод рассрочка"
+    },
+    {
+      "id": "mj021lt34fyy4ehmrbe",
+      "type": "expense",
+      "category": "Связь",
+      "amount": 29.9,
+      "date": "2025-12-10",
+      "note": "Мтс Алина"
+    },
+    {
+      "id": "mj021ucpuynvu5a6n7",
+      "type": "expense",
+      "category": "Связь",
+      "amount": 29.9,
+      "date": "2025-12-10",
+      "note": "Мой мтс"
+    },
+    {
+      "id": "mj04u1fr6n30rch0yuf",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 26.01,
+      "date": "2025-12-10",
+      "note": "Санта"
+    },
+    {
+      "id": "mj04udaekf91yj20iu",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 20,
+      "date": "2025-12-10",
+      "note": "Цветок Алине"
+    },
+    {
+      "id": "mj0wj4dzcvn4jxhdeqt",
+      "type": "expense",
+      "category": "Коммуналка",
+      "amount": 128.56,
+      "date": "2025-12-11",
+      "note": ""
+    },
+    {
+      "id": "mj0wmyj599ge1d601h",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 295,
+      "date": "2025-12-11",
+      "note": "На машину"
+    },
+    {
+      "id": "mj0wo7nokong8wjyko",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 100,
+      "date": "2025-12-11",
+      "note": "На Дверь"
+    },
+    {
+      "id": "mj14rj481ksazzvrava",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 42.79,
+      "date": "2025-12-11",
+      "note": "Покупка акции БЭРН"
+    },
+    {
+      "id": "mj1kjwdm934tne9t654",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 109.46,
+      "date": "2025-12-11",
+      "note": "Копеечка"
+    },
+    {
+      "id": "mj2mjyz2et1ehf3xkm",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 9.98,
+      "date": "2025-12-12",
+      "note": "Столовая"
+    },
+    {
+      "id": "mj35yb97uuybyi3kzj",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 68.57,
+      "date": "2025-12-12",
+      "note": "Грошык"
+    },
+    {
+      "id": "mj4669tfl8a2kvvfpqq",
+      "type": "expense",
+      "category": "Развлечения",
+      "amount": 4.6,
+      "date": "2025-12-13",
+      "note": ""
+    },
+    {
+      "id": "mj4ckgc8hge9azlzc8e",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 68.6,
+      "date": "2025-12-13",
+      "note": ""
+    },
+    {
+      "id": "mj4ckxsqrvxv9rolcr",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 43.16,
+      "date": "2025-12-13",
+      "note": "Кубики Вие"
+    },
+    {
+      "id": "mj4qobpv61ijnb5h4z6",
+      "type": "expense",
+      "category": "Транспорт",
+      "amount": 11.27,
+      "date": "2025-12-13",
+      "note": "Билет Вероника"
+    },
+    {
+      "id": "mj78jszldw2ri05vff",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 18.48,
+      "date": "2025-12-15",
+      "note": "Хит"
+    },
+    {
+      "id": "mj8ovr8x9xar4tp0mp6",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 30,
+      "date": "2025-12-16",
+      "note": "Капибара"
+    },
+    {
+      "id": "mj9rpnb259vuxjr4fcs",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 6.45,
+      "date": "2025-12-17",
+      "note": "Столовая"
+    },
+    {
+      "id": "mja74p9jpsof9qxzsmn",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 104.82,
+      "date": "2025-12-17",
+      "note": "Санта"
+    },
+    {
+      "id": "mjbby7cwh6ftouy3zc",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 9.15,
+      "date": "2025-12-18",
+      "note": "Столовая"
+    },
+    {
+      "id": "mjcyrnqlt72jxzvxh8a",
+      "type": "expense",
+      "category": "Здоровье",
+      "amount": 4.75,
+      "date": "2025-12-19",
+      "note": "Слеза"
+    },
+    {
+      "id": "mjcyrvsox503fp07w1",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 1.17,
+      "date": "2025-12-19",
+      "note": ""
+    },
+    {
+      "id": "mjelelzazdl762w5zi",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 51.45,
+      "date": "2025-12-20",
+      "note": "Телефон бабе"
+    },
+    {
+      "id": "mjh585a8433ydagialq",
+      "type": "income",
+      "category": "Возврат",
+      "amount": 8.44,
+      "date": "2025-12-22",
+      "note": "Бонус сбербанк"
+    },
+    {
+      "id": "mjh59qk9ongbfdl7hl",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 7.35,
+      "date": "2025-12-22",
+      "note": "Столовая"
+    },
+    {
+      "id": "mjh80rsota6sxzbzsqa",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 49.47,
+      "date": "2025-12-22",
+      "note": "Подарок Давиду"
+    },
+    {
+      "id": "mjjruy5hc0h3z11mrzh",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 9.15,
+      "date": "2025-12-24",
+      "note": "Столовая"
+    },
+    {
+      "id": "mjjrv88n9q3p2segh84",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 400,
+      "date": "2025-12-24",
+      "note": "Аванс"
+    },
+    {
+      "id": "mjk4dda8zwxz6sjl4w",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 100,
+      "date": "2025-12-24",
+      "note": "На двери"
+    },
+    {
+      "id": "mjkbue39qscgq09wrtl",
+      "type": "expense",
+      "category": "Связь",
+      "amount": 1.5,
+      "date": "2025-12-24",
+      "note": "Домофон"
+    },
+    {
+      "id": "mjkbvnwjiacgm82xxso",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 20,
+      "date": "2025-12-24",
+      "note": "На дверь"
+    },
+    {
+      "id": "mjl1dgzjlptvfh15hcj",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 25.48,
+      "date": "2025-12-25",
+      "note": "Подарок илье"
+    },
+    {
+      "id": "mjlb9wqvez1psxi0ima",
+      "type": "expense",
+      "category": "Развлечения",
+      "amount": 48.78,
+      "date": "2025-12-25",
+      "note": "Две бутылки алко в припятском"
+    },
+    {
+      "id": "mjo2a4vtspvgzr4ao1",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 29.9,
+      "date": "2025-12-27",
+      "note": "Сало на рынке"
+    },
+    {
+      "id": "mjo2alenyviy4tp577k",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 10.14,
+      "date": "2025-12-27",
+      "note": "Игрушка конь"
+    },
+    {
+      "id": "mjo2axad0t3q9w2y60y",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 30,
+      "date": "2025-12-27",
+      "note": "Цветы"
+    },
+    {
+      "id": "mjo3piw0d189eu7rotm",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 10,
+      "date": "2025-12-27",
+      "note": "Мандарины рынок"
+    },
+    {
+      "id": "mjo3qd1a4tu0b2nob9m",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 18.8,
+      "date": "2025-12-27",
+      "note": "Вояж"
+    },
+    {
+      "id": "mjpph7d91xxzw3xlbh2",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 7.2,
+      "date": "2025-12-28",
+      "note": ""
+    },
+    {
+      "id": "mjr9bdwv39mfbjswf9",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 9.48,
+      "date": "2025-12-29",
+      "note": ""
+    },
+    {
+      "id": "mjs27k17s2lw3rjd62",
+      "type": "expense",
+      "category": "Развлечения",
+      "amount": 11.99,
+      "date": "2025-12-30",
+      "note": "Я. Музыка"
+    },
+    {
+      "id": "mjsjrwhxgsdhdo9q5er",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 774,
+      "date": "2025-12-30",
+      "note": "Премия к Новому году"
+    },
+    {
+      "id": "mjslj0sj7bew11ib59l",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 292,
+      "date": "2025-12-30",
+      "note": "Купил 100$"
+    },
+    {
+      "id": "mjslr9zieytc9zemf",
+      "type": "expense",
+      "category": "Кредиты",
+      "amount": 100,
+      "date": "2025-12-30",
+      "note": "Айфон"
+    },
+    {
+      "id": "mjslsjz7usfodvvuap",
+      "type": "expense",
+      "category": "Кредиты",
+      "amount": 50,
+      "date": "2025-12-30",
+      "note": "Платёж: Айфоны"
+    },
+    {
+      "id": "mjsltrryuxyob0rp0ng",
+      "type": "income",
+      "category": "Возврат",
+      "amount": 50.57,
+      "date": "2025-12-30",
+      "note": ""
+    },
+    {
+      "id": "mjsmf91bg0v131vo5wv",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 200.57,
+      "date": "2025-12-30",
+      "note": "На двери"
+    },
+    {
+      "id": "mjsygfulp21ui1ccsl",
+      "type": "expense",
+      "category": "Развлечения",
+      "amount": 114.42,
+      "date": "2025-12-30",
+      "note": "Подарок Алине"
+    },
+    {
+      "id": "mk0umzt8itm8q0sf7lg",
+      "type": "income",
+      "category": "Возврат",
+      "amount": 113.12,
+      "date": "2026-01-05",
+      "note": "Баланс декабрь"
+    },
+    {
+      "id": "mk0x3wcokc76n3ntr9",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 9.45,
+      "date": "2026-01-05",
+      "note": "Столовая"
+    },
+    {
+      "id": "mk19t6ti8xkdijqo4t4",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 15.92,
+      "date": "2026-01-05",
+      "note": "Вояж"
+    },
+    {
+      "id": "mk2aqvjr8oo3j466mz2",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 344,
+      "date": "2026-01-06",
+      "note": "Премия к рождеству"
+    },
+    {
+      "id": "mk2fngi64tv3nzzc1ea",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 200,
+      "date": "2026-01-06",
+      "note": "На двери"
+    },
+    {
+      "id": "mk2ptjiom51b6ozna4r",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 37.24,
+      "date": "2026-01-06",
+      "note": "Хит"
+    },
+    {
+      "id": "mk492eo8g7p0gzwq0m5",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 26.37,
+      "date": "2026-01-07",
+      "note": "Хит"
+    },
+    {
+      "id": "mk57e4gjbeb02kegrpm",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 2.05,
+      "date": "2026-01-08",
+      "note": "Столовая"
+    },
+    {
+      "id": "mk72xej06llsv7r8cva",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 72.98,
+      "date": "2026-01-09",
+      "note": "Санта"
+    },
+    {
+      "id": "mka28q5ubxwfmd09i4q",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 22.5,
+      "date": "2026-01-11",
+      "note": "Налог на профдоход"
+    },
+    {
+      "id": "mkarhg0g4jjrondvr9v",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 1637.74,
+      "date": "2026-01-12",
+      "note": ""
+    },
+    {
+      "id": "mkaxh7k97yxs2l3qlwi",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 7.55,
+      "date": "2026-01-12",
+      "note": "Столовая"
+    },
+    {
+      "id": "mkb2xl6xgiwpevkqxa",
+      "type": "income",
+      "category": "Подарки",
+      "amount": 200,
+      "date": "2026-01-12",
+      "note": "От мамы"
+    },
+    {
+      "id": "mkb37hjjnvmvwtdb6h",
+      "type": "expense",
+      "category": "Связь",
+      "amount": 29.9,
+      "date": "2026-01-12",
+      "note": ""
+    },
+    {
+      "id": "mkb37ol68jsmdkx91h7",
+      "type": "expense",
+      "category": "Связь",
+      "amount": 29.9,
+      "date": "2026-01-12",
+      "note": ""
+    },
+    {
+      "id": "mkcpy07dluj4xegzb1n",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 67.99,
+      "date": "2026-01-13",
+      "note": "Хит"
+    },
+    {
+      "id": "mkcpy82cz0ugthl8foa",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 31.84,
+      "date": "2026-01-13",
+      "note": "Санта"
+    },
+    {
+      "id": "mkdky19b0rx36k37ovm",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 0.17,
+      "date": "2026-01-14",
+      "note": "Три цены"
+    },
+    {
+      "id": "mkdkyquuvk0f19wdy2o",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 23,
+      "date": "2026-01-14",
+      "note": "Командировочные"
+    },
+    {
+      "id": "mkejqxk40v3n6poulmwg",
+      "type": "expense",
+      "category": "Коммуналка",
+      "amount": 1.5,
+      "date": "2026-01-14",
+      "note": "Домофон"
+    },
+    {
+      "id": "mkejt3iyu7zkgeqmb4p",
+      "type": "expense",
+      "category": "Кредиты",
+      "amount": 310,
+      "date": "2026-01-14",
+      "note": "Платёж: Айфоны"
+    },
+    {
+      "id": "mkf3j6kjfy7qafuk78e",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 12,
+      "date": "2026-01-15",
+      "note": "Коммандировка"
+    },
+    {
+      "id": "mkf4z5xodumku343jc6",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 100,
+      "date": "2026-01-15",
+      "note": "Предоплата за тахту"
+    },
+    {
+      "id": "mkf68s3s3ag7t011jkq",
+      "type": "expense",
+      "category": "Коммуналка",
+      "amount": 130.77,
+      "date": "2026-01-15",
+      "note": ""
+    },
+    {
+      "id": "mkf7tdwdvsnt1f011p9",
+      "type": "expense",
+      "category": "Кредиты",
+      "amount": 5,
+      "date": "2026-01-15",
+      "note": "Кредит"
+    },
+    {
+      "id": "mkfgfhlh111bfuxx4tu",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 200,
+      "date": "2026-01-15",
+      "note": "На кровать"
+    },
+    {
+      "id": "mkfkiowit737ztcaaue",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 9.32,
+      "date": "2026-01-15",
+      "note": "Емолл"
+    },
+    {
+      "id": "mkfkj2jpl28oyatg1e",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 11.18,
+      "date": "2026-01-15",
+      "note": "Зодиак"
+    },
+    {
+      "id": "mkfkjg1slktscvsfhc",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 12.46,
+      "date": "2026-01-15",
+      "note": "Вояж"
+    },
+    {
+      "id": "mkguj30kce0pst98s2",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 136.79,
+      "date": "2026-01-16",
+      "note": ""
+    },
+    {
+      "id": "mkgwov8b5jkvndtaq34",
+      "type": "expense",
+      "category": "Транспорт",
+      "amount": 293,
+      "date": "2026-01-16",
+      "note": "Доллары"
+    },
+    {
+      "id": "mkgwt8k3398renf3qmn",
+      "type": "expense",
+      "category": "Рассрочки",
+      "amount": 336.03,
+      "date": "2026-01-16",
+      "note": "Окно"
+    },
+    {
+      "id": "mkgwtn2l3cjai3scusy",
+      "type": "expense",
+      "category": "Рассрочки",
+      "amount": 333,
+      "date": "2026-01-16",
+      "note": "Платёж: Окно"
+    },
+    {
+      "id": "mkgwu0ncpdvf1fo1mhr",
+      "type": "expense",
+      "category": "Рассрочки",
+      "amount": 1,
+      "date": "2026-01-16",
+      "note": "Платёж: Окно"
+    },
+    {
+      "id": "mkgwvpmrg7u7uqeas2",
+      "type": "income",
+      "category": "Возврат",
+      "amount": 229.95,
+      "date": "2026-01-16",
+      "note": ""
+    },
+    {
+      "id": "mkgwwo05rpo2w36qkpl",
+      "type": "income",
+      "category": "Возврат",
+      "amount": 104.05,
+      "date": "2026-01-16",
+      "note": ""
+    },
+    {
+      "id": "mkgzknj48arfe2rsr7k",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 30.3,
+      "date": "2026-01-16",
+      "note": "Хит"
+    },
+    {
+      "id": "mkgzkysd38j1tckzo26",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 3.75,
+      "date": "2026-01-16",
+      "note": "Фикс прайс"
+    },
+    {
+      "id": "mki7d1w1kj3n2br4lti",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 39,
+      "date": "2026-01-17",
+      "note": "Дверь"
+    },
+    {
+      "id": "mkiij7wgcimviroxkw",
+      "type": "expense",
+      "category": "Развлечения",
+      "amount": 5.36,
+      "date": "2026-01-17",
+      "note": "Три цены"
+    },
+    {
+      "id": "mkiijjw4z1d4tgndyg",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 32.5,
+      "date": "2026-01-17",
+      "note": "Капибара"
+    },
+    {
+      "id": "mkiijyliil9utgqnft",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 10.52,
+      "date": "2026-01-17",
+      "note": "Хит"
+    },
+    {
+      "id": "mkjo01dpkbhfryf4jk",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 69.04,
+      "date": "2026-01-18",
+      "note": "Копеечка"
+    },
+    {
+      "id": "mkkxeun1y3qvtow9bo",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 9.65,
+      "date": "2026-01-19",
+      "note": "Столовая"
+    },
+    {
+      "id": "mklc2i425c48kdl4o38",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 13.32,
+      "date": "2026-01-19",
+      "note": "Хит"
+    },
+    {
+      "id": "mkp7ti2tjooiiiqwhja",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 7.8,
+      "date": "2026-01-22",
+      "note": "Столовая"
+    },
+    {
+      "id": "mkv538l6jxineqnoit",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 452.12,
+      "date": "2026-01-26",
+      "note": "Аванс"
+    },
+    {
+      "id": "mkv9v2t92ir6x8e6iq3",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 12.97,
+      "date": "2026-01-26",
+      "note": "Хит"
+    },
+    {
+      "id": "mkwdm1j81t7d0g52n2w",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 2,
+      "date": "2026-01-27",
+      "note": "Столовая"
+    },
+    {
+      "id": "mkwjz50wlqtukybshrg",
+      "type": "expense",
+      "category": "Транспорт",
+      "amount": 60.7,
+      "date": "2026-01-27",
+      "note": "Доставка китая"
+    },
+    {
+      "id": "mkxssjsebbcnziiwczo",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 7.55,
+      "date": "2026-01-28",
+      "note": "Столовая"
+    },
+    {
+      "id": "mkyxg32mczk1gyfxsgr",
+      "type": "expense",
+      "category": "Развлечения",
+      "amount": 11.99,
+      "date": "2026-01-29",
+      "note": "Яндекс музыка"
+    },
+    {
+      "id": "mkzpru3a3284tlz9o2l",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 29.74,
+      "date": "2026-01-29",
+      "note": "Санта"
+    },
+    {
+      "id": "ml0ok7tihvmtuqrj286",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 8.25,
+      "date": "2026-01-30",
+      "note": "Столовая"
+    },
+    {
+      "id": "ml1000hhu8mclkq4txd",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 21.11,
+      "date": "2026-01-30",
+      "note": "Хит"
+    },
+    {
+      "id": "ml1utf5szmk3tjav76",
+      "type": "expense",
+      "category": "Транспорт",
+      "amount": 4.26,
+      "date": "2026-01-31",
+      "note": "Жд"
+    },
+    {
+      "id": "ml4xdwsy347m2m3gaox",
+      "type": "income",
+      "category": "Возврат",
+      "amount": 190.87,
+      "date": "2026-02-02",
+      "note": ""
+    },
+    {
+      "id": "ml5c1ik7sacyjf2rx5a",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 51.38,
+      "date": "2026-02-02",
+      "note": "Хит"
+    },
+    {
+      "id": "ml6cwgl6wc7zoya2dvq",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 8.95,
+      "date": "2026-02-03",
+      "note": "Столовая"
+    },
+    {
+      "id": "ml7vi4lz3r40mps7q1q",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 9.15,
+      "date": "2026-02-04",
+      "note": "Столовая"
+    },
+    {
+      "id": "ml7vifcha9b2rr3bil",
+      "type": "expense",
+      "category": "Транспорт",
+      "amount": 26.24,
+      "date": "2026-02-04",
+      "note": "Белжд"
+    },
+    {
+      "id": "ml7vj4z7cnslf7u3ok",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 4.27,
+      "date": "2026-02-04",
+      "note": "Вояж"
+    },
+    {
+      "id": "ml84u54814kty2bvdyx",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 31.15,
+      "date": "2026-02-04",
+      "note": "Санта"
+    },
+    {
+      "id": "ml97u45girsmjh14u2j",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 8.35,
+      "date": "2026-02-05",
+      "note": "Столовая"
+    },
+    {
+      "id": "mlakvxf2u9grqeibr8h",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 90,
+      "date": "2026-02-06",
+      "note": "Премия на юбилей завода"
+    },
+    {
+      "id": "mlf3jfnwqbdeo9ivuos",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 138.45,
+      "date": "2026-02-09",
+      "note": ""
+    },
+    {
+      "id": "mlga692tvlhn1hj1g3",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 1771.66,
+      "date": "2026-02-10",
+      "note": "Январь"
+    },
+    {
+      "id": "mlgiz9jkyc1bxtxz4g",
+      "type": "expense",
+      "category": "Связь",
+      "amount": 32.25,
+      "date": "2026-02-10",
+      "note": "Байфлай"
+    },
+    {
+      "id": "mlgj1atutjmj0lekp",
+      "type": "expense",
+      "category": "Связь",
+      "amount": 22.92,
+      "date": "2026-02-10",
+      "note": ""
+    },
+    {
+      "id": "mlgj2kfwx0td8jvzt2h",
+      "type": "expense",
+      "category": "Связь",
+      "amount": 29,
+      "date": "2026-02-10",
+      "note": ""
+    },
+    {
+      "id": "mlgj3u87i6bioa144wk",
+      "type": "expense",
+      "category": "Связь",
+      "amount": 8.1,
+      "date": "2026-02-10",
+      "note": ""
+    },
+    {
+      "id": "mlgj5noh1223zoquqmzn",
+      "type": "expense",
+      "category": "Кредиты",
+      "amount": 350,
+      "date": "2026-02-10",
+      "note": ""
+    },
+    {
+      "id": "mlgj5y2rce2v42ty3vk",
+      "type": "expense",
+      "category": "Кредиты",
+      "amount": 350,
+      "date": "2026-02-10",
+      "note": "Платёж: Айфоны"
+    },
+    {
+      "id": "mlgjbk65aehs5ogxqy",
+      "type": "income",
+      "category": "Возврат",
+      "amount": 59,
+      "date": "2026-02-10",
+      "note": ""
+    },
+    {
+      "id": "mlgjdtg42x6iz99h5h8",
+      "type": "expense",
+      "category": "Транспорт",
+      "amount": 145.5,
+      "date": "2026-02-10",
+      "note": "Авто"
+    },
+    {
+      "id": "mlgjfrd93ntcrw3e2jk",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 210,
+      "date": "2026-02-10",
+      "note": "Шкаф"
+    },
+    {
+      "id": "mlgq6cgjtlooze93q",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 18.48,
+      "date": "2026-02-10",
+      "note": ""
+    },
+    {
+      "id": "mlgq6kwwcigu99k6wxl",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 23.68,
+      "date": "2026-02-10",
+      "note": ""
+    },
+    {
+      "id": "mlgqwpz7trw3jptb2jb",
+      "type": "expense",
+      "category": "Коммуналка",
+      "amount": 142,
+      "date": "2026-02-10",
+      "note": ""
+    },
+    {
+      "id": "mlhpdhjae2dpx8j6djt",
+      "type": "expense",
+      "category": "Коммуналка",
+      "amount": 1.5,
+      "date": "2026-02-11",
+      "note": "Домофон"
+    }
+  ],
+  "goals": [
+    {
+      "id": "mils8sv0gfx3wodsgfa",
+      "name": "Машина",
+      "target": 18000,
+      "currency": "USD",
+      "current": 2450
+    },
+    {
+      "id": "miu8j1ifll9mdowsuu",
+      "name": "Отдых",
+      "target": 2000,
+      "currency": "BYN",
+      "current": 0
+    },
+    {
+      "id": "mk1e03vm9fkne6suzh8",
+      "name": "Анатольевна",
+      "target": 1500,
+      "currency": "BYN",
+      "current": 800
+    },
+    {
+      "id": "mlgg3ipw6hy20fjkdxx",
+      "name": "На тахту Вие",
+      "target": 1580,
+      "currency": "BYN",
+      "current": 1580
+    },
+    {
+      "id": "mlgg4f3z4j0yzj9cuex",
+      "name": "Шкаф",
+      "target": 700,
+      "currency": "BYN",
+      "current": 300
+    }
+  ],
+  "debts": [
+    {
+      "id": "mkhw82jku4zm3iltan",
+      "type": "credit",
+      "name": "Айфоны",
+      "total": 5005.21,
+      "monthly": 310,
+      "paid": 350,
+      "createdAt": "2026-01-17"
+    }
+  ],
+  "recurring": [],
+  "paymentHistory": [
+    {
+      "id": "mils01fr78yiyn4aiki",
+      "debtId": "milr61ds1m9rcgz2qj8",
+      "debtName": "Окно",
+      "amount": 166.66,
+      "date": "2025-11-30"
+    },
+    {
+      "id": "mizz5js68kijgqnfhtp",
+      "debtId": "mils59fozdl0gdqlap8",
+      "debtName": "Айфоны",
+      "amount": 310,
+      "date": "2025-12-10"
+    },
+    {
+      "id": "mj01nubgdhsmm0f99g",
+      "debtId": "mils5pt7qocqjp4z61",
+      "debtName": "Окно",
+      "amount": 166.66,
+      "date": "2025-12-10"
+    },
+    {
+      "id": "mjslsjz7myvzmiug0h",
+      "debtId": "mj1fmxk6go4oesbsh16",
+      "debtName": "Айфоны",
+      "amount": 50,
+      "date": "2025-12-30"
+    },
+    {
+      "id": "mkejt3iyhpyo09bq5nm",
+      "debtId": "mj1fmxk6go4oesbsh16",
+      "debtName": "Айфоны",
+      "amount": 310,
+      "date": "2026-01-14"
+    },
+    {
+      "id": "mkgwtn2ljntxcaxwbf",
+      "debtId": "mils5pt7qocqjp4z61",
+      "debtName": "Окно",
+      "amount": 333,
+      "date": "2026-01-16"
+    },
+    {
+      "id": "mkgwu0nc4fmwtkouu7f",
+      "debtId": "mils5pt7qocqjp4z61",
+      "debtName": "Окно",
+      "amount": 1,
+      "date": "2026-01-16"
+    },
+    {
+      "id": "mlgj5y2rby7r7k8wf6m",
+      "debtId": "mkhw82jku4zm3iltan",
+      "debtName": "Айфоны",
+      "amount": 350,
+      "date": "2026-02-10"
+    }
+  ],
+  "accounts": [
+    {
+      "id": "miox9f6tgxgnm5szb65",
+      "name": "На машину",
+      "type": "deposit",
+      "initial": 2100,
+      "currency": "USD",
+      "createdAt": "2025-12-02"
+    }
+  ]
+}
