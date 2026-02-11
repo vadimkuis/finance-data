@@ -1495,6 +1495,14 @@
       "amount": 9.3,
       "date": "2026-02-11",
       "note": ""
+    },
+    {
+      "id": "mli9xdkxr46enzewx5f",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 27.93,
+      "date": "2026-02-11",
+      "note": "Порошок"
     }
   ],
   "goals": [
