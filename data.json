@@ -1503,6 +1503,14 @@
       "amount": 27.93,
       "date": "2026-02-11",
       "note": "Порошок"
+    },
+    {
+      "id": "mljm4vc6lhepp5ekzli",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 45.46,
+      "date": "2026-02-12",
+      "note": ""
     }
   ],
   "goals": [
