@@ -1565,6 +1565,13 @@
       "target": 700,
       "currency": "BYN",
       "current": 300
+    },
+    {
+      "id": "mls20tklt6pjx3ofqkc",
+      "name": "Машина",
+      "target": 15000,
+      "currency": "USD",
+      "current": 0
     }
   ],
   "debts": [
