@@ -1535,6 +1535,14 @@
       "amount": 21.25,
       "date": "2026-02-16",
       "note": ""
+    },
+    {
+      "id": "mls23e3o833564sb48b",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 15.34,
+      "date": "2026-02-18",
+      "note": ""
     }
   ],
   "goals": [
