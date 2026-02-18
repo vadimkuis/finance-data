@@ -1539,13 +1539,6 @@
   ],
   "goals": [
     {
-      "id": "mils8sv0gfx3wodsgfa",
-      "name": "Машина",
-      "target": 18000,
-      "currency": "USD",
-      "current": 2450
-    },
-    {
       "id": "miu8j1ifll9mdowsuu",
       "name": "Отдых",
       "target": 2000,
