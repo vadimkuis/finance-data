@@ -1543,6 +1543,14 @@
       "amount": 15.34,
       "date": "2026-02-18",
       "note": ""
+    },
+    {
+      "id": "mltkgis564zg5jwy9rr",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 63.95,
+      "date": "2026-02-19",
+      "note": ""
     }
   ],
   "goals": [
