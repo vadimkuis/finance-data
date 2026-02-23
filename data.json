@@ -1567,6 +1567,14 @@
       "amount": 7.15,
       "date": "2026-02-23",
       "note": ""
+    },
+    {
+      "id": "mlyz9kfe2vka3u3x6b",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 135,
+      "date": "2026-02-23",
+      "note": "Премия к 23"
     }
   ],
   "goals": [
