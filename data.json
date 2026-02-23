@@ -1561,12 +1561,12 @@
       "note": "Столовая"
     },
     {
-      "id": "mlyxndo5mdlx3mk8hic",
-      "type": "income",
-      "category": "Зарплата",
-      "amount": 135,
+      "id": "mlyxo8sw77t670ropj5",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 7.15,
       "date": "2026-02-23",
-      "note": "Премия 23"
+      "note": ""
     }
   ],
   "goals": [
