@@ -1559,6 +1559,14 @@
       "amount": 13.05,
       "date": "2026-02-20",
       "note": "Столовая"
+    },
+    {
+      "id": "mlyxndo5mdlx3mk8hic",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 135,
+      "date": "2026-02-23",
+      "note": "Премия 23"
     }
   ],
   "goals": [
