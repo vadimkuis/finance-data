@@ -1575,6 +1575,14 @@
       "amount": 135,
       "date": "2026-02-23",
       "note": "Премия к 23"
+    },
+    {
+      "id": "mlyzqrrfhi9p5sbru4m",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 141.19,
+      "date": "2026-02-23",
+      "note": ""
     }
   ],
   "goals": [
