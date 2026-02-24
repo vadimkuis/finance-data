@@ -1587,13 +1587,6 @@
   ],
   "goals": [
     {
-      "id": "mk1e03vm9fkne6suzh8",
-      "name": "Анатольевна",
-      "target": 1500,
-      "currency": "BYN",
-      "current": 1550
-    },
-    {
       "id": "mlgg4f3z4j0yzj9cuex",
       "name": "Шкаф",
       "target": 700,
