@@ -1591,6 +1591,14 @@
       "amount": 7.56,
       "date": "2026-02-25",
       "note": ""
+    },
+    {
+      "id": "mm1v8xu26a03x1f9ryg",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 400,
+      "date": "2026-02-25",
+      "note": "Аванс"
     }
   ],
   "goals": [
