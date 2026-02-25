@@ -1583,6 +1583,14 @@
       "amount": 141.19,
       "date": "2026-02-23",
       "note": ""
+    },
+    {
+      "id": "mm1so2wswdio0j778h",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 7.56,
+      "date": "2026-02-25",
+      "note": ""
     }
   ],
   "goals": [
