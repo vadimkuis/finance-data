@@ -1615,6 +1615,14 @@
       "amount": 7.15,
       "date": "2026-02-26",
       "note": ""
+    },
+    {
+      "id": "mm3k2szs3na427x0rzo",
+      "type": "expense",
+      "category": "Развлечения",
+      "amount": 77.5,
+      "date": "2026-02-26",
+      "note": "Цветы фицнер"
     }
   ],
   "goals": [
