@@ -1607,6 +1607,14 @@
       "amount": 150.39,
       "date": "2026-02-25",
       "note": "На авто"
+    },
+    {
+      "id": "mm38l54so9qdwoketci",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 7.15,
+      "date": "2026-02-26",
+      "note": ""
     }
   ],
   "goals": [
