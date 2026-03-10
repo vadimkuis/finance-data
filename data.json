@@ -1639,6 +1639,14 @@
       "amount": 2239.44,
       "date": "2026-03-10",
       "note": ""
+    },
+    {
+      "id": "mmkkqt8782zznrs3h9o",
+      "type": "expense",
+      "category": "Связь",
+      "amount": 30,
+      "date": "2026-03-10",
+      "note": "Мой тел"
     }
   ],
   "goals": [
