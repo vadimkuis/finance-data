@@ -1647,6 +1647,14 @@
       "amount": 30,
       "date": "2026-03-10",
       "note": "Мой тел"
+    },
+    {
+      "id": "mmkkqywk0rrkrxsx2k5",
+      "type": "expense",
+      "category": "Связь",
+      "amount": 30,
+      "date": "2026-03-10",
+      "note": "Тел Алины"
     }
   ],
   "goals": [
