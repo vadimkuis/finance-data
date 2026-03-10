@@ -1699,13 +1699,6 @@
   ],
   "goals": [
     {
-      "id": "mlgg4f3z4j0yzj9cuex",
-      "name": "Шкаф",
-      "target": 700,
-      "currency": "BYN",
-      "current": 700
-    },
-    {
       "id": "mls21hfgbt1t5rxvquo",
       "name": "Машина",
       "target": 5000,
