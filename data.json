@@ -1663,6 +1663,14 @@
       "amount": 32.25,
       "date": "2026-03-10",
       "note": "Байфлай"
+    },
+    {
+      "id": "mmkkripsrzrv6xzxoe",
+      "type": "expense",
+      "category": "Связь",
+      "amount": 8.1,
+      "date": "2026-03-10",
+      "note": "Дом тел"
     }
   ],
   "goals": [
