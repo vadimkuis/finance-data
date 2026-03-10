@@ -1655,6 +1655,14 @@
       "amount": 30,
       "date": "2026-03-10",
       "note": "Тел Алины"
+    },
+    {
+      "id": "mmkkr7kb939n0mc78cd",
+      "type": "expense",
+      "category": "Связь",
+      "amount": 32.25,
+      "date": "2026-03-10",
+      "note": "Байфлай"
     }
   ],
   "goals": [
