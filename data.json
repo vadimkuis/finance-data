@@ -1687,6 +1687,14 @@
       "amount": 383.5,
       "date": "2026-03-10",
       "note": "На машину"
+    },
+    {
+      "id": "mmkly7bpnt0tdzhppd8",
+      "type": "expense",
+      "category": "Транспорт",
+      "amount": 295,
+      "date": "2026-03-10",
+      "note": "На машину"
     }
   ],
   "goals": [
