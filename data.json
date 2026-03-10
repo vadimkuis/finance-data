@@ -1679,6 +1679,14 @@
       "amount": 12.4,
       "date": "2026-03-10",
       "note": "Налог на проф"
+    },
+    {
+      "id": "mmklwur2uubnty1kd3",
+      "type": "expense",
+      "category": "Транспорт",
+      "amount": 383.5,
+      "date": "2026-03-10",
+      "note": "На машину"
     }
   ],
   "goals": [
