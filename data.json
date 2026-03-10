@@ -1671,6 +1671,14 @@
       "amount": 8.1,
       "date": "2026-03-10",
       "note": "Дом тел"
+    },
+    {
+      "id": "mmkkrrv3cwi3m5g4u8p",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 12.4,
+      "date": "2026-03-10",
+      "note": "Налог на проф"
     }
   ],
   "goals": [
