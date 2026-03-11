@@ -1695,6 +1695,14 @@
       "amount": 295,
       "date": "2026-03-10",
       "note": "На машину"
+    },
+    {
+      "id": "mmm4v9uo7otlpd9xc1v",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 0.27,
+      "date": "2026-03-11",
+      "note": "Хит"
     }
   ],
   "goals": [
