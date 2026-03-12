@@ -1719,6 +1719,14 @@
       "amount": 594,
       "date": "2026-03-12",
       "note": "На машину"
+    },
+    {
+      "id": "mmn9415ck27zjv0wafg",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 70,
+      "date": "2026-03-12",
+      "note": "Тахта"
     }
   ],
   "goals": [
