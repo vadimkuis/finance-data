@@ -1727,6 +1727,14 @@
       "amount": 70,
       "date": "2026-03-12",
       "note": "Тахта"
+    },
+    {
+      "id": "mmnkmtfyya8l69hik5m",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 39.54,
+      "date": "2026-03-12",
+      "note": "Санта"
     }
   ],
   "goals": [
