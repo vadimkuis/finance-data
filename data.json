@@ -1711,6 +1711,14 @@
       "amount": 10.6,
       "date": "2026-03-12",
       "note": "Столовая"
+    },
+    {
+      "id": "mmn90zuvajaay4ggc2p",
+      "type": "expense",
+      "category": "Транспорт",
+      "amount": 594,
+      "date": "2026-03-12",
+      "note": "На машину"
     }
   ],
   "goals": [
