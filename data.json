@@ -1703,6 +1703,14 @@
       "amount": 0.27,
       "date": "2026-03-11",
       "note": "Хит"
+    },
+    {
+      "id": "mmn90oen6atrugrftwa",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 10.6,
+      "date": "2026-03-12",
+      "note": "Столовая"
     }
   ],
   "goals": [
