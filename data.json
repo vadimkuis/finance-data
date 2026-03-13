@@ -1759,6 +1759,14 @@
       "amount": 1.5,
       "date": "2026-03-13",
       "note": "Домофон"
+    },
+    {
+      "id": "mmp0mfizx0setewbax",
+      "type": "expense",
+      "category": "Коммуналка",
+      "amount": 127.25,
+      "date": "2026-03-13",
+      "note": ""
     }
   ],
   "goals": [
