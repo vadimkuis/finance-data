@@ -1735,6 +1735,14 @@
       "amount": 39.54,
       "date": "2026-03-12",
       "note": "Санта"
+    },
+    {
+      "id": "mmod3o12lo2i6fts4",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 31,
+      "date": "2026-03-13",
+      "note": ""
     }
   ],
   "goals": [
