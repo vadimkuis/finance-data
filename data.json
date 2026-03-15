@@ -1799,6 +1799,14 @@
       "amount": 2.8,
       "date": "2026-03-15",
       "note": ""
+    },
+    {
+      "id": "mmrpaoeevnyi4oq9st",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 86.8,
+      "date": "2026-03-15",
+      "note": "Лотос кафе"
     }
   ],
   "goals": [
