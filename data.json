@@ -1815,6 +1815,14 @@
       "amount": 40.97,
       "date": "2026-03-15",
       "note": "Памперсы и прочее"
+    },
+    {
+      "id": "mmrt0tgdeerbvlr0nno",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 13.11,
+      "date": "2026-03-15",
+      "note": ""
     }
   ],
   "goals": [
