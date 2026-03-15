@@ -1807,6 +1807,14 @@
       "amount": 86.8,
       "date": "2026-03-15",
       "note": "Лотос кафе"
+    },
+    {
+      "id": "mmrsz5d3nk9fawfn41s",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 40.97,
+      "date": "2026-03-15",
+      "note": "Памперсы и прочее"
     }
   ],
   "goals": [
