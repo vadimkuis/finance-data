@@ -1791,6 +1791,14 @@
       "amount": 50,
       "date": "2026-03-15",
       "note": ""
+    },
+    {
+      "id": "mmrhoksbzeib6b7p7tn",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 2.8,
+      "date": "2026-03-15",
+      "note": ""
     }
   ],
   "goals": [
