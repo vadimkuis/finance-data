@@ -1863,6 +1863,14 @@
       "amount": 2.13,
       "date": "2026-03-16",
       "note": ""
+    },
+    {
+      "id": "mmsyfebzgntyjw8en9u",
+      "type": "expense",
+      "category": "Транспорт",
+      "amount": 26.24,
+      "date": "2026-03-16",
+      "note": ""
     }
   ],
   "goals": [
