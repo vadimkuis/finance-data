@@ -1839,6 +1839,14 @@
       "amount": 40.6,
       "date": "2026-03-16",
       "note": "Масло"
+    },
+    {
+      "id": "mmsyetl65epxrj1jv8q",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 10.26,
+      "date": "2026-03-16",
+      "note": ""
     }
   ],
   "goals": [
