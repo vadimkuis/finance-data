@@ -1823,6 +1823,14 @@
       "amount": 13.11,
       "date": "2026-03-15",
       "note": ""
+    },
+    {
+      "id": "mmsnk049mjmz98e18x9",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 100,
+      "date": "2026-03-16",
+      "note": "Китай"
     }
   ],
   "goals": [
