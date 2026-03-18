@@ -1879,6 +1879,14 @@
       "amount": 50,
       "date": "2026-03-18",
       "note": "Makby"
+    },
+    {
+      "id": "mmw25m6ckmbcrgxh8nm",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 50,
+      "date": "2026-03-18",
+      "note": "Цветы"
     }
   ],
   "goals": [
