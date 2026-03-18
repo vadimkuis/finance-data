@@ -1871,6 +1871,14 @@
       "amount": 26.24,
       "date": "2026-03-16",
       "note": ""
+    },
+    {
+      "id": "mmw25fjwahbbzacdwr6",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 50,
+      "date": "2026-03-18",
+      "note": "Makby"
     }
   ],
   "goals": [
