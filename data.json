@@ -1887,6 +1887,14 @@
       "amount": 50,
       "date": "2026-03-18",
       "note": "Цветы"
+    },
+    {
+      "id": "mmycrmw969p6wrtzouo",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 14,
+      "date": "2026-03-20",
+      "note": ""
     }
   ],
   "goals": [
