@@ -1895,6 +1895,14 @@
       "amount": 14,
       "date": "2026-03-20",
       "note": ""
+    },
+    {
+      "id": "mmycrujpli9dzajalra",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 4,
+      "date": "2026-03-20",
+      "note": "Еда"
     }
   ],
   "goals": [
