@@ -1903,6 +1903,14 @@
       "amount": 4,
       "date": "2026-03-20",
       "note": "Еда"
+    },
+    {
+      "id": "mn5yinvmk7btrg4uzss",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 400,
+      "date": "2026-03-25",
+      "note": "Аванс"
     }
   ],
   "goals": [
