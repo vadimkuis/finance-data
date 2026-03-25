@@ -1911,6 +1911,14 @@
       "amount": 400,
       "date": "2026-03-25",
       "note": "Аванс"
+    },
+    {
+      "id": "mn5yix6rrsd942m6m7d",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 266.4,
+      "date": "2026-03-25",
+      "note": "Кри"
     }
   ],
   "goals": [
