@@ -1919,6 +1919,14 @@
       "amount": 266.4,
       "date": "2026-03-25",
       "note": "Кри"
+    },
+    {
+      "id": "mn8nuodwml6w3zpu8yp",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 6.52,
+      "date": "2026-03-27",
+      "note": "Столовая"
     }
   ],
   "goals": [
