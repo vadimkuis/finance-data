@@ -1935,6 +1935,14 @@
       "amount": 11.99,
       "date": "2026-03-30",
       "note": "Яндекс"
+    },
+    {
+      "id": "mnd2a7zd2hfsxeujhzr",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 11.55,
+      "date": "2026-03-30",
+      "note": ""
     }
   ],
   "goals": [
