@@ -1943,6 +1943,14 @@
       "amount": 11.55,
       "date": "2026-03-30",
       "note": ""
+    },
+    {
+      "id": "mnft63e1dqc5di96xl5",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 11.95,
+      "date": "2026-04-01",
+      "note": ""
     }
   ],
   "goals": [
