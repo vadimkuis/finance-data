@@ -2015,6 +2015,14 @@
       "amount": 21.45,
       "date": "2026-04-10",
       "note": "Санта"
+    },
+    {
+      "id": "mnt8d7jeo5p4qlvxpsr",
+      "type": "expense",
+      "category": "Транспорт",
+      "amount": 102,
+      "date": "2026-04-10",
+      "note": "КРИ"
     }
   ],
   "goals": [
