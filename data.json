@@ -1959,6 +1959,14 @@
       "amount": 40,
       "date": "2026-04-10",
       "note": "Моб тел мой"
+    },
+    {
+      "id": "mnt20lp1tk7a2kh03xa",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 40,
+      "date": "2026-04-10",
+      "note": "Моб тел алина"
     }
   ],
   "goals": [
