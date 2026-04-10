@@ -1991,6 +1991,14 @@
       "amount": 8.1,
       "date": "2026-04-10",
       "note": "Дом тел"
+    },
+    {
+      "id": "mnt22i2wjf1k2wtkzd",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 45.5,
+      "date": "2026-04-10",
+      "note": "Нпд"
     }
   ],
   "goals": [
