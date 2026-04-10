@@ -1943,6 +1943,14 @@
       "amount": 90,
       "date": "2026-04-10",
       "note": "На Пасху"
+    },
+    {
+      "id": "mnt1zy5flr8phieo2p",
+      "type": "income",
+      "category": "Зарплата",
+      "amount": 1000,
+      "date": "2026-04-10",
+      "note": ""
     }
   ],
   "goals": [
