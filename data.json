@@ -1951,6 +1951,14 @@
       "amount": 1000,
       "date": "2026-04-10",
       "note": ""
+    },
+    {
+      "id": "mnt20cg9fkhg1yresuc",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 40,
+      "date": "2026-04-10",
+      "note": "Моб тел мой"
     }
   ],
   "goals": [
