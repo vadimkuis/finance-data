@@ -1967,6 +1967,14 @@
       "amount": 40,
       "date": "2026-04-10",
       "note": "Моб тел алина"
+    },
+    {
+      "id": "mnt20zg1zva7eth15m",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 70,
+      "date": "2026-04-10",
+      "note": "Кредит"
     }
   ],
   "goals": [
