@@ -1975,6 +1975,14 @@
       "amount": 70,
       "date": "2026-04-10",
       "note": "Кредит"
+    },
+    {
+      "id": "mnt21l05pbt30iawi",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 32.25,
+      "date": "2026-04-10",
+      "note": "Байфлай"
     }
   ],
   "goals": [
