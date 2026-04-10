@@ -2007,6 +2007,14 @@
       "amount": 64,
       "date": "2026-04-10",
       "note": "Маршрутка Минск"
+    },
+    {
+      "id": "mnt8cylg1266l7iz5il",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 21.45,
+      "date": "2026-04-10",
+      "note": "Санта"
     }
   ],
   "goals": [
