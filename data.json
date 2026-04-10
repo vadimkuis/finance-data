@@ -1999,6 +1999,14 @@
       "amount": 45.5,
       "date": "2026-04-10",
       "note": "Нпд"
+    },
+    {
+      "id": "mnt23icqsyv2m9mseog",
+      "type": "expense",
+      "category": "Транспорт",
+      "amount": 64,
+      "date": "2026-04-10",
+      "note": "Маршрутка Минск"
     }
   ],
   "goals": [
