@@ -1983,6 +1983,14 @@
       "amount": 32.25,
       "date": "2026-04-10",
       "note": "Байфлай"
+    },
+    {
+      "id": "mnt227wm8o7ol1o8qxw",
+      "type": "expense",
+      "category": "Другое",
+      "amount": 8.1,
+      "date": "2026-04-10",
+      "note": "Дом тел"
     }
   ],
   "goals": [
