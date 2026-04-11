@@ -2023,6 +2023,14 @@
       "amount": 102,
       "date": "2026-04-10",
       "note": "КРИ"
+    },
+    {
+      "id": "mnu09x92p1ds6avfeug",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 21,
+      "date": "2026-04-11",
+      "note": "Шаурма"
     }
   ],
   "goals": [
