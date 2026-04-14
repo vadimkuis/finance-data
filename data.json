@@ -2071,6 +2071,14 @@
       "amount": 17.14,
       "date": "2026-04-14",
       "note": "Европочта"
+    },
+    {
+      "id": "mnyz8roqcwqrfqm6pgj",
+      "type": "expense",
+      "category": "Развлечения",
+      "amount": 6.93,
+      "date": "2026-04-14",
+      "note": "Фикспрайс"
     }
   ],
   "goals": [
