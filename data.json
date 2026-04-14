@@ -2055,6 +2055,14 @@
       "amount": 1.68,
       "date": "2026-04-14",
       "note": "Домофон"
+    },
+    {
+      "id": "mnyypoke819mjq6pmis",
+      "type": "expense",
+      "category": "Транспорт",
+      "amount": 852,
+      "date": "2026-04-14",
+      "note": "На машину"
     }
   ],
   "goals": [
