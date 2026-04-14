@@ -2047,6 +2047,14 @@
       "amount": 158.35,
       "date": "2026-04-14",
       "note": ""
+    },
+    {
+      "id": "mnyyoxxvujh3r91wit",
+      "type": "expense",
+      "category": "Коммуналка",
+      "amount": 1.68,
+      "date": "2026-04-14",
+      "note": "Домофон"
     }
   ],
   "goals": [
