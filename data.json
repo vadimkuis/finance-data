@@ -2039,6 +2039,14 @@
       "amount": 1211,
       "date": "2026-04-14",
       "note": ""
+    },
+    {
+      "id": "mnyyo4cuv54xwo9xw1f",
+      "type": "expense",
+      "category": "Коммуналка",
+      "amount": 158.35,
+      "date": "2026-04-14",
+      "note": ""
     }
   ],
   "goals": [
