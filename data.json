@@ -2063,6 +2063,14 @@
       "amount": 852,
       "date": "2026-04-14",
       "note": "На машину"
+    },
+    {
+      "id": "mnyz8h48dgvc0oq5xvs",
+      "type": "expense",
+      "category": "Транспорт",
+      "amount": 17.14,
+      "date": "2026-04-14",
+      "note": "Европочта"
     }
   ],
   "goals": [
