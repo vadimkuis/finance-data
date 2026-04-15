@@ -2087,6 +2087,14 @@
       "amount": 12.35,
       "date": "2026-04-15",
       "note": "Столовая"
+    },
+    {
+      "id": "mo06eq95bln5kiqr7u",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 82.19,
+      "date": "2026-04-15",
+      "note": "Копеечка"
     }
   ],
   "goals": [
