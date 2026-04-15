@@ -2079,6 +2079,14 @@
       "amount": 6.93,
       "date": "2026-04-14",
       "note": "Фикспрайс"
+    },
+    {
+      "id": "mnzt8d1s9dxfu7dr6kn",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 12.35,
+      "date": "2026-04-15",
+      "note": "Столовая"
     }
   ],
   "goals": [
