@@ -2095,6 +2095,14 @@
       "amount": 82.19,
       "date": "2026-04-15",
       "note": "Копеечка"
+    },
+    {
+      "id": "mo1kgseql8y2710sy",
+      "type": "expense",
+      "category": "Транспорт",
+      "amount": 79.2,
+      "date": "2026-04-16",
+      "note": "Автолайт"
     }
   ],
   "goals": [
