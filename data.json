@@ -2119,6 +2119,13 @@
       "target": 1050,
       "currency": "BYN",
       "current": 1300
+    },
+    {
+      "id": "mo4alv8anlyf71vtfam",
+      "name": "Анатольевна $",
+      "target": 1000,
+      "currency": "USD",
+      "current": 0
     }
   ],
   "debts": [
