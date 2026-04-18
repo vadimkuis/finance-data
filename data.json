@@ -2103,6 +2103,14 @@
       "amount": 79.2,
       "date": "2026-04-16",
       "note": "Автолайт"
+    },
+    {
+      "id": "mo4amjoes3k794h494h",
+      "type": "expense",
+      "category": "Транспорт",
+      "amount": 286,
+      "date": "2026-04-18",
+      "note": "На машину"
     }
   ],
   "goals": [
