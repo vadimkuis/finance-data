@@ -2111,6 +2111,14 @@
       "amount": 286,
       "date": "2026-04-18",
       "note": "На машину"
+    },
+    {
+      "id": "mo4amwuw40s7smx0j8u",
+      "type": "expense",
+      "category": "Транспорт",
+      "amount": 200,
+      "date": "2026-04-18",
+      "note": "Китай"
     }
   ],
   "goals": [
