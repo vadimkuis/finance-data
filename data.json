@@ -2119,6 +2119,14 @@
       "amount": 200,
       "date": "2026-04-18",
       "note": "Китай"
+    },
+    {
+      "id": "mo6r5clqyivztf0wdvk",
+      "type": "expense",
+      "category": "Еда",
+      "amount": 150,
+      "date": "2026-04-20",
+      "note": ""
     }
   ],
   "goals": [
