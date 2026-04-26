@@ -2150,6 +2150,13 @@
       "target": 1000,
       "currency": "USD",
       "current": 300
+    },
+    {
+      "id": "mofxsmn3ox2t6x2lpk",
+      "name": "Вия",
+      "target": 1500,
+      "currency": "BYN",
+      "current": 0
     }
   ],
   "debts": [
